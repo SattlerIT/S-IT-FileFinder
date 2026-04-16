@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-IT FileFinder – Hilfe</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #F5F5F5;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #2C3E50;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header .icon { font-size: 28px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+  .header .version {
+    margin-left: auto;
+    font-size: 12px;
+    color: #BDC3C7;
+    white-space: nowrap;
+  }
+
+  /* ── Layout ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 28px 48px; }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2C3E50;
+    padding: 7px 14px;
+    border-radius: 4px;
+    margin: 28px 0 12px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin: 16px 0 6px;
+    border-left: 4px solid #3498DB;
+    padding-left: 8px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── Tabelle ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  th {
+    background: #2C3E50;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #ECF0F1;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FAFB; }
+
+  /* ── Hinweisboxen ── */
+  .box {
+    border-radius: 4px;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
+  .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
+  .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+
+  .box strong { display: block; margin-bottom: 3px; }
+
+  /* ── Code/Beispiel ── */
+  code {
+    background: #ECF0F1;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    color: #E74C3C;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: #2C3E50;
+    color: #BDC3C7;
+    text-align: center;
+    font-size: 11px;
+    padding: 13px;
+    margin-top: 40px;
+  }
+
+  /* ── Schaltflächen-Badges ── */
+  .btn {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .btn-green  { background: #27AE60; }
+  .btn-orange { background: #F39C12; }
+  .btn-red    { background: #E74C3C; }
+  .btn-blue   { background: #3498DB; }
+
+  /* ── Spende ── */
+  .donate {
+    background: #fff;
+    border: 1px solid #D5D8DC;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .donate .pp-icon { font-size: 28px; }
+  .donate p { margin: 0; font-size: 13px; }
+  .donate a {
+    color: #3498DB;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .donate a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="icon">🔍</span>
+  <h1>S-IT FileFinder</h1>
+  <span class="version">v1.0.0 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+</div>
+
+<div class="content">
+
+  <!-- ═══════════════════════════════════════════ ÜBERBLICK -->
+  <h2>Überblick</h2>
+  <p>
+    <strong>S-IT FileFinder</strong> hilft dabei, Dateien auf dem lokalen PC wiederzufinden –
+    auch wenn nur ein Namensbruchstück, ein ungefähres Datum oder der Dateityp bekannt ist.
+    Die Suche läuft direkt über das Dateisystem, ohne Indexdienst, und durchsucht alle
+    gewählten Laufwerke gleichzeitig.
+  </p>
+
+  <!-- ═══════════════════════════════════════════ SUCHKRITERIEN -->
+  <h2>Suchkriterien</h2>
+
+  <table>
+    <tr>
+      <th style="width:34%">Feld</th>
+      <th>Bedeutung &amp; Beispiele</th>
+    </tr>
+    <tr>
+      <td><strong>Dateiname enthält</strong></td>
+      <td>
+        Ein oder mehrere Namensbruchstücke, durch <strong>Leerzeichen</strong> getrennt.
+        Die Suche ist <em>nicht</em> Groß-/Kleinschreibungs-sensitiv.<br>
+        Beispiel: <code>Werner Schmi</code> → findet alle Dateien,
+        die sowohl <em>werner</em> als auch <em>schmi</em> im Namen enthalten.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Dateityp / Endung</strong></td>
+      <td>
+        Dateiendung mit oder ohne Punkt.<br>
+        Beispiele: <code>jpg</code> &nbsp;·&nbsp; <code>.pdf</code> &nbsp;·&nbsp; <code>docx</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Erstellt von / bis</strong></td>
+      <td>
+        Erstell-Datum eingrenzen. Format: <code>TT.MM.JJJJ</code><br>
+        Beispiel: <code>01.01.2023</code> bis <code>31.12.2023</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Geändert von / bis</strong></td>
+      <td>
+        Änderungs-Datum eingrenzen. Gleicher Format wie oben.<br>
+        Nützlich um kürzlich bearbeitete Dateien zu finden.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Größe mind. / höchstens (KB)</strong></td>
+      <td>
+        Dateigröße in Kilobyte eingrenzen. Beide Felder sind optional.<br>
+        Beispiel: mind. <code>100</code>, höchstens <code>5000</code>
+        → findet Dateien zwischen 100 KB und ~5 MB.
+      </td>
+    </tr>
+  </table>
+
+  <div class="box box-info">
+    <strong>Alle Felder sind optional</strong>
+    Felder, die leer bleiben, werden bei der Suche ignoriert. Es reicht also z. B.
+    nur eine Endung einzugeben, um alle Dateien dieses Typs zu finden.
+  </div>
+
+  <!-- ═══════════════════════════════════════════ LAUFWERKE -->
+  <h2>Laufwerke auswählen</h2>
+  <p>
+    Alle erkannten Laufwerke werden automatisch als Checkboxen angezeigt.
+    Mit <strong>Alle</strong> werden sämtliche Laufwerke gleichzeitig an- oder abgehakt.
+    Es können beliebig viele Einzellaufwerke kombiniert werden.
+  </p>
+  <div class="box box-warn">
+    <strong>Hinweis zu Systemlaufwerk C:\</strong>
+    Auf C:\ werden die Windows-Systemordner
+    (<code>Windows</code>, <code>$Recycle.Bin</code>, <code>System Volume Information</code>
+    u. a.) automatisch übersprungen, um die Suche zu beschleunigen und Systemdateien
+    auszublenden. Auf allen anderen Laufwerken wird vollständig durchsucht.
+  </div>
+
+  <!-- ═══════════════════════════════════════════ SCHALTFLÄCHEN -->
+  <h2>Schaltflächen</h2>
+
+  <table>
+    <tr>
+      <th style="width:34%">Schaltfläche</th>
+      <th>Funktion</th>
+    </tr>
+    <tr>
+      <td><span class="btn btn-green">🔍 SUCHE STARTEN</span></td>
+      <td>
+        Startet die Suche mit den aktuellen Kriterien. Die Ergebnisse erscheinen
+        laufend in der Tabelle. Alternativ: <strong>Enter</strong> im Namensfeld.
+      </td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-orange">⏹ Abbrechen</span></td>
+      <td>
+        Bricht eine laufende Suche sofort ab. Bereits gefundene Treffer
+        bleiben in der Tabelle sichtbar.
+      </td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-red">✖ Felder leeren</span></td>
+      <td>
+        Setzt alle Eingabefelder zurück und leert die Ergebnistabelle.
+      </td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-blue">? Hilfe</span></td>
+      <td>
+        Öffnet diese Hilfedatei im Standard-Browser.
+      </td>
+    </tr>
+  </table>
+
+  <!-- ═══════════════════════════════════════════ ERGEBNISTABELLE -->
+  <h2>Ergebnistabelle</h2>
+  <p>
+    Gefundene Dateien werden mit Dateiname, Größe, Änderungsdatum, Erstelldatum
+    und vollständigem Pfad angezeigt. Die Tabelle lässt sich horizontal und vertikal
+    scrollen; Spaltenbreiten sind per Maus anpassbar.
+  </p>
+
+  <h3>Doppelklick</h3>
+  <p>Öffnet den Ordner, in dem die Datei liegt, im Windows-Explorer – die Datei ist dabei direkt markiert.</p>
+
+  <h3>Rechtsklick – Kontextmenü</h3>
+  <table>
+    <tr>
+      <th style="width:44%">Menüpunkt</th>
+      <th>Aktion</th>
+    </tr>
+    <tr>
+      <td>📂 Ordner im Explorer öffnen</td>
+      <td>Explorer öffnet den Ordner mit markierter Datei (wie Doppelklick).</td>
+    </tr>
+    <tr>
+      <td>▶ Datei öffnen</td>
+      <td>Öffnet die Datei mit dem zugeordneten Standardprogramm.</td>
+    </tr>
+    <tr>
+      <td>📋 Pfad kopieren</td>
+      <td>Kopiert den vollständigen Dateipfad in die Zwischenablage.</td>
+    </tr>
+    <tr>
+      <td>💾 Datei kopieren / verschieben …</td>
+      <td>
+        Öffnet einen Ordner-Auswahldialog. Danach Auswahl:
+        <em>Ja = Kopieren</em>, <em>Nein = Verschieben</em>.
+      </td>
+    </tr>
+  </table>
+
+  <!-- ═══════════════════════════════════════════ STATUSZEILE -->
+  <h2>Statuszeile &amp; Fortschrittsbalken</h2>
+  <p>
+    Während der Suche läuft ein Fortschrittsbalken und die Statuszeile zeigt
+    die Anzahl der bisher gefundenen Treffer. Nach Abschluss erscheint die
+    Gesamtanzahl. Falls Ordner wegen fehlender Zugriffsrechte übersprungen wurden,
+    wird dies ebenfalls angezeigt, z. B.:
+    <code>✔ Suche abgeschlossen — 47 Treffer &nbsp;(3 Ordner ohne Zugriff)</code>
+  </p>
+
+  <!-- ═══════════════════════════════════════════ TIPPS -->
+  <h2>Tipps &amp; Hinweise</h2>
+
+  <div class="box box-tip">
+    <strong>Schnellsuche nach Bildtypen</strong>
+    Endung <code>jpg</code> oder <code>png</code> eingeben, alle Laufwerke wählen →
+    findet sämtliche Bilder auf dem PC. Mit Datums-Eingrenzung lassen sich
+    Urlaubsfotos eines bestimmten Jahres schnell wiederfinden.
+  </div>
+
+  <div class="box box-tip">
+    <strong>Mehrere Namensbruchstücke kombinieren</strong>
+    Im Feld „Dateiname enthält" können mehrere Begriffe durch Leerzeichen getrennt
+    eingegeben werden. Alle Begriffe müssen im Dateinamen vorkommen (UND-Verknüpfung).<br>
+    Beispiel: <code>Rechnung 2024</code> → findet <em>Rechnung_2024_Müller.pdf</em>,
+    aber nicht <em>Rechnung_2023.pdf</em>.
+  </div>
+
+  <div class="box box-warn">
+    <strong>Netzlaufwerke</strong>
+    Netzlaufwerke, die als Laufwerksbuchstabe eingebunden sind, erscheinen ebenfalls
+    in der Laufwerksliste und können durchsucht werden. Bei langsamen Verbindungen
+    kann die Suche dort deutlich länger dauern.
+  </div>
+
+  <div class="box box-info">
+    <strong>Suchgeschwindigkeit</strong>
+    Die Suche läuft im Hintergrund und blockiert das Fenster nicht. Bei sehr großen
+    Laufwerken (mehrere TB) kann eine vollständige Suche einige Minuten dauern.
+    Mit dem Button <strong>Abbrechen</strong> lässt sich die Suche jederzeit stoppen.
+  </div>
+
+  <!-- ═══════════════════════════════════════════ SYSTEMVORAUSSETZUNGEN -->
+  <h2>Systemvoraussetzungen</h2>
+  <table>
+    <tr><td style="width:34%"><strong>Betriebssystem</strong></td><td>Windows 10 / 11</td></tr>
+    <tr><td><strong>Python</strong></td><td>3.10 oder neuer (nur für .py-Version)</td></tr>
+    <tr><td><strong>Abhängigkeiten</strong></td><td>Nur Python-Standardbibliothek (tkinter, os, threading …)</td></tr>
+    <tr><td><strong>Rechte</strong></td><td>Keine Administratorrechte erforderlich; gesperrte Ordner werden übersprungen</td></tr>
+  </table>
+
+  <!-- ═══════════════════════════════════════════ SPENDE -->
+  <div class="donate">
+    <span class="pp-icon">💛</span>
+    <p>
+      <strong>S-IT FileFinder ist Freeware.</strong><br>
+      Wenn Ihnen das Tool nützlich ist, freue ich mich über eine kleine Unterstützung via PayPal:<br>
+      <a href="mailto:tool-entwicklung@sattler-it.de">tool-entwicklung@sattler-it.de</a>
+      &nbsp;·&nbsp; © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
+    </p>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
+  &nbsp;·&nbsp; S-IT FileFinder v1.0.0
+</div>
+
+</body>
+</html>
