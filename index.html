@@ -19,9 +19,7 @@
     --muted:     #7F8C8D;
     --border:    #BDC3C7;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: "Segoe UI", Arial, sans-serif;
     font-size: 15px;
@@ -29,7 +27,6 @@
     background: var(--bg);
     line-height: 1.7;
   }
-
   /* ── HEADER ── */
   header {
     background: var(--primary);
@@ -46,6 +43,11 @@
   header p.tagline {
     font-size: 16px;
     color: var(--light);
+    margin-bottom: 8px;
+  }
+  header p.version-line {
+    font-size: 13px;
+    color: var(--border);
     margin-bottom: 28px;
   }
   .btn-download {
@@ -60,7 +62,6 @@
     transition: background 0.2s;
   }
   .btn-download:hover { background: #219150; }
-
   /* ── NAV ── */
   nav {
     background: #34495E;
@@ -77,14 +78,12 @@
     transition: background 0.2s;
   }
   nav a:hover { background: var(--primary); color: var(--white); }
-
   /* ── MAIN ── */
   main {
     max-width: 960px;
     margin: 0 auto;
     padding: 48px 24px 80px;
   }
-
   h2 {
     font-size: 20px;
     font-weight: 700;
@@ -94,16 +93,26 @@
     margin: 48px 0 20px;
   }
   h2:first-child { margin-top: 0; }
-
   h3 {
     font-size: 15px;
     font-weight: 600;
     color: var(--primary);
     margin: 18px 0 6px;
   }
-
   p { margin-bottom: 12px; }
-
+  /* ── NEU-BADGE ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 5px;
+    letter-spacing: .3px;
+  }
   /* ── FEATURE CARDS ── */
   .features {
     display: grid;
@@ -118,6 +127,7 @@
     border-top: 4px solid var(--info);
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
+  .feature-card.new-card { border-top-color: #8E44AD; }
   .feature-card .icon {
     font-size: 28px;
     margin-bottom: 10px;
@@ -125,10 +135,20 @@
   }
   .feature-card h3 { margin-top: 0; }
   .feature-card p  { font-size: 13px; color: var(--muted); margin: 0; }
-
-  /* ── SCREENSHOT ── */
+  /* ── SCREENSHOTS ── */
   .screenshots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
     margin: 20px 0;
+  }
+  .screenshots.single { grid-template-columns: 1fr; }
+  .screenshot-wrap { }
+  .screenshot-wrap p.caption {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin: 6px 0 0;
   }
   .screenshots img {
     width: 100%;
@@ -138,7 +158,6 @@
     display: block;
     cursor: zoom-in;
   }
-
   /* ── TABLE ── */
   table {
     width: 100%;
@@ -155,7 +174,6 @@
   }
   td { padding: 9px 16px; border-bottom: 1px solid var(--border); }
   tr:nth-child(even) td { background: #F0F3F4; }
-
   /* ── NOTICE BOXES ── */
   .note {
     background: #EBF5FB;
@@ -181,7 +199,6 @@
     margin: 16px 0;
     font-size: 14px;
   }
-
   /* ── CHANGELOG ── */
   .changelog-item {
     background: var(--white);
@@ -191,9 +208,15 @@
     border-left: 4px solid var(--success);
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
+  .changelog-item.major { border-left-color: #8E44AD; }
   .changelog-item h3 { margin: 0 0 8px; }
-  .changelog-item p  { font-size: 13px; color: var(--muted); margin: 0; }
-
+  .changelog-item ul {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    padding-left: 18px;
+  }
+  .changelog-item ul li { margin-bottom: 3px; }
   /* ── DONATE ── */
   .donate-box {
     background: var(--white);
@@ -217,7 +240,6 @@
     transition: background 0.2s;
   }
   .btn-donate:hover { background: #d68910; }
-
   /* ── LIGHTBOX ── */
   .lightbox-overlay {
     display: none;
@@ -236,7 +258,6 @@
     border-radius: 6px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.6);
   }
-
   /* ── FOOTER ── */
   footer {
     background: var(--primary);
@@ -248,6 +269,11 @@
   }
   footer strong { color: var(--white); }
   footer a { color: var(--light); }
+  @media (max-width: 640px) {
+    .features { grid-template-columns: 1fr; }
+    .screenshots { grid-template-columns: 1fr; }
+    header h1 { font-size: 32px; }
+  }
 </style>
 </head>
 <body>
@@ -255,12 +281,13 @@
 <header>
   <h1>🔍 S-IT FileFinder</h1>
   <p class="tagline">Dateien wiederfinden &ndash; einfach, schnell und ohne technische Vorkenntnisse</p>
-  <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.0.0/s-it-filefinder_latest.zip">⬇ Download aktuelle Version</a>
+  <p class="version-line">Version 1.2.0 &nbsp;·&nbsp; Freeware &nbsp;·&nbsp; Windows 10 / 11</p>
+  <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.0/s-it-filefinder_latest.zip">⬇ Download v1.2.0</a>
 </header>
 
 <nav>
   <a href="#leistung">Leistungsmerkmale</a>
-  <a href="#screenshot">Screenshot</a>
+  <a href="#screenshot">Screenshots</a>
   <a href="#download">Download</a>
   <a href="#system">Systemanforderungen</a>
   <a href="#sicherheit">Sicherheitshinweis</a>
@@ -270,8 +297,8 @@
 
 <main>
 
+  <!-- ═══ LEISTUNGSMERKMALE ═══ -->
   <h2 id="leistung">Leistungsmerkmale</h2>
-
   <p>Windows-Bordmittel und Tools wie <em>Everything</em> sind für erfahrene Nutzer gemacht.
   <strong>S-IT FileFinder</strong> richtet sich an alle, die einfach nur eine Datei wiederfinden
   wollen &ndash; ohne Syntaxkenntnisse, ohne Handbuch.</p>
@@ -288,19 +315,19 @@
       <p>Gezielt nach Dateitypen suchen &ndash; z. B. <em>jpg</em>, <em>.pdf</em> oder <em>docx</em>, mit oder ohne Punkt.</p>
     </div>
     <div class="feature-card">
-      <span class="icon">📅</span>
-      <h3>Datum eingrenzen</h3>
-      <p>Erstell- und Änderungsdatum als Von/Bis-Bereich angeben &ndash; Format TT.MM.JJJJ, beide Felder optional.</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">⚖️</span>
-      <h3>Dateigröße</h3>
-      <p>Mindest- und Höchstgröße in Kilobyte &ndash; findet z. B. alle Bilder zwischen 100 KB und 5 MB.</p>
-    </div>
-    <div class="feature-card">
       <span class="icon">💽</span>
       <h3>Alle Laufwerke</h3>
-      <p>Lokale Laufwerke und eingebundene Netzlaufwerke per Checkbox auswählen &ndash; einzeln oder alle auf einmal.</p>
+      <p>Lokale Laufwerke und eingebundene Netzlaufwerke per Checkbox auswählen &ndash; einzeln oder alle auf einmal. Die Fensterbreite passt sich automatisch an.</p>
+    </div>
+    <div class="feature-card new-card">
+      <span class="icon">📅</span>
+      <h3>Datum &amp; Größe <span class="new-badge">NEU</span></h3>
+      <p>Erstell- und Änderungsdatum sowie Dateigröße als erweiterte Filter &ndash; per <strong>F11</strong> jederzeit ein- oder ausklappbar.</p>
+    </div>
+    <div class="feature-card new-card">
+      <span class="icon">🖥️</span>
+      <h3>4K &amp; Bildschirmgröße <span class="new-badge">NEU</span></h3>
+      <p>Vollständige DPI-Unterstützung. Darstellungsgröße per Ansicht-Schaltfläche wählbar: 100 % bis 200 %.</p>
     </div>
     <div class="feature-card">
       <span class="icon">💾</span>
@@ -309,16 +336,27 @@
     </div>
   </div>
 
-  <h2 id="screenshot">Screenshot</h2>
+  <!-- ═══ SCREENSHOTS ═══ -->
+  <h2 id="screenshot">Screenshots</h2>
   <div class="screenshots">
-    <img src="screenshot.png" alt="S-IT FileFinder v1.0.0 – Hauptfenster">
+    <div class="screenshot-wrap">
+      <img src="screenshot.png"
+           alt="S-IT FileFinder v1.2.0 – Hauptfenster mit einfacher Suche (erweiterte Filter eingeklappt)">
+      <p class="caption">Standardansicht &ndash; erweiterte Filter eingeklappt</p>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="screenshot-erweitert.png"
+           alt="S-IT FileFinder v1.2.0 – Hauptfenster mit geöffneten erweiterten Filtern (Datum und Größe)">
+      <p class="caption">Erweiterte Filter ausgeklappt (F11)</p>
+    </div>
   </div>
 
+  <!-- ═══ DOWNLOAD ═══ -->
   <h2 id="download">Download &amp; Dokumentation</h2>
   <p>
-    <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/raw/main/s-it-filefinder_latest.zip">⬇ Direktdownload – s-it-filefinder_latest.zip</a>
+    <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.0/s-it-filefinder_latest.zip">⬇ Direktdownload &ndash; s-it-filefinder_latest.zip</a>
   </p>
-  <p style="margin-top:12px; font-size:14px;">Alle Versionen und den Changelog findest du im
+  <p style="margin-top:12px; font-size:14px;">Alle Versionen und den vollständigen Changelog findest du im
   <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases">Release-Bereich auf GitHub</a>.</p>
 
   <div class="ok">
@@ -327,24 +365,25 @@
     in einen gemeinsamen Ordner legen und starten.
   </div>
 
+  <!-- ═══ SYSTEMANFORDERUNGEN ═══ -->
   <h2 id="system">Systemanforderungen</h2>
   <table>
     <tr><th>Komponente</th><th>Anforderung</th></tr>
     <tr><td>Betriebssystem</td><td>Windows 10 / Windows 11 (64-Bit)</td></tr>
+    <tr><td>Bildschirm</td><td>Ab 1024 × 768 &ndash; optimiert für FHD und UHD/4K</td></tr>
     <tr><td>Rechte</td><td>Keine Administratorrechte erforderlich</td></tr>
     <tr><td>Installation</td><td>Nicht erforderlich &ndash; portabel, direkt aus dem Ordner startbar</td></tr>
-    <tr><td>Lieferumfang</td><td>EXE + HTML-Hilfedatei</td></tr>
+    <tr><td>Lieferumfang</td><td>S-IT-FileFinder.exe &nbsp;+&nbsp; S-IT-FileFinder-Hilfe.html</td></tr>
   </table>
 
+  <!-- ═══ SICHERHEIT ═══ -->
   <h2 id="sicherheit">Sicherheits- und Installationshinweis</h2>
-
   <h3>Hinweis zu Virenscannern &amp; SmartScreen</h3>
   <p>Da es sich um ein unabhängig entwickeltes Windows-Tool handelt, kann es vorkommen, dass
   Windows SmartScreen oder installierte Internet-Security-Programme die Datei zunächst als
   unbekannt einstufen.</p>
   <p>In diesem Fall fügen Sie das Programm bitte als <strong>vertrauenswürdig</strong> bzw. als
   <strong>Ausnahme</strong> in Ihrer Sicherheitssoftware hinzu.</p>
-
   <div class="warn">
     Alle bereitgestellten Dateien stammen direkt von <strong>Sattler IT-Service</strong> und
     werden ausschließlich über die offizielle GitHub-Seite veröffentlicht.
@@ -352,35 +391,56 @@
     ohne weitere Warnmeldungen.
   </div>
 
+  <!-- ═══ CHANGELOG ═══ -->
   <h2 id="changelog">Changelog</h2>
+
+  <div class="changelog-item major">
+    <h3>Version 1.2.0 &ndash; Ansicht &amp; Erweiterte Filter <span class="new-badge">Aktuell</span></h3>
+    <ul>
+      <li><strong>F11-Toggle:</strong> Datum- und Größenfelder lassen sich per Taste F11 oder Schaltfläche ein- und ausklappen &ndash; das Fenster passt seine Höhe automatisch an</li>
+      <li><strong>Ansicht-Schaltfläche:</strong> Darstellungsgröße wählbar (100 % &ndash; 200 %) direkt in der Kopfleiste, mit optionalem Programm-Neustart</li>
+      <li><strong>DPI / 4K:</strong> Vollständige Skalierung für hochauflösende Bildschirme &ndash; Schriften, Abstände, Spaltenbreiten passen sich automatisch an</li>
+      <li><strong>Automatische Fensterbreite:</strong> Bei vielen Laufwerksbuchstaben verbreitert sich das Fenster automatisch</li>
+      <li><strong>Verbesserte Datumsbeschriftungen:</strong> Erklärungstext direkt an den Feldern (wann angelegt / wann zuletzt gespeichert)</li>
+      <li>Header neu gestaltet: Version links, Schaltflächen rechts mit großzügigem Abstand</li>
+      <li>Startgröße und -position werden automatisch an die Bildschirmfläche angepasst</li>
+    </ul>
+  </div>
 
   <div class="changelog-item">
     <h3>Version 1.0.1 &ndash; Bugfix Startverhalten</h3>
-    <p>Einfrieren beim Programmstart auf Systemen mit DVD-Laufwerk oder Kartenleser
-    ohne eingelegtes Medium behoben. Laufwerke werden jetzt über die Windows-API
-    ermittelt &ndash; kein Timeout mehr beim Start.</p>
+    <ul>
+      <li>Einfrieren beim Programmstart auf Systemen mit DVD-Laufwerk oder Kartenleser
+      ohne eingelegtes Medium behoben &ndash; Laufwerke werden jetzt über die Windows-API
+      ermittelt, kein Timeout mehr beim Start</li>
+    </ul>
   </div>
+
   <div class="changelog-item">
     <h3>Version 1.0.0 &ndash; Erstveröffentlichung</h3>
-    <p>Suche nach Namensbruchstücken, Dateityp, Erstell-/Änderungsdatum und Dateigröße.
-    Multi-Laufwerk-Unterstützung, HTML-Ergebnislog mit klickbaren Pfaden,
-    Hilfe-Button mit HTML-Dokumentation.</p>
+    <ul>
+      <li>Suche nach Namensbruchstücken, Dateityp, Erstell-/Änderungsdatum und Dateigröße</li>
+      <li>Multi-Laufwerk-Unterstützung mit Alle-Checkbox</li>
+      <li>HTML-Ergebnislog mit klickbaren Pfaden</li>
+      <li>Kontextmenü: Ordner öffnen, Datei öffnen, Pfad kopieren, Kopieren/Verschieben</li>
+      <li>Hilfe-Button mit HTML-Dokumentation</li>
+    </ul>
   </div>
 
+  <!-- ═══ KONTAKT / SPENDE ═══ -->
   <h2 id="kontakt">Kontakt / Spende</h2>
-
   <div class="donate-box">
     <h3>Hat Ihnen dieses Tool geholfen?</h3>
     <p>S-IT FileFinder wird kostenlos entwickelt und gepflegt.<br>
     Eine kleine Spende hilft dabei, die Tools weiterzuentwickeln. Herzlichen Dank! 🙏</p>
     <a class="btn-donate" href="https://www.paypal.com/donate/?business=tool-entwicklung%40sattler-it.de&currency_code=EUR">☕ Spende via PayPal</a>
-    <p style="margin-top:14px; font-size:13px;">tool-entwicklung@sattler-it.de</p>
+    <p style="margin-top:14px; font-size:13px;"><a href="mailto:tool-entwicklung@sattler-it.de">tool-entwicklung@sattler-it.de</a></p>
   </div>
 
 </main>
 
 <footer>
-  © 2026 Hans Udo Sattler &nbsp;·&nbsp; Sattler IT-Service &nbsp;·&nbsp;
+  © 2026 Hans Udo Sattler &nbsp;·&nbsp; Sattler IT-Service, Greifenstein &nbsp;·&nbsp;
   <a href="impressum.html">Impressum</a> &nbsp;·&nbsp;
   <a href="https://sattlerit.github.io/sattlerit-tools/">🏠 Tool-Übersicht</a>
 </footer>
@@ -388,6 +448,7 @@
 <div class="lightbox-overlay" id="lightbox">
   <img id="lightbox-img" src="" alt="">
 </div>
+
 <script>
   const overlay = document.getElementById('lightbox');
   const lbImg   = document.getElementById('lightbox-img');
@@ -401,5 +462,6 @@
   overlay.addEventListener('click', () => overlay.classList.remove('active'));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.classList.remove('active'); });
 </script>
+
 </body>
 </html>
