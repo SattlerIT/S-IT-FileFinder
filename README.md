@@ -1,6 +1,6 @@
 # 🔍 S-IT FileFinder
 
-**Version 1.0.0 · Freeware · Windows 10 / 11 · Deutsch**
+**Version 1.x.x · Freeware · Windows 10 / 11 · Deutsch**
 
 Ein einfaches, schnelles Suchwerkzeug für Windows – entwickelt für Menschen, die keine Erfahrung mit der Windows-Suche oder technischen Suchtools haben.
 
