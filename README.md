@@ -104,9 +104,11 @@ Weitere Freeware-Tools von Sattler IT-Service:
 - **[S-IT LAN Device Scanner](https://www.wintotal.de/download/s-it-lan-device-scanner/)** – Netzwerkgeräte scannen, identifizieren und dokumentieren
 
 ---
+## Changelog
+See [CHANGELOG.md](CHANGELOG.md)
+---
 
 ## Lizenz
-
 © 2026 Sattler IT-Service, Greifenstein  
 Autor: Hans Udo Sattler  
 
