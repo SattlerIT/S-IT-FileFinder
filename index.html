@@ -281,8 +281,8 @@
 <header>
   <h1>🔍 S-IT FileFinder</h1>
   <p class="tagline">Dateien wiederfinden &ndash; einfach, schnell und ohne technische Vorkenntnisse</p>
-  <p class="version-line">Version 1.2.0 &nbsp;·&nbsp; Freeware &nbsp;·&nbsp; Windows 10 / 11</p>
-  <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.0/s-it-filefinder_latest.zip">⬇ Download v1.2.0</a>
+  <p class="version-line">Version 1.2.4 &nbsp;·&nbsp; Freeware &nbsp;·&nbsp; Windows 10 / 11</p>
+  <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.4/s-it-filefinder_latest.zip">⬇ Download v1.2.4</a>
 </header>
 
 <nav>
@@ -354,15 +354,16 @@
   <!-- ═══ DOWNLOAD ═══ -->
   <h2 id="download">Download &amp; Dokumentation</h2>
   <p>
-    <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.0/s-it-filefinder_latest.zip">⬇ Direktdownload &ndash; s-it-filefinder_latest.zip</a>
+    <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.4/s-it-filefinder_latest.zip">⬇ Direktdownload &ndash; s-it-filefinder_latest.zip</a>
   </p>
   <p style="margin-top:12px; font-size:14px;">Alle Versionen und den vollständigen Changelog findest du im
   <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases">Release-Bereich auf GitHub</a>.</p>
 
   <div class="ok">
     <strong>Keine Installation nötig:</strong> ZIP-Datei entpacken,
+    den Ordner <em>S-IT-FileFinder\</em> mit der enthaltenen
     <em>S-IT-FileFinder.exe</em> und <em>S-IT-FileFinder-Hilfe.html</em>
-    in einen gemeinsamen Ordner legen und starten.
+    an einen beliebigen Ort legen und die EXE starten.
   </div>
 
   <!-- ═══ SYSTEMANFORDERUNGEN ═══ -->
@@ -373,7 +374,7 @@
     <tr><td>Bildschirm</td><td>Ab 1024 × 768 &ndash; optimiert für FHD und UHD/4K</td></tr>
     <tr><td>Rechte</td><td>Keine Administratorrechte erforderlich</td></tr>
     <tr><td>Installation</td><td>Nicht erforderlich &ndash; portabel, direkt aus dem Ordner startbar</td></tr>
-    <tr><td>Lieferumfang</td><td>S-IT-FileFinder.exe &nbsp;+&nbsp; S-IT-FileFinder-Hilfe.html</td></tr>
+    <tr><td>Lieferumfang</td><td>Ordner <em>S-IT-FileFinder\</em> mit EXE, Laufzeitdateien &nbsp;+&nbsp; S-IT-FileFinder-Hilfe.html</td></tr>
   </table>
 
   <!-- ═══ SICHERHEIT ═══ -->
@@ -395,7 +396,34 @@
   <h2 id="changelog">Changelog</h2>
 
   <div class="changelog-item major">
-    <h3>Version 1.2.0 &ndash; Ansicht &amp; Erweiterte Filter <span class="new-badge">Aktuell</span></h3>
+    <h3>Version 1.2.4 &ndash; Stabiler Neustart <span class="new-badge">Aktuell</span></h3>
+    <ul>
+      <li><strong>Neustart-Fix:</strong> DPI-Umschaltung startet die neue Instanz jetzt zuverlässig ohne „Failed to import encodings"-Fehler &ndash; kompilierte EXE wird direkt gestartet, kein Temp-Pfad mehr</li>
+      <li><strong>--onedir:</strong> Umstellung auf Ordner-basierte EXE &ndash; kein Entpacken in Temp beim Start, kein „Failed to remove temporary directory"</li>
+      <li>Neustart-Verzögerung (200 ms) verhindert Race Condition beim Schließen</li>
+    </ul>
+  </div>
+
+  <div class="changelog-item">
+    <h3>Version 1.2.3 &ndash; Layout Erweiterte Filter</h3>
+    <ul>
+      <li><strong>Bezeichnungen:</strong> „Erstellt von / Geändert von" ersetzt durch <em>Erstelldatum</em> und <em>Änderungsdatum</em> &ndash; für Endanwender verständlicher</li>
+      <li><strong>Symbole:</strong> Alle drei Filterzeilen einheitlich mit Symbol (📅 📏 ✏️), bündig untereinander</li>
+      <li><strong>Layout:</strong> Von/bis-Felder dichter beieinander, Labels linksbündig, kein Flattersatz mehr</li>
+      <li>Größenzeile mit Symbol 📏 und Label „Dateigröße (MB)"</li>
+    </ul>
+  </div>
+
+  <div class="changelog-item">
+    <h3>Version 1.2.1 &ndash; Größenangaben in MB</h3>
+    <ul>
+      <li>Größenfilter arbeitet jetzt in <strong>Megabyte</strong> statt Kilobyte &ndash; praxisgerechter für typische Dateigrößen</li>
+      <li>Maximalgröße erkennt automatisch MB oder GB (z.&nbsp;B. „2,50 GB") im HTML-Ergebnislog</li>
+    </ul>
+  </div>
+
+  <div class="changelog-item major">
+    <h3>Version 1.2.0 &ndash; Ansicht &amp; Erweiterte Filter</h3>
     <ul>
       <li><strong>F11-Toggle:</strong> Datum- und Größenfelder lassen sich per Taste F11 oder Schaltfläche ein- und ausklappen &ndash; das Fenster passt seine Höhe automatisch an</li>
       <li><strong>Ansicht-Schaltfläche:</strong> Darstellungsgröße wählbar (100 % &ndash; 200 %) direkt in der Kopfleiste, mit optionalem Programm-Neustart</li>
