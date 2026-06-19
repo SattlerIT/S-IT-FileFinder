@@ -94,6 +94,7 @@
   .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
   .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
   .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+  .box-new     { background: #F4ECF7; border-left: 4px solid #8E44AD; }
 
   .box strong { display: block; margin-bottom: 3px; }
 
@@ -105,6 +106,20 @@
     font-family: Consolas, monospace;
     font-size: 13px;
     color: #E74C3C;
+  }
+
+  /* ── Neu-Badge ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    letter-spacing: .3px;
   }
 
   /* ── Footer ── */
@@ -131,6 +146,21 @@
   .btn-orange { background: #F39C12; }
   .btn-red    { background: #E74C3C; }
   .btn-blue   { background: #3498DB; }
+  .btn-dark   { background: #2C3E50; }
+  .btn-light  { background: #2C3E50; color: #ECF0F1; }
+
+  /* ── Tastenkürzel ── */
+  kbd {
+    display: inline-block;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #2C3E50;
+    box-shadow: 0 1px 0 #BDC3C7;
+  }
 
   /* ── Spende ── */
   .donate {
@@ -158,28 +188,58 @@
 <div class="header">
   <span class="icon">🔍</span>
   <h1>S-IT FileFinder</h1>
-  <span class="version">v1.0.0 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+  <span class="version">v1.2.12 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
 </div>
 
 <div class="content">
 
-  <!-- ═══════════════════════════════════════════ ÜBERBLICK -->
+  <!-- ÜBERBLICK -->
   <h2>Überblick</h2>
   <p>
     <strong>S-IT FileFinder</strong> hilft dabei, Dateien auf dem lokalen PC wiederzufinden –
     auch wenn nur ein Namensbruchstück, ein ungefähres Datum oder der Dateityp bekannt ist.
     Die Suche läuft direkt über das Dateisystem, ohne Indexdienst, und durchsucht alle
-    gewählten Laufwerke gleichzeitig.
+    gewählten Laufwerke gleichzeitig. Gefundene Listen lassen sich sortieren, als
+    Ergebnis speichern und später wieder laden, und markierte Dateien können direkt
+    aus dem Tool heraus kopiert, verschoben oder in den Papierkorb gelegt werden.
   </p>
 
-  <!-- ═══════════════════════════════════════════ SUCHKRITERIEN -->
+  <!-- PROGRAMMOBERFLÄCHE -->
+  <h2>Programmoberfläche</h2>
+  <p>
+    Das Fenster besteht aus drei Bereichen: der <strong>Kopfleiste</strong> mit den
+    Schaltflächen Konfig, Ergebnis-Manager und Hilfe, dem <strong>Suchkriterien-Bereich</strong>
+    sowie der <strong>Ergebnistabelle</strong> mit den Schaltflächen zum Speichern darunter.
+  </p>
+
+  <h3>Kopfleiste</h3>
+  <table>
+    <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
+    <tr>
+      <td><span class="btn btn-light">⚙️ Konfig</span></td>
+      <td>
+        Öffnet den Konfigurationsdialog für <strong>Ansicht</strong> (Skalierung,
+        erweiterte Filter beim Start) und <strong>Standard-Sortierung</strong>.
+        Alle Einstellungen werden in der Datei <code>FileFinder-config.ini</code>
+        gespeichert – ein Bearbeiten der INI von Hand ist nicht nötig.
+      </td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-light">📋 Ergebnis-Manager</span></td>
+      <td>Zeigt alle gespeicherten Ergebnisse zum Laden, Ansehen und Löschen (siehe unten).</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-blue">❓ Hilfe</span></td>
+      <td>Öffnet diese Hilfedatei im Standard-Browser.</td>
+    </tr>
+  </table>
+
+  <!-- SUCHKRITERIEN -->
   <h2>Suchkriterien</h2>
 
+  <h3>Grundlegende Suche</h3>
   <table>
-    <tr>
-      <th style="width:34%">Feld</th>
-      <th>Bedeutung &amp; Beispiele</th>
-    </tr>
+    <tr><th style="width:34%">Feld</th><th>Bedeutung &amp; Beispiele</th></tr>
     <tr>
       <td><strong>Dateiname enthält</strong></td>
       <td>
@@ -196,177 +256,296 @@
         Beispiele: <code>jpg</code> &nbsp;·&nbsp; <code>.pdf</code> &nbsp;·&nbsp; <code>docx</code>
       </td>
     </tr>
+  </table>
+
+  <h3>Erweiterte Filter</h3>
+  <p>
+    Die erweiterten Filter lassen sich mit der Taste <kbd>F11</kbd> oder dem Schalter
+    <em>„🔍 Erweiterte Filter ▼"</em> ein- und ausklappen. Ob sie beim Start sichtbar sind,
+    legst Du im <em>⚙️ Konfig</em>-Dialog fest. Das Fenster passt sich automatisch an.
+  </p>
+  <table>
+    <tr><th style="width:34%">Feld</th><th>Bedeutung &amp; Beispiele</th></tr>
     <tr>
-      <td><strong>Erstellt von / bis</strong></td>
+      <td><strong>📅 Erstellt von / bis</strong></td>
       <td>
-        Erstell-Datum eingrenzen. Format: <code>TT.MM.JJJJ</code><br>
+        Grenzt nach dem Datum ein, an dem die Datei <em>angelegt</em> wurde.<br>
+        Format: <code>TT.MM.JJJJ</code> &nbsp;·&nbsp;
         Beispiel: <code>01.01.2023</code> bis <code>31.12.2023</code>
       </td>
     </tr>
     <tr>
-      <td><strong>Geändert von / bis</strong></td>
+      <td><strong>✏️ Geändert von / bis</strong></td>
       <td>
-        Änderungs-Datum eingrenzen. Gleicher Format wie oben.<br>
-        Nützlich um kürzlich bearbeitete Dateien zu finden.
+        Grenzt nach dem Datum der letzten <em>Bearbeitung/Speicherung</em> ein.<br>
+        Nützlich, um kürzlich bearbeitete Dokumente wiederzufinden. Format: <code>TT.MM.JJJJ</code>
       </td>
     </tr>
     <tr>
-      <td><strong>Größe mind. / höchstens (KB)</strong></td>
+      <td><strong>Größe mind. / höchstens (MB)</strong></td>
       <td>
-        Dateigröße in Kilobyte eingrenzen. Beide Felder sind optional.<br>
-        Beispiel: mind. <code>100</code>, höchstens <code>5000</code>
-        → findet Dateien zwischen 100 KB und ~5 MB.
+        Dateigröße in Megabyte eingrenzen. Beide Felder sind optional.
       </td>
     </tr>
   </table>
 
   <div class="box box-info">
-    <strong>Alle Felder sind optional</strong>
-    Felder, die leer bleiben, werden bei der Suche ignoriert. Es reicht also z. B.
-    nur eine Endung einzugeben, um alle Dateien dieses Typs zu finden.
+    <strong>Erstellt oder Geändert – was ist der Unterschied?</strong>
+    <em>Erstellt</em> ist das Datum, an dem die Datei an ihrem jetzigen Ort angelegt wurde.
+    <em>Geändert</em> ist das Datum der letzten Bearbeitung. Bei <em>kopierten</em> Dateien
+    ist das Erstelldatum oft neuer als das Änderungsdatum – die Datei selbst kann also alt
+    sein, obwohl sie „neu erstellt" aussieht.
   </div>
 
-  <!-- ═══════════════════════════════════════════ LAUFWERKE -->
+  <div class="box box-info">
+    <strong>Alle Felder sind optional</strong>
+    Leere Felder werden bei der Suche ignoriert. Es reicht z. B. nur eine Endung
+    einzugeben, um alle Dateien dieses Typs zu finden.
+  </div>
+
+  <!-- LAUFWERKE -->
   <h2>Laufwerke auswählen</h2>
   <p>
-    Alle erkannten Laufwerke werden automatisch als Checkboxen angezeigt.
-    Mit <strong>Alle</strong> werden sämtliche Laufwerke gleichzeitig an- oder abgehakt.
-    Es können beliebig viele Einzellaufwerke kombiniert werden.
+    Alle erkannten Laufwerke werden automatisch als Checkboxen angezeigt. Mit
+    <strong>Alle</strong> werden sämtliche Laufwerke gleichzeitig an- oder abgehakt;
+    beliebige Einzellaufwerke lassen sich kombinieren.
   </p>
   <div class="box box-warn">
     <strong>Hinweis zu Systemlaufwerk C:\</strong>
-    Auf C:\ werden die Windows-Systemordner
-    (<code>Windows</code>, <code>$Recycle.Bin</code>, <code>System Volume Information</code>
-    u. a.) automatisch übersprungen, um die Suche zu beschleunigen und Systemdateien
-    auszublenden. Auf allen anderen Laufwerken wird vollständig durchsucht.
+    Auf C:\ werden die Windows-Systemordner (<code>Windows</code>, <code>$Recycle.Bin</code>,
+    <code>System Volume Information</code> u. a.) automatisch übersprungen, um die Suche zu
+    beschleunigen. Alle anderen Laufwerke werden vollständig durchsucht.
   </div>
 
-  <!-- ═══════════════════════════════════════════ SCHALTFLÄCHEN -->
-  <h2>Schaltflächen</h2>
-
+  <!-- SCHALTFLÄCHEN SUCHBEREICH -->
+  <h2>Schaltflächen Suchbereich</h2>
   <table>
-    <tr>
-      <th style="width:34%">Schaltfläche</th>
-      <th>Funktion</th>
-    </tr>
+    <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
     <tr>
       <td><span class="btn btn-green">🔍 SUCHE STARTEN</span></td>
+      <td>Startet die Suche mit den aktuellen Kriterien. Treffer erscheinen laufend.
+          Alternativ: <kbd>Enter</kbd> im Namensfeld.</td>
+    </tr>
+    <tr>
+      <td><span class="btn" style="background:#16A085">🔍 Große Dateien</span> <span class="new-badge">NEU</span></td>
       <td>
-        Startet die Suche mit den aktuellen Kriterien. Die Ergebnisse erscheinen
-        laufend in der Tabelle. Alternativ: <strong>Enter</strong> im Namensfeld.
+        Findet die <strong>100 größten Dateien</strong> auf den angehakten Laufwerken,
+        nach Größe absteigend sortiert. Namens-, Datums- und Größenfilter werden dabei
+        ignoriert – es zählt nur die Größe. Ideal, um schnell die größten Speicherfresser
+        aufzuspüren.
       </td>
     </tr>
     <tr>
       <td><span class="btn btn-orange">⏹ Abbrechen</span></td>
-      <td>
-        Bricht eine laufende Suche sofort ab. Bereits gefundene Treffer
-        bleiben in der Tabelle sichtbar.
-      </td>
+      <td>Bricht eine laufende Suche sofort ab. Bereits gefundene Treffer bleiben sichtbar.</td>
     </tr>
     <tr>
       <td><span class="btn btn-red">✖ Felder leeren</span></td>
-      <td>
-        Setzt alle Eingabefelder zurück und leert die Ergebnistabelle.
-      </td>
-    </tr>
-    <tr>
-      <td><span class="btn btn-blue">? Hilfe</span></td>
-      <td>
-        Öffnet diese Hilfedatei im Standard-Browser.
-      </td>
+      <td>Setzt alle Eingabefelder zurück und leert die Ergebnistabelle.</td>
     </tr>
   </table>
 
-  <!-- ═══════════════════════════════════════════ ERGEBNISTABELLE -->
+  <!-- ERGEBNISTABELLE -->
   <h2>Ergebnistabelle</h2>
   <p>
-    Gefundene Dateien werden mit Dateiname, Größe, Änderungsdatum, Erstelldatum
-    und vollständigem Pfad angezeigt. Die Tabelle lässt sich horizontal und vertikal
-    scrollen; Spaltenbreiten sind per Maus anpassbar.
+    Gefundene Dateien werden mit Dateiname, Größe, Änderungs- und Erstelldatum sowie
+    Pfad angezeigt. Die Tabelle lässt sich scrollen; Spaltenbreiten sind per Maus anpassbar.
+  </p>
+
+  <h3>Sortierung <span class="new-badge">NEU</span></h3>
+  <p>
+    Ein Klick auf eine <strong>Spaltenüberschrift</strong> sortiert die Liste nach dieser
+    Spalte; ein erneuter Klick dreht die Richtung um (Pfeil ▲/▼). Größe wird korrekt nach
+    Bytes sortiert, Datum nach echtem Zeitstempel – nicht nach dem angezeigten Text.
+    Welche Sortierung nach Suchabschluss <em>automatisch</em> gilt, legst Du im
+    <em>⚙️ Konfig</em>-Dialog fest (Standard: Geändert, neueste oben).
   </p>
 
   <h3>Doppelklick</h3>
-  <p>Öffnet den Ordner, in dem die Datei liegt, im Windows-Explorer – die Datei ist dabei direkt markiert.</p>
+  <p>Öffnet den Ordner, in dem die Datei liegt, im Windows-Explorer – die Datei ist dabei markiert.</p>
+
+  <h3>Mehrfachauswahl</h3>
+  <p>
+    Mit <kbd>Strg</kbd> werden einzelne Zeilen zur Auswahl hinzugefügt, mit
+    <kbd>Umschalt</kbd> ganze Blöcke. Die Auswahl ist die Grundlage für das
+    Aktion-Fenster (Kopieren / Verschieben / Löschen, siehe unten).
+  </p>
 
   <h3>Rechtsklick – Kontextmenü</h3>
   <table>
+    <tr><th style="width:44%">Menüpunkt</th><th>Aktion</th></tr>
+    <tr><td>📂 Ordner im Explorer öffnen</td><td>Explorer öffnet den Ordner mit markierter Datei.</td></tr>
+    <tr><td>▶ Datei öffnen</td><td>Öffnet die Datei mit dem zugeordneten Standardprogramm.</td></tr>
+    <tr><td>📋 Pfad kopieren</td><td>Kopiert den vollständigen Dateipfad in die Zwischenablage.</td></tr>
     <tr>
-      <th style="width:44%">Menüpunkt</th>
-      <th>Aktion</th>
-    </tr>
-    <tr>
-      <td>📂 Ordner im Explorer öffnen</td>
-      <td>Explorer öffnet den Ordner mit markierter Datei (wie Doppelklick).</td>
-    </tr>
-    <tr>
-      <td>▶ Datei öffnen</td>
-      <td>Öffnet die Datei mit dem zugeordneten Standardprogramm.</td>
-    </tr>
-    <tr>
-      <td>📋 Pfad kopieren</td>
-      <td>Kopiert den vollständigen Dateipfad in die Zwischenablage.</td>
-    </tr>
-    <tr>
-      <td>💾 Datei kopieren / verschieben …</td>
-      <td>
-        Öffnet einen Ordner-Auswahldialog. Danach Auswahl:
-        <em>Ja = Kopieren</em>, <em>Nein = Verschieben</em>.
-      </td>
+      <td>🔧 Auswahl: Kopieren / Verschieben / Löschen … <span class="new-badge">NEU</span></td>
+      <td>Öffnet das Aktion-Fenster für alle markierten Dateien (siehe unten).</td>
     </tr>
   </table>
 
-  <!-- ═══════════════════════════════════════════ STATUSZEILE -->
+  <!-- AKTION-FENSTER -->
+  <h2>Aktion-Fenster: Kopieren / Verschieben / Löschen <span class="new-badge">NEU</span></h2>
+  <p>
+    Markiere eine oder mehrere Dateien in der Trefferliste und wähle per Rechtsklick
+    <em>„🔧 Auswahl: Kopieren / Verschieben / Löschen …"</em>. Es öffnet sich ein eigenes
+    Fenster, das die markierten Dateien auflistet – alle Aktionen laufen <strong>im Tool
+    selbst</strong>, ohne den Explorer aufzurufen, mit eigenem Fortschrittsbalken.
+  </p>
+  <table>
+    <tr><th style="width:34%">Aktion</th><th>Verhalten</th></tr>
+    <tr>
+      <td><span class="btn btn-blue">📋 Kopieren</span></td>
+      <td>Fragt einen Zielordner ab und kopiert die Auswahl dorthin. Die Trefferliste bleibt unverändert.</td>
+    </tr>
+    <tr>
+      <td><span class="btn" style="background:#8E44AD">✂ Verschieben</span></td>
+      <td>Verschiebt die Auswahl in den Zielordner. Verschobene Dateien verschwinden aus der Liste.</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-red">🗑 In den Papierkorb</span></td>
+      <td>Legt die Auswahl in den <strong>Windows-Papierkorb</strong> – also wiederherstellbar,
+          nicht endgültig gelöscht. Gelöschte Dateien verschwinden aus der Liste.</td>
+    </tr>
+  </table>
+  <div class="box box-tip">
+    <strong>Kein Überschreiben</strong>
+    Existiert im Ziel bereits eine Datei gleichen Namens, wird die Kopie automatisch
+    mit einem Zusatz versehen (<code>Name (2).ext</code>, <code>Name (3).ext</code> …) –
+    es geht also nie versehentlich etwas verloren.
+  </div>
+
+  <!-- ERGEBNIS SPEICHERN -->
+  <h2>Ergebnis speichern &amp; Ergebnis-Manager <span class="new-badge">NEU</span></h2>
+  <p>
+    Unter der Ergebnistabelle stehen zwei Schaltflächen. Beide legen das Ergebnis im festen
+    Ordner <code>FileFinder-Suchen\</code> neben dem Programm ab – jeweils als ladbare
+    Datei (<code>.ffs</code>) <em>und</em> als HTML-Bericht zum Ansehen.
+  </p>
+  <table>
+    <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
+    <tr>
+      <td><span class="btn btn-blue">💾 Ergebnis speichern</span></td>
+      <td>Speichert das aktuelle Ergebnis still (für den Ergebnis-Manager).</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-dark">🖨 Ergebnisbericht</span></td>
+      <td>Speichert das Ergebnis und öffnet den HTML-Bericht gleich im Browser – zum Ansehen,
+          Drucken oder Weitergeben.</td>
+    </tr>
+  </table>
+
+  <h3>Ergebnis-Manager</h3>
+  <p>
+    Die Schaltfläche <em>📋 Ergebnis-Manager</em> in der Kopfleiste listet alle gespeicherten
+    Ergebnisse (Datum/Zeit, Treffer, Suchbegriff, Laufwerke), das neueste oben.
+  </p>
+  <table>
+    <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
+    <tr><td>📂 Laden</td><td>Holt Suchkriterien und Trefferliste zurück ins Hauptfenster (Doppelklick geht auch).</td></tr>
+    <tr><td>🌐 HTML öffnen</td><td>Öffnet den HTML-Bericht zum gewählten Ergebnis im Browser.</td></tr>
+    <tr><td>🗑 Löschen</td><td>Löscht die markierten gespeicherten Ergebnisse (Mehrfachauswahl möglich).</td></tr>
+    <tr><td>📅 Von–Bis löschen</td><td>Löscht alle gespeicherten Ergebnisse in einem Datumsbereich.</td></tr>
+  </table>
+  <div class="box box-info">
+    <strong>Geladenes Ergebnis ist gesperrt fürs Neuspeichern</strong>
+    Sobald ein Ergebnis im Manager geladen wurde, sind <em>„Ergebnis speichern"</em> und
+    <em>„Ergebnisbericht"</em> gesperrt – ein bereits gespeichertes Ergebnis soll sich nicht
+    endlos selbst kopieren. Neben der Statuszeile erscheint dann ein dunkelblaues <strong>ⓘ</strong>
+    mit Erklärung. Den HTML-Bericht rufst Du in diesem Fall über <em>„🌐 HTML öffnen"</em> im
+    Ergebnis-Manager auf. Eine <strong>neue Suche</strong> oder <em>„Felder leeren"</em> gibt
+    das Speichern wieder frei.
+  </div>
+
+  <!-- KONFIG -->
+  <h2>Konfiguration (⚙️ Konfig) <span class="new-badge">NEU</span></h2>
+  <p>
+    Alle Einstellungen werden über den Dialog gesetzt und in <code>FileFinder-config.ini</code>
+    gespeichert – Handarbeit an der INI ist nicht nötig.
+  </p>
+  <table>
+    <tr><th style="width:34%">Einstellung</th><th>Bedeutung</th></tr>
+    <tr>
+      <td><strong>Skalierung</strong></td>
+      <td>Darstellungsgröße: <em>Automatisch</em> (Systemwert) oder 100 % bis 200 %.
+          Eine Änderung wirkt erst nach einem Neustart des Programms – der Dialog
+          bietet den Neustart direkt an (nur das Programm, nicht der PC).</td>
+    </tr>
+    <tr>
+      <td><strong>Erweiterte Filter beim Start anzeigen</strong></td>
+      <td>Legt fest, ob die erweiterten Filter (Datum/Größe) beim Programmstart sichtbar sind.</td>
+    </tr>
+    <tr>
+      <td><strong>Standard-Sortierung</strong></td>
+      <td>Spalte (Dateiname / Größe / Geändert / Erstellt / Pfad / keine) und Richtung
+          (absteigend / aufsteigend), nach der die Liste bei Suchabschluss automatisch
+          sortiert wird.</td>
+    </tr>
+  </table>
+
+  <!-- TASTATURKÜRZEL -->
+  <h2>Tastaturkürzel</h2>
+  <table>
+    <tr><th style="width:34%">Taste</th><th>Funktion</th></tr>
+    <tr><td><kbd>F11</kbd></td><td>Erweiterte Filter ein- / ausklappen.</td></tr>
+    <tr><td><kbd>Enter</kbd></td><td>Suche starten (wenn der Cursor im Namensfeld steht).</td></tr>
+    <tr><td><kbd>ESC</kbd></td><td>Programm beenden.</td></tr>
+  </table>
+
+  <!-- STATUSZEILE -->
   <h2>Statuszeile &amp; Fortschrittsbalken</h2>
   <p>
-    Während der Suche läuft ein Fortschrittsbalken und die Statuszeile zeigt
-    die Anzahl der bisher gefundenen Treffer. Nach Abschluss erscheint die
-    Gesamtanzahl. Falls Ordner wegen fehlender Zugriffsrechte übersprungen wurden,
-    wird dies ebenfalls angezeigt, z. B.:
-    <code>✔ Suche abgeschlossen — 47 Treffer &nbsp;(3 Ordner ohne Zugriff)</code>
+    Während der Suche läuft ein Fortschrittsbalken und die Statuszeile zeigt den Fortschritt.
+    Nach Abschluss erscheint die Gesamtanzahl; übersprungene Ordner ohne Zugriff werden
+    ebenfalls genannt, z. B.:
+    <code>✔ Suche abgeschlossen — 47 Treffer (3 Ordner ohne Zugriff)</code>
   </p>
 
-  <!-- ═══════════════════════════════════════════ TIPPS -->
+  <!-- TIPPS -->
   <h2>Tipps &amp; Hinweise</h2>
-
   <div class="box box-tip">
     <strong>Schnellsuche nach Bildtypen</strong>
     Endung <code>jpg</code> oder <code>png</code> eingeben, alle Laufwerke wählen →
-    findet sämtliche Bilder auf dem PC. Mit Datums-Eingrenzung lassen sich
-    Urlaubsfotos eines bestimmten Jahres schnell wiederfinden.
+    findet sämtliche Bilder. Mit Datums-Eingrenzung lassen sich Urlaubsfotos eines
+    bestimmten Jahres schnell wiederfinden.
   </div>
-
   <div class="box box-tip">
-    <strong>Mehrere Namensbruchstücke kombinieren</strong>
-    Im Feld „Dateiname enthält" können mehrere Begriffe durch Leerzeichen getrennt
-    eingegeben werden. Alle Begriffe müssen im Dateinamen vorkommen (UND-Verknüpfung).<br>
-    Beispiel: <code>Rechnung 2024</code> → findet <em>Rechnung_2024_Müller.pdf</em>,
-    aber nicht <em>Rechnung_2023.pdf</em>.
+    <strong>Speicherfresser finden</strong>
+    Laufwerke anhaken und <em>🔍 Große Dateien</em> klicken → die 100 größten Dateien
+    erscheinen sofort, größte oben. Schnell und übersichtlich, ohne Zusatzprogramm.
   </div>
-
+  <div class="box box-tip">
+    <strong>Aufräumen in einem Rutsch</strong>
+    Mehrere große oder alte Dateien mit <kbd>Strg</kbd>/<kbd>Umschalt</kbd> markieren,
+    Rechtsklick → Aktion-Fenster → in den Papierkorb. Da der Papierkorb wiederherstellbar
+    ist, bleibt ein Fehlgriff harmlos.
+  </div>
+  <div class="box box-tip">
+    <strong>Darstellung anpassen</strong>
+    Bei sehr großen oder kleinen Bildschirmen die Skalierung über <em>⚙️ Konfig</em> anpassen
+    (100 % bis 200 %). Das Programm startet danach neu – nicht der PC.
+  </div>
   <div class="box box-warn">
     <strong>Netzlaufwerke</strong>
-    Netzlaufwerke, die als Laufwerksbuchstabe eingebunden sind, erscheinen ebenfalls
-    in der Laufwerksliste und können durchsucht werden. Bei langsamen Verbindungen
-    kann die Suche dort deutlich länger dauern.
+    Als Laufwerksbuchstabe eingebundene Netzlaufwerke erscheinen in der Liste und können
+    durchsucht werden. Bei langsamen Verbindungen kann das deutlich länger dauern.
   </div>
-
   <div class="box box-info">
     <strong>Suchgeschwindigkeit</strong>
     Die Suche läuft im Hintergrund und blockiert das Fenster nicht. Bei sehr großen
-    Laufwerken (mehrere TB) kann eine vollständige Suche einige Minuten dauern.
-    Mit dem Button <strong>Abbrechen</strong> lässt sich die Suche jederzeit stoppen.
+    Laufwerken (mehrere TB) kann eine vollständige Suche etwas dauern; mit
+    <strong>Abbrechen</strong> lässt sie sich jederzeit stoppen.
   </div>
 
-  <!-- ═══════════════════════════════════════════ SYSTEMVORAUSSETZUNGEN -->
+  <!-- SYSTEMVORAUSSETZUNGEN -->
   <h2>Systemvoraussetzungen</h2>
   <table>
     <tr><td style="width:34%"><strong>Betriebssystem</strong></td><td>Windows 10 / 11</td></tr>
     <tr><td><strong>Python</strong></td><td>3.10 oder neuer (nur für .py-Version)</td></tr>
-    <tr><td><strong>Abhängigkeiten</strong></td><td>Nur Python-Standardbibliothek (tkinter, os, threading …)</td></tr>
+    <tr><td><strong>Abhängigkeiten</strong></td><td>Nur Python-Standardbibliothek (tkinter, os, threading, ctypes …)</td></tr>
     <tr><td><strong>Rechte</strong></td><td>Keine Administratorrechte erforderlich; gesperrte Ordner werden übersprungen</td></tr>
   </table>
 
-  <!-- ═══════════════════════════════════════════ SPENDE -->
+  <!-- SPENDE -->
   <div class="donate">
     <span class="pp-icon">💛</span>
     <p>
@@ -381,7 +560,7 @@
 
 <div class="footer">
   © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
-  &nbsp;·&nbsp; S-IT FileFinder v1.0.0
+  &nbsp;·&nbsp; S-IT FileFinder v1.2.12
 </div>
 
 </body>
