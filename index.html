@@ -281,8 +281,8 @@
 <header>
   <h1>🔍 S-IT FileFinder</h1>
   <p class="tagline">Dateien wiederfinden &ndash; einfach, schnell und ohne technische Vorkenntnisse</p>
-  <p class="version-line">Version 1.2.4 &nbsp;·&nbsp; Freeware &nbsp;·&nbsp; Windows 10 / 11</p>
-  <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.4/s-it-filefinder_latest.zip">⬇ Download v1.2.4</a>
+  <p class="version-line">Version 1.2.12 &nbsp;·&nbsp; Freeware &nbsp;·&nbsp; Windows 10 / 11</p>
+  <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.12/s-it-filefinder_latest.zip">⬇ Download v1.2.12</a>
 </header>
 
 <nav>
@@ -317,22 +317,37 @@
     <div class="feature-card">
       <span class="icon">💽</span>
       <h3>Alle Laufwerke</h3>
-      <p>Lokale Laufwerke und eingebundene Netzlaufwerke per Checkbox auswählen &ndash; einzeln oder alle auf einmal. Die Fensterbreite passt sich automatisch an.</p>
+      <p>Lokale Laufwerke und eingebundene Netzlaufwerke per Checkbox auswählen &ndash; einzeln oder alle auf einmal.</p>
     </div>
-    <div class="feature-card new-card">
+    <div class="feature-card">
       <span class="icon">📅</span>
-      <h3>Datum &amp; Größe <span class="new-badge">NEU</span></h3>
+      <h3>Datum &amp; Größe</h3>
       <p>Erstell- und Änderungsdatum sowie Dateigröße als erweiterte Filter &ndash; per <strong>F11</strong> jederzeit ein- oder ausklappbar.</p>
     </div>
     <div class="feature-card new-card">
-      <span class="icon">🖥️</span>
-      <h3>4K &amp; Bildschirmgröße <span class="new-badge">NEU</span></h3>
-      <p>Vollständige DPI-Unterstützung. Darstellungsgröße per Ansicht-Schaltfläche wählbar: 100 % bis 200 %.</p>
+      <span class="icon">↕️</span>
+      <h3>Sortieren per Klick <span class="new-badge">NEU</span></h3>
+      <p>Ein Klick auf die Spaltenüberschrift sortiert die Treffer nach Name, Größe, Datum oder Pfad &ndash; Größe und Datum korrekt nach echtem Wert, nicht nach Text.</p>
+    </div>
+    <div class="feature-card new-card">
+      <span class="icon">📊</span>
+      <h3>Große Dateien finden <span class="new-badge">NEU</span></h3>
+      <p>Auf Knopfdruck die 100 größten Dateien der gewählten Laufwerke anzeigen &ndash; ideal, um Speicherfresser aufzuspüren.</p>
+    </div>
+    <div class="feature-card new-card">
+      <span class="icon">🔧</span>
+      <h3>Kopieren, Verschieben, Papierkorb <span class="new-badge">NEU</span></h3>
+      <p>Mehrere Treffer markieren und direkt im Tool kopieren, verschieben oder in den Papierkorb legen &ndash; mit Fortschrittsanzeige und ohne versehentliches Überschreiben.</p>
+    </div>
+    <div class="feature-card new-card">
+      <span class="icon">💾</span>
+      <h3>Speichern &amp; Ergebnis-Manager <span class="new-badge">NEU</span></h3>
+      <p>Suchergebnisse speichern und später wieder laden oder als HTML-Bericht ansehen &ndash; verwaltet im übersichtlichen Ergebnis-Manager.</p>
     </div>
     <div class="feature-card">
-      <span class="icon">💾</span>
-      <h3>HTML-Ergebnislog</h3>
-      <p>Suchergebnisse als HTML-Datei speichern &ndash; Dateinamen und Ordnerpfade sind direkt anklickbar.</p>
+      <span class="icon">⚙️</span>
+      <h3>Anzeige &amp; Konfiguration</h3>
+      <p>Volle DPI-/4K-Unterstützung, Darstellungsgröße 100&ndash;200 % und Standard-Sortierung &ndash; zentral im Konfig-Dialog einstellbar.</p>
     </div>
   </div>
 
@@ -354,10 +369,12 @@
   <!-- ═══ DOWNLOAD ═══ -->
   <h2 id="download">Download &amp; Dokumentation</h2>
   <p>
-    <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.4/s-it-filefinder_latest.zip">⬇ Direktdownload &ndash; s-it-filefinder_latest.zip</a>
+    <a class="btn-download" href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.12/s-it-filefinder_latest.zip">⬇ Direktdownload &ndash; s-it-filefinder_latest.zip</a>
   </p>
   <p style="margin-top:12px; font-size:14px;">Alle Versionen und den vollständigen Changelog findest du im
   <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases">Release-Bereich auf GitHub</a>.</p>
+  <p style="margin-top:6px; font-size:14px;">Die Bedienungsanleitung lässt sich auch
+  <a href="S-IT-FileFinder-Hilfe.html">online ansehen</a>.</p>
 
   <div class="ok">
     <strong>Keine Installation nötig:</strong> ZIP-Datei entpacken,
@@ -396,7 +413,19 @@
   <h2 id="changelog">Changelog</h2>
 
   <div class="changelog-item major">
-    <h3>Version 1.2.4 &ndash; Stabiler Neustart <span class="new-badge">Aktuell</span></h3>
+    <h3>Version 1.2.12 &ndash; Sortierung, Große Dateien, Dateiaktionen &amp; Ergebnis-Manager <span class="new-badge">Aktuell</span></h3>
+    <ul>
+      <li><strong>Sortierung:</strong> Treffer per Klick auf die Spaltenüberschrift sortieren &ndash; Größe und Datum korrekt nach echtem Wert statt nach Text</li>
+      <li><strong>Große Dateien:</strong> die 100 größten Dateien der gewählten Laufwerke auf Knopfdruck anzeigen &ndash; zum schnellen Aufspüren von Speicherfressern</li>
+      <li><strong>Dateiaktionen:</strong> mehrere Treffer markieren und im eigenen Fenster kopieren, verschieben oder in den Papierkorb legen &ndash; mit Byte-genauem Fortschrittsbalken und ohne Überschreiben (automatische Umbenennung)</li>
+      <li><strong>Ergebnisse speichern:</strong> Suchergebnisse speichern, später wieder laden oder als HTML-Bericht ansehen &ndash; verwaltet im neuen Ergebnis-Manager</li>
+      <li><strong>Konfiguration:</strong> zentraler Dialog für Darstellungsgröße, erweiterte Filter beim Start und Standard-Sortierung (gespeichert in <em>FileFinder-config.ini</em>)</li>
+      <li>Aktualisierte Hilfe-Datei und zahlreiche Detailverbesserungen</li>
+    </ul>
+  </div>
+
+  <div class="changelog-item major">
+    <h3>Version 1.2.4 &ndash; Stabiler Neustart</h3>
     <ul>
       <li><strong>Neustart-Fix:</strong> DPI-Umschaltung startet die neue Instanz jetzt zuverlässig ohne „Failed to import encodings"-Fehler &ndash; kompilierte EXE wird direkt gestartet, kein Temp-Pfad mehr</li>
       <li><strong>--onedir:</strong> Umstellung auf Ordner-basierte EXE &ndash; kein Entpacken in Temp beim Start, kein „Failed to remove temporary directory"</li>
