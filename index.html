@@ -158,6 +158,22 @@
     display: block;
     cursor: zoom-in;
   }
+  /* ── HERO-SHOT ── */
+  .hero-shot { margin: 0 0 10px; }
+  .hero-shot img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+    display: block;
+    cursor: zoom-in;
+  }
+  .hero-shot p.hero-cap {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin: 8px 0 0;
+  }
   /* ── TABLE ── */
   table {
     width: 100%;
@@ -297,6 +313,13 @@
 
 <main>
 
+  <!-- ═══ HERO ═══ -->
+  <div class="hero-shot">
+    <img src="Screenshots/1_FF-Hero_Uebersicht.png"
+         alt="S-IT FileFinder – Hauptfenster mit Suchergebnissen und Kontextmenü">
+    <p class="hero-cap">Das Hauptfenster: suchen, sortieren und per Rechtsklick direkt weiterarbeiten</p>
+  </div>
+
   <!-- ═══ LEISTUNGSMERKMALE ═══ -->
   <h2 id="leistung">Leistungsmerkmale</h2>
   <p>Windows-Bordmittel und Tools wie <em>Everything</em> sind für erfahrene Nutzer gemacht.
@@ -355,14 +378,24 @@
   <h2 id="screenshot">Screenshots</h2>
   <div class="screenshots">
     <div class="screenshot-wrap">
-      <img src="screenshot.png"
-           alt="S-IT FileFinder v1.2.0 – Hauptfenster mit einfacher Suche (erweiterte Filter eingeklappt)">
-      <p class="caption">Standardansicht &ndash; erweiterte Filter eingeklappt</p>
+      <img src="Screenshots/2-FF-Ergebnis_Manager.png"
+           alt="S-IT FileFinder – Ergebnis-Manager mit gespeicherten Suchen">
+      <p class="caption">Ergebnis-Manager &ndash; gespeicherte Ergebnisse laden, ansehen, löschen</p>
     </div>
     <div class="screenshot-wrap">
-      <img src="screenshot-erweitert.png"
-           alt="S-IT FileFinder v1.2.0 – Hauptfenster mit geöffneten erweiterten Filtern (Datum und Größe)">
-      <p class="caption">Erweiterte Filter ausgeklappt (F11)</p>
+      <img src="Screenshots/3-FF-Konfig.png"
+           alt="S-IT FileFinder – Konfigurationsdialog mit Skalierung und Standard-Sortierung">
+      <p class="caption">Konfiguration &ndash; Skalierung, Filter beim Start, Standard-Sortierung</p>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="Screenshots/5_FF-GrosseDateien.png"
+           alt="S-IT FileFinder – Ansicht der 100 größten Dateien">
+      <p class="caption">Große Dateien &ndash; die größten Speicherfresser auf einen Blick</p>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="Screenshots/4_FF-Bericht.png"
+           alt="S-IT FileFinder – HTML-Ergebnisbericht mit anklickbaren Pfaden">
+      <p class="caption">Ergebnisbericht als HTML &ndash; Dateinamen und Pfade direkt anklickbar</p>
     </div>
   </div>
 
@@ -509,7 +542,7 @@
 <script>
   const overlay = document.getElementById('lightbox');
   const lbImg   = document.getElementById('lightbox-img');
-  document.querySelectorAll('.screenshots img').forEach(img => {
+  document.querySelectorAll('.screenshots img, .hero-shot img').forEach(img => {
     img.addEventListener('click', () => {
       lbImg.src = img.src;
       lbImg.alt = img.alt;
