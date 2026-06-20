@@ -1,53 +1,50 @@
-# S-IT FileFinder – Änderungshistorie
+# Changelog – S-IT FileFinder
 
-## v1.2.0 (April 2026)
+Alle nennenswerten Änderungen an S-IT FileFinder, neueste Version oben.
+Die Versionen 1.2.5–1.2.11 waren interne Zwischenschritte und sind in v1.2.12 zusammengefasst.
 
-### Neu
-- **Erweiterte Filter (F11):** Datum- und Größenfelder lassen sich per Taste F11 oder
-  Schaltfläche ein- und ausklappen. Das Fenster passt seine Höhe automatisch an.
-  Beim Programmstart sind die erweiterten Filter ausgeblendet, der Zustand wird gespeichert.
-- **Ansicht-Schaltfläche:** Neue Schaltfläche 🖥️ Ansicht in der Kopfleiste zur Auswahl
-  der Darstellungsgröße (100 % / 125 % / 150 % / 175 % / 200 % / Automatisch).
-  Nach Änderung kann das Programm auf Wunsch sofort neu gestartet werden.
-- **DPI-Skalierung:** Vollständige Unterstützung für UHD/4K-Bildschirme und
-  Windows-Skalierungen ab 100 %. Schriften, Abstände und Spaltenbreiten passen
-  sich automatisch an die Bildschirmauflösung an.
-- **Automatische Fensterbreite:** Das Fenster verbreitert sich beim Start automatisch,
-  wenn viele Laufwerksbuchstaben vorhanden sind, damit alle Checkboxen sichtbar bleiben.
-- **Verbesserte Datumsbeschriftungen:** „📅 Erstellt" und „✏️ Geändert" mit erklärendem
-  Hinweistext direkt in der Oberfläche.
+## v1.2.12 – Sortierung, Große Dateien, Dateiaktionen & Ergebnis-Manager
 
-### Verbessert
-- Header neu gestaltet: Versionsnummer links neben dem Titel, Schaltflächen rechts
-  mit großzügigem Abstand.
-- Startgröße und -position werden automatisch an die verfügbare Bildschirmfläche
-  angepasst (max. 95 % Breite, 92 % Höhe, Position nahe oberer Bildschirmrand).
-- Konfigurationsdatei `FileFinder-config.json` speichert den Zustand der erweiterten Filter.
-- Konfigurationsdatei `FileFinder-config.ini` speichert die Ansichts-Skalierung.
+- **Sortierung:** Treffer per Klick auf die Spaltenüberschrift sortieren (Name, Größe, Datum, Pfad). Größe und Datum werden nach echtem Wert sortiert, nicht nach angezeigtem Text.
+- **Große Dateien:** Auf Knopfdruck die 100 größten Dateien der gewählten Laufwerke anzeigen – zum schnellen Aufspüren von Speicherfressern.
+- **Dateiaktionen:** Mehrere Treffer markieren und im eigenen Fenster kopieren, verschieben oder in den Papierkorb legen – mit Byte-genauem Fortschrittsbalken und ohne Überschreiben (automatische Umbenennung bei Namensgleichheit).
+- **Ergebnisse speichern:** Suchergebnisse speichern, später wieder laden oder als HTML-Bericht ansehen – verwaltet im neuen Ergebnis-Manager.
+- **Konfiguration:** Zentraler Dialog für Darstellungsgröße, erweiterte Filter beim Start und Standard-Sortierung (gespeichert in `FileFinder-config.ini`).
+- Aktualisierte Hilfe-Datei und zahlreiche Detailverbesserungen.
 
----
+## v1.2.4 – 2026-04-16 – Stabiler Neustart
 
-## v1.0.1 (März 2026)
+- **Neustart-Fix:** Die DPI-Umschaltung startet die neue Instanz zuverlässig ohne „Failed to import encodings“; die kompilierte EXE wird direkt gestartet.
+- **--onedir:** Umstellung auf ordnerbasierte EXE – kein Entpacken in Temp beim Start.
+- Neustart-Verzögerung (200 ms) verhindert eine Race Condition beim Schließen.
 
-### Behoben
-- Icon-Setzung im Hintergrund verzögert, um Einfrieren beim Start auf Systemen mit
-  Netzlaufwerken oder Kartenlesern zu vermeiden.
+## v1.2.3 – Layout erweiterte Filter
 
----
+- Verständlichere Bezeichnungen: „Erstelldatum“ und „Änderungsdatum“.
+- Einheitliche Symbole (📅 📏 ✏️), bündig untereinander.
+- Von/bis-Felder dichter beieinander, Labels linksbündig.
 
-## v1.0.0 (März 2026)
+## v1.2.1 – Größenangaben in MB
 
-Erste Veröffentlichung als Freeware.
+- Größenfilter arbeitet in Megabyte statt Kilobyte.
+- Maximalgröße erkennt automatisch MB oder GB im HTML-Ergebnislog.
 
-### Funktionen
-- Dateisuche nach Name (mehrere Bruchstücke, Leerzeichen-getrennt), Dateityp/Endung,
-  Erstelldatum, Änderungsdatum und Dateigröße
-- Gleichzeitige Suche auf mehreren Laufwerken mit „Alle"-Checkbox
-- Automatische Laufwerkserkennung ohne Blockieren (GetLogicalDrives-API)
-- Ergebnistabelle mit Doppelklick (Explorer) und Rechtsklick-Kontextmenü
-  (Ordner öffnen, Datei öffnen, Pfad kopieren, Kopieren/Verschieben)
-- Suchergebnis als HTML-Datei speichern und öffnen
-- Fortschrittsbalken und Statuszeile mit Trefferanzahl
-- Systemordner auf C:\ werden automatisch übersprungen
-- Vollständige DPI-Awareness (SetProcessDpiAwareness)
-- ESC beendet das Programm
+## v1.2.0 – Ansicht & erweiterte Filter
+
+- F11-Umschalter für Datum- und Größenfilter; die Fensterhöhe passt sich automatisch an.
+- Darstellungsgröße wählbar (100–200 %) mit optionalem Programm-Neustart.
+- Vollständige DPI-/4K-Skalierung für hochauflösende Bildschirme.
+- Automatische Fensterbreite bei vielen Laufwerksbuchstaben.
+- Verbesserte Datumsbeschriftungen, überarbeiteter Header, automatische Startgröße und -position.
+
+## v1.0.1 – Bugfix Startverhalten
+
+- Einfrieren beim Start auf Systemen mit DVD-Laufwerk oder Kartenleser ohne eingelegtes Medium behoben (Laufwerke werden über die Windows-API ermittelt).
+
+## v1.0.0 – Erstveröffentlichung
+
+- Suche nach Namensbruchstücken, Dateityp, Erstell-/Änderungsdatum und Dateigröße.
+- Multi-Laufwerk-Unterstützung mit Alle-Checkbox.
+- HTML-Ergebnislog mit klickbaren Pfaden.
+- Kontextmenü: Ordner öffnen, Datei öffnen, Pfad kopieren.
+- Hilfe-Button mit HTML-Dokumentation.
