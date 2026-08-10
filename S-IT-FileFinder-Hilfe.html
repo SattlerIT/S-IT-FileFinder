@@ -188,7 +188,7 @@
 <div class="header">
   <span class="icon">🔍</span>
   <h1>S-IT FileFinder</h1>
-  <span class="version">v1.2.12 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+  <span class="version">v1.2.14 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
 </div>
 
 <div class="content">
@@ -198,8 +198,8 @@
   <p>
     <strong>S-IT FileFinder</strong> hilft dabei, Dateien auf dem lokalen PC wiederzufinden –
     auch wenn nur ein Namensbruchstück, ein ungefähres Datum oder der Dateityp bekannt ist.
-    Die Suche läuft direkt über das Dateisystem, ohne Indexdienst, und durchsucht alle
-    gewählten Laufwerke gleichzeitig. Gefundene Listen lassen sich sortieren, als
+    Die Suche läuft direkt über das Dateisystem, ohne Indexdienst, und durchsucht wahlweise alle
+    gewählten Laufwerke gleichzeitig oder gezielt einen einzelnen Ordner. Gefundene Listen lassen sich sortieren, als
     Ergebnis speichern und später wieder laden, und markierte Dateien können direkt
     aus dem Tool heraus kopiert, verschoben oder in den Papierkorb gelegt werden.
   </p>
@@ -303,18 +303,31 @@
     einzugeben, um alle Dateien dieses Typs zu finden.
   </div>
 
-  <!-- LAUFWERKE -->
-  <h2>Laufwerke auswählen</h2>
+  <!-- SUCHBEREICH -->
+  <h2>Suchbereich: Ordner oder Laufwerke <span class="new-badge">NEU</span></h2>
   <p>
-    Alle erkannten Laufwerke werden automatisch als Checkboxen angezeigt. Mit
+    Über dem Laufwerksbereich gibt es das neue Feld <strong>Nur Ordner</strong>.
+    Ist dort ein Ordner eingetragen (per <span class="btn" style="background:#3498DB">Durchsuchen…</span>
+    auswählen oder direkt eintippen), wird ausschließlich dieser Ordner samt
+    Unterordnern durchsucht – die Laufwerksauswahl darunter wird dabei ausgegraut
+    und alle Häkchen werden entfernt.
+    Das Feld gilt für beide Suchen, also auch für <em>🔍 Große Dateien</em>.
+    Mit <strong>✕</strong> oder über <em>✖ Felder leeren</em> wird das Feld geleert
+    und die vorherige Laufwerksauswahl kehrt zurück.
+  </p>
+  <p>
+    Ohne eingetragenen Ordner gilt wie bisher die Laufwerksauswahl: Alle erkannten
+    Laufwerke werden automatisch als Checkboxen angezeigt. Mit
     <strong>Alle</strong> werden sämtliche Laufwerke gleichzeitig an- oder abgehakt;
     beliebige Einzellaufwerke lassen sich kombinieren.
   </p>
   <div class="box box-warn">
-    <strong>Hinweis zu Systemlaufwerk C:\</strong>
-    Auf C:\ werden die Windows-Systemordner (<code>Windows</code>, <code>$Recycle.Bin</code>,
-    <code>System Volume Information</code> u. a.) automatisch übersprungen, um die Suche zu
-    beschleunigen. Alle anderen Laufwerke werden vollständig durchsucht.
+    <strong>Hinweis zu Systemordnern</strong>
+    Im Wurzelverzeichnis jedes Laufwerks werden die Windows-Systemordner
+    (<code>Windows</code>, <code>$Recycle.Bin</code>, <code>System Volume Information</code> u. a.)
+    automatisch übersprungen, um die Suche zu beschleunigen. Das gilt auch, wenn im
+    Feld <strong>Nur Ordner</strong> ein Laufwerksstamm wie <code>C:\</code> eingetragen ist.
+    Alle übrigen Ordner werden vollständig durchsucht.
   </div>
 
   <!-- SCHALTFLÄCHEN SUCHBEREICH -->
@@ -327,9 +340,10 @@
           Alternativ: <kbd>Enter</kbd> im Namensfeld.</td>
     </tr>
     <tr>
-      <td><span class="btn" style="background:#16A085">🔍 Große Dateien</span> <span class="new-badge">NEU</span></td>
+      <td><span class="btn" style="background:#16A085">🔍 Große Dateien</span></td>
       <td>
-        Findet die <strong>100 größten Dateien</strong> auf den angehakten Laufwerken,
+        Findet die <strong>100 größten Dateien</strong> auf den angehakten Laufwerken
+        bzw. im eingetragenen Ordner,
         nach Größe absteigend sortiert. Namens-, Datums- und Größenfilter werden dabei
         ignoriert – es zählt nur die Größe. Ideal, um schnell die größten Speicherfresser
         aufzuspüren.
@@ -352,7 +366,7 @@
     Pfad angezeigt. Die Tabelle lässt sich scrollen; Spaltenbreiten sind per Maus anpassbar.
   </p>
 
-  <h3>Sortierung <span class="new-badge">NEU</span></h3>
+  <h3>Sortierung</h3>
   <p>
     Ein Klick auf eine <strong>Spaltenüberschrift</strong> sortiert die Liste nach dieser
     Spalte; ein erneuter Klick dreht die Richtung um (Pfeil ▲/▼). Größe wird korrekt nach
@@ -378,13 +392,13 @@
     <tr><td>▶ Datei öffnen</td><td>Öffnet die Datei mit dem zugeordneten Standardprogramm.</td></tr>
     <tr><td>📋 Pfad kopieren</td><td>Kopiert den vollständigen Dateipfad in die Zwischenablage.</td></tr>
     <tr>
-      <td>🔧 Auswahl: Kopieren / Verschieben / Löschen … <span class="new-badge">NEU</span></td>
+      <td>🔧 Auswahl: Kopieren / Verschieben / Löschen …</td>
       <td>Öffnet das Aktion-Fenster für alle markierten Dateien (siehe unten).</td>
     </tr>
   </table>
 
   <!-- AKTION-FENSTER -->
-  <h2>Aktion-Fenster: Kopieren / Verschieben / Löschen <span class="new-badge">NEU</span></h2>
+  <h2>Aktion-Fenster: Kopieren / Verschieben / Löschen</h2>
   <p>
     Markiere eine oder mehrere Dateien in der Trefferliste und wähle per Rechtsklick
     <em>„🔧 Auswahl: Kopieren / Verschieben / Löschen …"</em>. Es öffnet sich ein eigenes
@@ -415,7 +429,7 @@
   </div>
 
   <!-- ERGEBNIS SPEICHERN -->
-  <h2>Ergebnis speichern &amp; Ergebnis-Manager <span class="new-badge">NEU</span></h2>
+  <h2>Ergebnis speichern &amp; Ergebnis-Manager</h2>
   <p>
     Unter der Ergebnistabelle stehen zwei Schaltflächen. Beide legen das Ergebnis im festen
     Ordner <code>FileFinder-Suchen\</code> neben dem Programm ab – jeweils als ladbare
@@ -457,7 +471,7 @@
   </div>
 
   <!-- KONFIG -->
-  <h2>Konfiguration (⚙️ Konfig) <span class="new-badge">NEU</span></h2>
+  <h2>Konfiguration (⚙️ Konfig)</h2>
   <p>
     Alle Einstellungen werden über den Dialog gesetzt und in <code>FileFinder-config.ini</code>
     gespeichert – Handarbeit an der INI ist nicht nötig.
@@ -466,7 +480,7 @@
     <tr><th style="width:34%">Einstellung</th><th>Bedeutung</th></tr>
     <tr>
       <td><strong>Skalierung</strong></td>
-      <td>Darstellungsgröße: <em>Automatisch</em> (Systemwert) oder 100 % bis 200 %.
+      <td>Darstellungsgröße: <em>Automatisch</em> (Systemwert) oder 90 % bis 200 %.
           Eine Änderung wirkt erst nach einem Neustart des Programms – der Dialog
           bietet den Neustart direkt an (nur das Programm, nicht der PC).</td>
     </tr>
@@ -509,6 +523,12 @@
     bestimmten Jahres schnell wiederfinden.
   </div>
   <div class="box box-tip">
+    <strong>Gezielt statt überall suchen</strong>
+    Wenn klar ist, wo die Datei ungefähr liegt (z. B. im Download- oder Projektordner),
+    diesen Ordner ins Feld <strong>Nur Ordner</strong> eintragen – die Suche ist dann
+    in Sekunden fertig statt die ganze Platte zu durchlaufen.
+  </div>
+  <div class="box box-tip">
     <strong>Speicherfresser finden</strong>
     Laufwerke anhaken und <em>🔍 Große Dateien</em> klicken → die 100 größten Dateien
     erscheinen sofort, größte oben. Schnell und übersichtlich, ohne Zusatzprogramm.
@@ -522,7 +542,7 @@
   <div class="box box-tip">
     <strong>Darstellung anpassen</strong>
     Bei sehr großen oder kleinen Bildschirmen die Skalierung über <em>⚙️ Konfig</em> anpassen
-    (100 % bis 200 %). Das Programm startet danach neu – nicht der PC.
+    (90 % bis 200 %). Das Programm startet danach neu – nicht der PC.
   </div>
   <div class="box box-warn">
     <strong>Netzlaufwerke</strong>
@@ -560,7 +580,7 @@
 
 <div class="footer">
   © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
-  &nbsp;·&nbsp; S-IT FileFinder v1.2.12
+  &nbsp;·&nbsp; S-IT FileFinder v1.2.14
 </div>
 
 </body>
