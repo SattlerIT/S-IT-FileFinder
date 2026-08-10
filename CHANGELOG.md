@@ -3,6 +3,14 @@
 Alle nennenswerten Änderungen an S-IT FileFinder, neueste Version oben.
 Die Versionen 1.2.5–1.2.11 waren interne Zwischenschritte und sind in v1.2.12 zusammengefasst.
 
+## v1.2.14 – Ordnersuche, schnellere Laufwerkssuche & 90-%-Skalierung
+
+- **Ordnersuche:** Über das neue Feld „Nur Ordner" wird gezielt ein bestimmter Ordner samt Unterordnern durchsucht statt ganzer Laufwerke – gilt auch für „Große Dateien". Die Laufwerksauswahl wird währenddessen deaktiviert; beim Leeren des Felds kehrt die vorherige Auswahl automatisch zurück.
+- **Schnellere Laufwerkssuche:** Der Ausschluss der Windows-Systemordner (Windows, $Recycle.Bin, System Volume Information u. a.) im Wurzelverzeichnis der Laufwerke greift jetzt zuverlässig – Suchen über das Systemlaufwerk laufen dadurch spürbar schneller und liefern keine Treffer mehr aus den Systemordnern.
+- **Skalierung ab 90 %:** Neue 90-%-Stufe im Konfig-Dialog für kompaktere Darstellung auf kleineren Bildschirmen.
+- **Hilfe überarbeitet:** Neuer Abschnitt zum Suchbereich (Ordner oder Laufwerke), zusätzlicher Praxis-Tipp zur gezielten Ordnersuche.
+- Lizenz und Haftungsausschluss (Disclaimer) liegen dem Paket jetzt bei.
+
 ## v1.2.12 – Sortierung, Große Dateien, Dateiaktionen & Ergebnis-Manager
 
 - **Sortierung:** Treffer per Klick auf die Spaltenüberschrift sortieren (Name, Größe, Datum, Pfad). Größe und Datum werden nach echtem Wert sortiert, nicht nach angezeigtem Text.
