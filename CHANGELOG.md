@@ -3,6 +3,13 @@
 Alle nennenswerten Änderungen an S-IT FileFinder, neueste Version oben.
 Die Versionen 1.2.5–1.2.11 waren interne Zwischenschritte und sind in v1.2.12 zusammengefasst.
 
+## v1.2.15 – Start-Knopf, Suchbereich im Bericht & Webseiten-Link
+
+- **Start-Knopf:** Neue Schaltfläche „🏠 Start" in der Kopfleiste – bringt das Programm jederzeit zurück zur leeren Startansicht, auch aus einem geladenen Ergebnis oder der Ansicht „Große Dateien" heraus.
+- **Suchbereich im Bericht:** Bei einer Ordnersuche zeigen Ergebnisbericht und Ergebnis-Manager jetzt den durchsuchten Ordnerpfad an (Angabe heißt nun „Suchbereich" statt „Laufwerke"). Beim Laden einer gespeicherten Ordnersuche wird der Ordner wieder ins Feld „Nur Ordner" übernommen.
+- **Webseiten-Link:** Neuer Link „🌐 Webseite" in der Fußzeile – öffnet die FileFinder-Projektseite im Browser.
+- Umsetzung von Nutzervorschlägen aus der Praxis – danke dafür!
+
 ## v1.2.14 – Ordnersuche, schnellere Laufwerkssuche & 90-%-Skalierung
 
 - **Ordnersuche:** Über das neue Feld „Nur Ordner" wird gezielt ein bestimmter Ordner samt Unterordnern durchsucht statt ganzer Laufwerke – gilt auch für „Große Dateien". Die Laufwerksauswahl wird währenddessen deaktiviert; beim Leeren des Felds kehrt die vorherige Auswahl automatisch zurück.
