@@ -188,7 +188,7 @@
 <div class="header">
   <span class="icon">🔍</span>
   <h1>S-IT FileFinder</h1>
-  <span class="version">v1.2.14 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+  <span class="version">v1.2.15 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
 </div>
 
 <div class="content">
@@ -208,13 +208,19 @@
   <h2>Programmoberfläche</h2>
   <p>
     Das Fenster besteht aus drei Bereichen: der <strong>Kopfleiste</strong> mit den
-    Schaltflächen Konfig, Ergebnis-Manager und Hilfe, dem <strong>Suchkriterien-Bereich</strong>
+    Schaltflächen Start, Ergebnis-Manager, Konfig und Hilfe, dem <strong>Suchkriterien-Bereich</strong>
     sowie der <strong>Ergebnistabelle</strong> mit den Schaltflächen zum Speichern darunter.
   </p>
 
   <h3>Kopfleiste</h3>
   <table>
     <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
+    <tr>
+      <td><span class="btn btn-light">🏠 Start</span> <span class="new-badge">NEU</span></td>
+      <td>Bringt das Programm jederzeit zurück zur leeren Startansicht: Felder und
+          Trefferliste werden geleert, ein geladenes Ergebnis oder die Ansicht
+          „Große Dateien" wird beendet.</td>
+    </tr>
     <tr>
       <td><span class="btn btn-light">⚙️ Konfig</span></td>
       <td>
@@ -304,7 +310,7 @@
   </div>
 
   <!-- SUCHBEREICH -->
-  <h2>Suchbereich: Ordner oder Laufwerke <span class="new-badge">NEU</span></h2>
+  <h2>Suchbereich: Ordner oder Laufwerke</h2>
   <p>
     Über dem Laufwerksbereich gibt es das neue Feld <strong>Nur Ordner</strong>.
     Ist dort ein Ordner eingetragen (per <span class="btn" style="background:#3498DB">Durchsuchen…</span>
@@ -444,18 +450,21 @@
     <tr>
       <td><span class="btn btn-dark">🖨 Ergebnisbericht</span></td>
       <td>Speichert das Ergebnis und öffnet den HTML-Bericht gleich im Browser – zum Ansehen,
-          Drucken oder Weitergeben.</td>
+          Drucken oder Weitergeben. Im Berichtskopf steht unter <strong>Suchbereich</strong>,
+          wo gesucht wurde – die Laufwerke oder bei einer Ordnersuche der Ordnerpfad.</td>
     </tr>
   </table>
 
   <h3>Ergebnis-Manager</h3>
   <p>
     Die Schaltfläche <em>📋 Ergebnis-Manager</em> in der Kopfleiste listet alle gespeicherten
-    Ergebnisse (Datum/Zeit, Treffer, Suchbegriff, Laufwerke), das neueste oben.
+    Ergebnisse (Datum/Zeit, Treffer, Suchbegriff, Suchbereich), das neueste oben.
+    Bei einer Ordnersuche steht im Suchbereich der durchsuchte Ordnerpfad.
   </p>
   <table>
     <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
-    <tr><td>📂 Laden</td><td>Holt Suchkriterien und Trefferliste zurück ins Hauptfenster (Doppelklick geht auch).</td></tr>
+    <tr><td>📂 Laden</td><td>Holt Suchkriterien und Trefferliste zurück ins Hauptfenster (Doppelklick geht auch).
+        Bei einer gespeicherten Ordnersuche wird auch der Ordner wieder ins Feld „Nur Ordner" übernommen.</td></tr>
     <tr><td>🌐 HTML öffnen</td><td>Öffnet den HTML-Bericht zum gewählten Ergebnis im Browser.</td></tr>
     <tr><td>🗑 Löschen</td><td>Löscht die markierten gespeicherten Ergebnisse (Mehrfachauswahl möglich).</td></tr>
     <tr><td>📅 Von–Bis löschen</td><td>Löscht alle gespeicherten Ergebnisse in einem Datumsbereich.</td></tr>
@@ -522,6 +531,11 @@
     findet sämtliche Bilder. Mit Datums-Eingrenzung lassen sich Urlaubsfotos eines
     bestimmten Jahres schnell wiederfinden.
   </div>
+  <div class="box box-info">
+    <strong>🌐 Webseite <span class="new-badge">NEU</span></strong>
+    In der Fußzeile des Programms führt der Link <em>🌐 Webseite</em> direkt zur
+    FileFinder-Projektseite mit allen Versionen und dieser Hilfe.
+  </div>
   <div class="box box-tip">
     <strong>Gezielt statt überall suchen</strong>
     Wenn klar ist, wo die Datei ungefähr liegt (z. B. im Download- oder Projektordner),
@@ -580,7 +594,7 @@
 
 <div class="footer">
   © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
-  &nbsp;·&nbsp; S-IT FileFinder v1.2.14
+  &nbsp;·&nbsp; S-IT FileFinder v1.2.15
 </div>
 
 </body>
