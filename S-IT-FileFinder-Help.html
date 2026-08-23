@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-IT FileFinder – Help</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #F5F5F5;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #2C3E50;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header .icon { font-size: 28px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+  .header .version {
+    margin-left: auto;
+    font-size: 12px;
+    color: #BDC3C7;
+    white-space: nowrap;
+  }
+
+  /* ── Layout ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 28px 48px; }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2C3E50;
+    padding: 7px 14px;
+    border-radius: 4px;
+    margin: 28px 0 12px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin: 16px 0 6px;
+    border-left: 4px solid #3498DB;
+    padding-left: 8px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── Tabelle ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  th {
+    background: #2C3E50;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #ECF0F1;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FAFB; }
+
+  /* ── Hinweisboxen ── */
+  .box {
+    border-radius: 4px;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
+  .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
+  .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+  .box-new     { background: #F4ECF7; border-left: 4px solid #8E44AD; }
+
+  .box strong { display: block; margin-bottom: 3px; }
+
+  /* ── Code/Beispiel ── */
+  code {
+    background: #ECF0F1;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    color: #E74C3C;
+  }
+
+  /* ── Neu-Badge ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    letter-spacing: .3px;
+  }
+
+  /* ── Sprachleiste ── */
+  .langbar {
+    background: #22303C;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .langbar .lbl { color: #7F8C8D; }
+  .langbar a, .langbar .cur {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #BDC3C7;
+  }
+  .langbar a:hover { background: #2C3E50; color: #fff; }
+  .langbar .cur { background: #2C3E50; color: #fff; font-weight: 700; }
+  .langbar svg { border: 1px solid #7F8C8D; display: block; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #2C3E50;
+    color: #BDC3C7;
+    text-align: center;
+    font-size: 11px;
+    padding: 13px;
+    margin-top: 40px;
+  }
+
+  /* ── Schaltflächen-Badges ── */
+  .btn {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .btn-green  { background: #27AE60; }
+  .btn-orange { background: #F39C12; }
+  .btn-red    { background: #E74C3C; }
+  .btn-blue   { background: #3498DB; }
+  .btn-dark   { background: #2C3E50; }
+  .btn-light  { background: #2C3E50; color: #ECF0F1; }
+
+  /* ── Tastenkürzel ── */
+  kbd {
+    display: inline-block;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #2C3E50;
+    box-shadow: 0 1px 0 #BDC3C7;
+  }
+
+  /* ── Spende ── */
+  .donate {
+    background: #fff;
+    border: 1px solid #D5D8DC;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .donate .pp-icon { font-size: 28px; }
+  .donate p { margin: 0; font-size: 13px; }
+  .donate a {
+    color: #3498DB;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .donate a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="icon">🔍</span>
+  <h1>S-IT FileFinder</h1>
+  <span class="version">v1.2.16 &nbsp;|&nbsp; Help &amp; Usage</span>
+</div>
+
+<div class="langbar">
+  <span class="lbl">Language:</span>
+  <a href="S-IT-FileFinder-Hilfe.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#000"/><rect y="4.67" width="21" height="4.66" fill="#DD0000"/><rect y="9.33" width="21" height="4.67" fill="#FFCE00"/></svg> Deutsch</a>
+  <span class="cur"><svg width="21" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg> English</span>
+  <a href="S-IT-FileFinder-Aide.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="7" height="14" fill="#002395"/><rect x="7" width="7" height="14" fill="#fff"/><rect x="14" width="7" height="14" fill="#ED2939"/></svg> Français</a>
+  <a href="S-IT-FileFinder-Ayuda.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#AA151B"/><rect y="4" width="21" height="6" fill="#F1BF00"/></svg> Español</a>
+</div>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <h2>Overview</h2>
+  <p>
+    <strong>S-IT FileFinder</strong> helps you find files on your local PC –
+    even if all you remember is a fragment of the name, a rough date or the file type.
+    The search runs directly on the file system, without an index service, and covers either all
+    selected drives at once or one specific folder. Result lists can be sorted, saved
+    and loaded again later, and selected files can be copied, moved or sent to the
+    Recycle Bin straight from the tool.
+  </p>
+
+  <!-- USER INTERFACE -->
+  <h2>User interface</h2>
+  <p>
+    The window has three areas: the <strong>header bar</strong> with the
+    Start, Results Manager, Settings and Help buttons, the <strong>search criteria area</strong>
+    and the <strong>result table</strong> with the save buttons below it.
+  </p>
+
+  <h3>Header bar</h3>
+  <table>
+    <tr><th style="width:34%">Button</th><th>Function</th></tr>
+    <tr>
+      <td><span class="btn btn-light">🏠 Start</span></td>
+      <td>Returns the program to the empty start view at any time: fields and
+          result list are cleared, and a loaded result or the
+          “Large files” view is closed.</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-light">⚙️ Settings</span></td>
+      <td>
+        Opens the settings dialog for <strong>display</strong> (scaling,
+        advanced filters at startup), <strong>default sorting</strong> and <strong>language</strong>.
+        All settings are stored in the file <code>FileFinder-config.ini</code>
+        – there is no need to edit the INI by hand.
+      </td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-light">📋 Results Manager</span></td>
+      <td>Shows all saved results for loading, viewing and deleting (see below).</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-blue">❓ Help</span></td>
+      <td>Opens this help file in your default browser.</td>
+    </tr>
+  </table>
+
+  <!-- SEARCH CRITERIA -->
+  <h2>Search criteria</h2>
+
+  <h3>Basic search</h3>
+  <table>
+    <tr><th style="width:34%">Field</th><th>Meaning &amp; examples</th></tr>
+    <tr>
+      <td><strong>File name contains</strong></td>
+      <td>
+        One or more name fragments, separated by <strong>spaces</strong>.
+        The search is <em>not</em> case-sensitive.<br>
+        Example: <code>Werner Schmi</code> → finds all files
+        containing both <em>werner</em> and <em>schmi</em> in the name.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>File type / extension</strong></td>
+      <td>
+        File extension with or without the dot.<br>
+        Examples: <code>jpg</code> &nbsp;·&nbsp; <code>.pdf</code> &nbsp;·&nbsp; <code>docx</code>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Advanced filters</h3>
+  <p>
+    The advanced filters can be shown or hidden with the <kbd>F11</kbd> key or the
+    <em>“🔍 Advanced filters ▼”</em> toggle. Whether they are visible at startup
+    is set in the <em>⚙️ Settings</em> dialog. The window adjusts automatically.
+  </p>
+  <table>
+    <tr><th style="width:34%">Field</th><th>Meaning &amp; examples</th></tr>
+    <tr>
+      <td><strong>📅 Created from / to</strong></td>
+      <td>
+        Narrows the search by the date the file was <em>created</em>.<br>
+        Format: <code>DD.MM.YYYY</code> &nbsp;·&nbsp;
+        Example: <code>01.01.2023</code> to <code>31.12.2023</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>✏️ Modified from / to</strong></td>
+      <td>
+        Narrows the search by the date of the last <em>edit/save</em>.<br>
+        Useful for finding recently edited documents. Format: <code>DD.MM.YYYY</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Size at least / at most (MB)</strong></td>
+      <td>
+        Limits the file size in megabytes. Both fields are optional.
+      </td>
+    </tr>
+  </table>
+
+  <div class="box box-info">
+    <strong>Created or Modified – what is the difference?</strong>
+    <em>Created</em> is the date the file was placed in its current location.
+    <em>Modified</em> is the date of the last edit. For <em>copied</em> files
+    the created date is often newer than the modified date – so a file can be old
+    even though it looks “newly created”.
+  </div>
+
+  <div class="box box-info">
+    <strong>All fields are optional</strong>
+    Empty fields are ignored during the search. It is enough, for example, to enter
+    just an extension to find all files of that type.
+  </div>
+
+  <!-- SEARCH SCOPE -->
+  <h2>Search scope: folder or drives</h2>
+  <p>
+    Above the drive area there is the field <strong>Folder only</strong>.
+    If a folder is entered there (select it via <span class="btn" style="background:#3498DB">Browse…</span>
+    or type it in directly), only this folder including its
+    subfolders is searched – the drive selection below is greyed out
+    and all check marks are removed.
+    The field applies to both searches, including <em>🔍 Large files</em>.
+    With <strong>✕</strong> or via <em>✖ Clear fields</em> the field is emptied
+    and the previous drive selection returns.
+  </p>
+  <p>
+    Without a folder entered, the drive selection applies as before: all detected
+    drives are shown automatically as check boxes. With
+    <strong>All</strong> every drive is checked or unchecked at once;
+    any combination of individual drives is possible.
+  </p>
+  <div class="box box-warn">
+    <strong>Note on system folders</strong>
+    In the root directory of each drive, the Windows system folders
+    (<code>Windows</code>, <code>$Recycle.Bin</code>, <code>System Volume Information</code> and others)
+    are skipped automatically to speed up the search. This also applies when a
+    drive root such as <code>C:\</code> is entered in the <strong>Folder only</strong> field.
+    All other folders are searched completely.
+  </div>
+
+  <!-- SEARCH BUTTONS -->
+  <h2>Search buttons</h2>
+  <table>
+    <tr><th style="width:34%">Button</th><th>Function</th></tr>
+    <tr>
+      <td><span class="btn btn-green">🔍 START SEARCH</span></td>
+      <td>Starts the search with the current criteria. Hits appear as they are found.
+          Alternative: <kbd>Enter</kbd> in the name field.</td>
+    </tr>
+    <tr>
+      <td><span class="btn" style="background:#16A085">🔍 Large files</span></td>
+      <td>
+        Finds the <strong>100 largest files</strong> on the checked drives
+        or in the entered folder,
+        sorted by size in descending order. Name, date and size filters are
+        ignored – only the size counts. Ideal for quickly spotting the biggest
+        space hogs.
+      </td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-orange">⏹ Cancel</span></td>
+      <td>Stops a running search immediately. Hits found so far remain visible.</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-red">✖ Clear fields</span></td>
+      <td>Resets all input fields and empties the result table.</td>
+    </tr>
+  </table>
+
+  <!-- RESULT TABLE -->
+  <h2>Result table</h2>
+  <p>
+    Found files are shown with file name, size, modified and created date and
+    path. The table scrolls; column widths can be adjusted with the mouse.
+  </p>
+
+  <h3>Sorting</h3>
+  <p>
+    Clicking a <strong>column header</strong> sorts the list by that
+    column; clicking again reverses the direction (arrow ▲/▼). Size is sorted correctly by
+    bytes, dates by their real timestamp – not by the displayed text.
+    Which sorting is applied <em>automatically</em> after a search is set in the
+    <em>⚙️ Settings</em> dialog (default: Modified, newest first).
+  </p>
+
+  <h3>Double-click</h3>
+  <p>Opens the folder containing the file in Windows Explorer – with the file selected.</p>
+
+  <h3>Multiple selection</h3>
+  <p>
+    With <kbd>Ctrl</kbd> individual rows are added to the selection, with
+    <kbd>Shift</kbd> whole blocks. The selection is the basis for the
+    action window (copy / move / delete, see below).
+  </p>
+
+  <h3>Right-click – context menu</h3>
+  <table>
+    <tr><th style="width:44%">Menu item</th><th>Action</th></tr>
+    <tr><td>📂 Open folder in Explorer</td><td>Explorer opens the folder with the file selected.</td></tr>
+    <tr><td>▶ Open file</td><td>Opens the file with its associated default program.</td></tr>
+    <tr><td>📋 Copy path</td><td>Copies the full file path to the clipboard.</td></tr>
+    <tr>
+      <td>🔧 Selection: copy / move / delete …</td>
+      <td>Opens the action window for all selected files (see below).</td>
+    </tr>
+  </table>
+
+  <!-- ACTION WINDOW -->
+  <h2>Action window: copy / move / delete</h2>
+  <p>
+    Select one or more files in the result list and choose
+    <em>“🔧 Selection: copy / move / delete …”</em> via right-click. A separate
+    window opens, listing the selected files – all actions run <strong>inside the tool
+    itself</strong>, without calling Explorer, with their own progress bar.
+  </p>
+  <table>
+    <tr><th style="width:34%">Action</th><th>Behaviour</th></tr>
+    <tr>
+      <td><span class="btn btn-blue">📋 Copy</span></td>
+      <td>Asks for a destination folder and copies the selection there. The result list stays unchanged.</td>
+    </tr>
+    <tr>
+      <td><span class="btn" style="background:#8E44AD">✂ Move</span></td>
+      <td>Moves the selection to the destination folder. Moved files disappear from the list.</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-red">🗑 To Recycle Bin</span></td>
+      <td>Puts the selection into the <strong>Windows Recycle Bin</strong> – so it is recoverable,
+          not permanently deleted. Deleted files disappear from the list.</td>
+    </tr>
+  </table>
+  <div class="box box-tip">
+    <strong>No overwriting</strong>
+    If a file of the same name already exists at the destination, the copy automatically
+    gets a suffix (<code>Name (2).ext</code>, <code>Name (3).ext</code> …) –
+    so nothing is ever lost by accident.
+  </div>
+
+  <!-- SAVING RESULTS -->
+  <h2>Saving results &amp; Results Manager</h2>
+  <p>
+    Below the result table there are two buttons. Both store the result in the fixed
+    folder <code>FileFinder-Suchen\</code> next to the program – each as a loadable
+    file (<code>.ffs</code>) <em>and</em> as an HTML report for viewing.
+  </p>
+  <table>
+    <tr><th style="width:34%">Button</th><th>Function</th></tr>
+    <tr>
+      <td><span class="btn btn-blue">💾 Save result</span></td>
+      <td>Saves the current result quietly (for the Results Manager).</td>
+    </tr>
+    <tr>
+      <td><span class="btn btn-dark">🖨 Result report</span></td>
+      <td>Saves the result and opens the HTML report in your browser right away – for viewing,
+          printing or sharing. The report header shows under <strong>Search scope</strong>
+          where the search ran – the drives, or the folder path for a folder search.</td>
+    </tr>
+  </table>
+
+  <h3>Results Manager</h3>
+  <p>
+    The <em>📋 Results Manager</em> button in the header bar lists all saved
+    results (date/time, hits, search term, search scope), newest first.
+    For a folder search, the search scope shows the folder path.
+  </p>
+  <table>
+    <tr><th style="width:34%">Button</th><th>Function</th></tr>
+    <tr><td>📂 Load</td><td>Brings search criteria and result list back into the main window (double-click works too).
+        For a saved folder search, the folder is also restored to the “Folder only” field.</td></tr>
+    <tr><td>🌐 Open HTML</td><td>Opens the HTML report of the selected result in your browser.</td></tr>
+    <tr><td>🗑 Delete</td><td>Deletes the selected saved results (multiple selection possible).</td></tr>
+    <tr><td>📅 Delete from–to</td><td>Deletes all saved results within a date range.</td></tr>
+  </table>
+  <div class="box box-info">
+    <strong>A loaded result is locked against re-saving</strong>
+    Once a result has been loaded in the manager, <em>“Save result”</em> and
+    <em>“Result report”</em> are locked – an already saved result should not
+    keep copying itself endlessly. A dark blue <strong>ⓘ</strong> then appears next to the status line
+    with an explanation. In this case, open the HTML report via <em>“🌐 Open HTML”</em> in the
+    Results Manager. A <strong>new search</strong> or <em>“Clear fields”</em> unlocks
+    saving again.
+  </div>
+
+  <!-- SETTINGS -->
+  <h2>Settings (⚙️)</h2>
+  <p>
+    All settings are made through the dialog and stored in <code>FileFinder-config.ini</code>
+    – no manual work on the INI is needed.
+  </p>
+  <table>
+    <tr><th style="width:34%">Setting</th><th>Meaning</th></tr>
+    <tr>
+      <td><strong>Scaling</strong></td>
+      <td>Display size: <em>Automatic</em> (system value) or 90 % to 200 %.
+          A change takes effect after restarting the program – the dialog
+          offers the restart directly (the program only, not the PC).</td>
+    </tr>
+    <tr>
+      <td><strong>Show advanced filters at startup</strong></td>
+      <td>Sets whether the advanced filters (date/size) are visible when the program starts.</td>
+    </tr>
+    <tr>
+      <td><strong>Language</strong> <span class="new-badge">NEW</span></td>
+      <td>Interface language: Deutsch, English, Français or Español – selected
+          via flags in the <em>Language</em> section. A change takes effect after the
+          offered restart of the program.</td>
+    </tr>
+    <tr>
+      <td><strong>Default sorting</strong></td>
+      <td>Column (file name / size / modified / created / path / none) and direction
+          (descending / ascending) by which the list is sorted automatically
+          when a search finishes.</td>
+    </tr>
+  </table>
+
+  <!-- LANGUAGES -->
+  <h2>Languages <span class="new-badge">NEW</span></h2>
+  <p>
+    From version 1.2.16 on, FileFinder speaks four languages: <strong>German,
+    English, French and Spanish</strong>. The language is chosen in the
+    <em>⚙️ Settings</em> dialog and, after the program restarts, applies to the
+    whole interface – including all messages and the HTML result report.
+    This help also exists in all four languages;
+    the language bar at the top of every page switches between them.
+  </p>
+  <div class="box box-info">
+    <strong>File names stay the same in every language</strong>
+    Saved results are always called <code>Ergebnis_…</code>, and the folder
+    <code>FileFinder-Suchen\</code> and the <code>FileFinder-config.ini</code>
+    keep their names. The same installation therefore finds its settings and
+    results again after a language change.
+  </div>
+  <div class="box box-info">
+    <strong>Language packs</strong>
+    The languages ship as verified, encrypted language packs
+    (<code>sit_fftexte_….3kl</code>) next to the program. If a pack is missing,
+    FileFinder starts in German. Further languages will appear as
+    language packs from Sattler IT-Service.
+  </div>
+
+  <!-- KEYBOARD SHORTCUTS -->
+  <h2>Keyboard shortcuts</h2>
+  <table>
+    <tr><th style="width:34%">Key</th><th>Function</th></tr>
+    <tr><td><kbd>F11</kbd></td><td>Show / hide the advanced filters.</td></tr>
+    <tr><td><kbd>Enter</kbd></td><td>Start the search (when the cursor is in the name field).</td></tr>
+    <tr><td><kbd>ESC</kbd></td><td>Quit the program.</td></tr>
+  </table>
+
+  <!-- STATUS LINE -->
+  <h2>Status line &amp; progress bar</h2>
+  <p>
+    While the search is running, a progress bar moves and the status line shows the progress.
+    When it finishes, the total count appears; skipped folders without access are
+    mentioned as well, e.g.:
+    <code>✔ Search finished — 47 hits (3 folders without access)</code>
+  </p>
+
+  <!-- TIPS -->
+  <h2>Tips &amp; notes</h2>
+  <div class="box box-tip">
+    <strong>Quick search for image types</strong>
+    Enter the extension <code>jpg</code> or <code>png</code>, select all drives →
+    finds all images. With a date range, holiday photos from a
+    particular year are found in no time.
+  </div>
+  <div class="box box-info">
+    <strong>🌐 Website</strong>
+    In the program's footer, the <em>🌐 Website</em> link leads directly to the
+    FileFinder project page with all versions and this help.
+  </div>
+  <div class="box box-tip">
+    <strong>Search where it matters, not everywhere</strong>
+    If you roughly know where the file is (e.g. in the download or project folder),
+    enter that folder in the <strong>Folder only</strong> field – the search then
+    finishes in seconds instead of crawling the whole disk.
+  </div>
+  <div class="box box-tip">
+    <strong>Finding space hogs</strong>
+    Check the drives and click <em>🔍 Large files</em> → the 100 largest files
+    appear immediately, biggest first. Fast and clear, without an extra program.
+  </div>
+  <div class="box box-tip">
+    <strong>Cleaning up in one go</strong>
+    Select several large or old files with <kbd>Ctrl</kbd>/<kbd>Shift</kbd>,
+    right-click → action window → to the Recycle Bin. Since the Recycle Bin is
+    recoverable, a wrong click stays harmless.
+  </div>
+  <div class="box box-tip">
+    <strong>Adjusting the display</strong>
+    On very large or small screens, adjust the scaling via <em>⚙️ Settings</em>
+    (90 % to 200 %). The program then restarts – not the PC.
+  </div>
+  <div class="box box-warn">
+    <strong>Network drives</strong>
+    Network drives mapped to a drive letter appear in the list and can
+    be searched. On slow connections this can take considerably longer.
+  </div>
+  <div class="box box-info">
+    <strong>Search speed</strong>
+    The search runs in the background and does not block the window. On very large
+    drives (several TB) a full search can take a while; it can be stopped at any
+    time with <strong>Cancel</strong>.
+  </div>
+
+  <!-- SYSTEM REQUIREMENTS -->
+  <h2>System requirements</h2>
+  <table>
+    <tr><td style="width:34%"><strong>Operating system</strong></td><td>Windows 10 / 11</td></tr>
+    <tr><td><strong>Python</strong></td><td>3.10 or newer (only for the .py version)</td></tr>
+    <tr><td><strong>Dependencies</strong></td><td>Python standard library only (tkinter, os, threading, ctypes …)</td></tr>
+    <tr><td><strong>Permissions</strong></td><td>No administrator rights required; locked folders are skipped</td></tr>
+  </table>
+
+  <!-- DONATION -->
+  <div class="donate">
+    <span class="pp-icon">💛</span>
+    <p>
+      <strong>S-IT FileFinder is freeware.</strong><br>
+      If you find the tool useful, I would be happy about a small contribution via PayPal:<br>
+      <a href="mailto:tool-entwicklung@sattler-it.de">tool-entwicklung@sattler-it.de</a>
+      &nbsp;·&nbsp; © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Author: Hans Udo Sattler
+    </p>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Author: Hans Udo Sattler
+  &nbsp;·&nbsp; S-IT FileFinder v1.2.16
+</div>
+
+</body>
+</html>

@@ -45,6 +45,7 @@
       font-size: 13px;
       padding-bottom: 4px;
     }
+    .lang-badge { background: #1F6FA8 !important; border-color: #1F6FA8 !important; }
     .header-badge {
       margin-left: auto;
       background: rgba(255,255,255,.08);
@@ -355,6 +356,7 @@
     </div>
     <span class="header-sub">Dateien wiederfinden – einfach und schnell</span>
     <span class="header-badge">Freeware · Portable · Windows</span>
+    <span class="header-badge lang-badge">🇩🇪 DE · 🇬🇧 EN · 🇫🇷 FR · 🇪🇸 ES</span>
   </div>
 </header>
 <div class="divider"></div>
@@ -366,12 +368,12 @@
       <h1>Dateien wiederfinden<br>&ndash; ohne Syntaxkenntnisse, ohne Handbuch</h1>
       <p>Windows-Bordmittel und Profi-Suchtools sind für erfahrene Nutzer gemacht. S-IT FileFinder richtet sich an alle, die einfach nur eine Datei wiederfinden wollen: Namensbruchstück eingeben, Laufwerke oder gezielt einen Ordner wählen, suchen. Gefundene Dateien lassen sich sortieren, als Ergebnis speichern und direkt aus dem Tool heraus kopieren, verschieben oder in den Papierkorb legen.</p>
       <div class="btn-row-download">
-        <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.15/s-it-filefinder_latest.zip" class="btn-download">⬇ Download (portabel)</a>
+        <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases/download/v1.2.16/s-it-filefinder_latest.zip" class="btn-download">⬇ Download (portabel)</a>
       </div>
       <div style="margin-top:16px;">
         <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases" class="btn-secondary" style="margin-left:0;">Alle Versionen</a>
       </div>
-      <span class="btn-hint">Version 1.2.15 · ZIP entpacken und starten, kein Setup nötig</span>
+      <span class="btn-hint">Version 1.2.16 · vier Sprachen · ZIP entpacken und starten, kein Setup nötig</span>
     </div>
     <div class="hero-screenshot">
       <img src="Screenshots/1_FF-Hero_Uebersicht.png" alt="S-IT FileFinder – Hauptfenster mit Suchergebnissen und Kontextmenü">
@@ -385,13 +387,18 @@
   <div class="section-title">⚙ Funktionen</div>
   <div class="cards">
     <div class="card">
+      <div class="card-icon">🌍</div>
+      <h3>Vier Sprachen <span style="font-size:10px;font-weight:700;color:#fff;background:var(--green);padding:1px 7px;border-radius:10px;vertical-align:middle">NEU</span></h3>
+      <p>Deutsch, Englisch, Französisch und Spanisch &ndash; jederzeit im Konfig-Dialog umstellbar. Übersetzt sind die Oberfläche, alle Meldungen, der Ergebnis-Manager, der HTML-Bericht und die Hilfe.</p>
+    </div>
+    <div class="card">
       <div class="card-icon">🔎</div>
       <h3>Namensbruchstücke</h3>
       <p>Suche nach einem oder mehreren Teilen des Dateinamens &ndash; durch Leerzeichen getrennt, Groß-/Kleinschreibung egal.</p>
     </div>
     <div class="card">
       <div class="card-icon">📂</div>
-      <h3>Gezielte Ordnersuche <span style="font-size:10px;font-weight:700;color:#fff;background:var(--green);padding:1px 7px;border-radius:10px;vertical-align:middle">NEU</span></h3>
+      <h3>Gezielte Ordnersuche</h3>
       <p>Statt ganzer Laufwerke nur einen bestimmten Ordner samt Unterordnern durchsuchen (z.&nbsp;B. den Download- oder einen Projektordner) &ndash; die Suche ist dann in Sekunden fertig. Beim Leeren des Felds kehrt die vorherige Laufwerksauswahl automatisch zurück.</p>
     </div>
     <div class="card">
@@ -436,6 +443,40 @@
     </div>
   </div>
 
+  <!-- SPRACHEN -->
+  <div class="section-title">🌍 Sprachen</div>
+  <p style="font-size:14px; margin-bottom:16px;">
+    S-IT FileFinder spricht vier Sprachen. Die Sprache lässt sich jederzeit im
+    Konfig-Dialog umstellen; Hilfe und Änderungsverlauf gibt es zu jeder Sprache.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🇩🇪</div>
+      <h3>Deutsch</h3>
+      <p><a href="S-IT-FileFinder-Hilfe.html" style="color:var(--blue)">Hilfe &amp; Dokumentation</a><br>
+         <a href="S-IT-FileFinder-Changelog.html" style="color:var(--blue)">Änderungsverlauf</a></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🇬🇧</div>
+      <h3>English</h3>
+      <p><a href="S-IT-FileFinder-Help.html" style="color:var(--blue)">Help &amp; documentation</a><br>
+         <a href="S-IT-FileFinder-Changelog-en.html" style="color:var(--blue)">Changelog</a></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🇫🇷</div>
+      <h3>Français</h3>
+      <p><a href="S-IT-FileFinder-Aide.html" style="color:var(--blue)">Aide &amp; documentation</a><br>
+         <a href="S-IT-FileFinder-Changelog-fr.html" style="color:var(--blue)">Journal des modifications</a></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🇪🇸</div>
+      <h3>Español</h3>
+      <p><a href="S-IT-FileFinder-Ayuda.html" style="color:var(--blue)">Ayuda y documentación</a><br>
+         <a href="S-IT-FileFinder-Changelog-es.html" style="color:var(--blue)">Registro de cambios</a></p>
+    </div>
+  </div>
+
   <!-- SCREENSHOTS -->
   <div class="section-title">📸 Screenshots</div>
   <div class="gallery">
@@ -459,10 +500,10 @@
 
   <!-- DOWNLOAD -->
   <div class="section-title">⬇ Download &amp; Dokumentation</div>
-  <p style="font-size:14px; margin-bottom:16px;">Die aktuelle Version findest du im <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases" style="color:var(--blue)">Release-Bereich auf GitHub</a>. Die Bedienungsanleitung lässt sich auch <a href="S-IT-FileFinder-Hilfe.html" style="color:var(--blue)">online ansehen</a>.</p>
+  <p style="font-size:14px; margin-bottom:10px;">Die aktuelle Version findest du im <a href="https://github.com/SattlerIT/S-IT-FileFinder/releases" style="color:var(--blue)">Release-Bereich auf GitHub</a>.</p>
 
   <div class="ok-box">
-    <strong>Keine Installation nötig:</strong> ZIP-Datei entpacken, den Ordner <em>S-IT-FileFinder\</em> mit der enthaltenen <em>S-IT-FileFinder.exe</em> an einen beliebigen Ort legen und die EXE starten. Die Konfiguration wird automatisch im Programmordner angelegt.
+    <strong>Keine Installation nötig:</strong> ZIP-Datei entpacken, den Ordner <em>S-IT-FileFinder\</em> mit der enthaltenen <em>S-IT-FileFinder.exe</em> an einen beliebigen Ort legen und die EXE starten. Die Unterordner <em>Lang</em>, <em>Help</em>, <em>License</em> und <em>Config</em> gehören dazu und müssen beim Programm bleiben. Die Konfiguration wird automatisch im Ordner <em>Config</em> angelegt.
   </div>
 
   <!-- SYSTEMANFORDERUNGEN -->
@@ -471,9 +512,10 @@
     <tr><th>Komponente</th><th>Anforderung</th></tr>
     <tr><td>Betriebssystem</td><td>Windows 10 / Windows 11 (64-Bit)</td></tr>
     <tr><td>Bildschirm</td><td>Ab 1024 × 768 &ndash; optimiert für FHD und UHD/4K</td></tr>
+    <tr><td>Sprachen</td><td>Deutsch, Englisch, Französisch, Spanisch &ndash; im Programm umstellbar</td></tr>
     <tr><td>Rechte</td><td>Keine Administratorrechte erforderlich</td></tr>
     <tr><td>Installation</td><td>Nicht erforderlich &ndash; portabel, direkt aus dem Ordner startbar</td></tr>
-    <tr><td>Lieferumfang</td><td>Ordner <em>S-IT-FileFinder\</em> mit EXE, Laufzeitdateien, HTML-Hilfe, Lizenz und Haftungsausschluss</td></tr>
+    <tr><td>Lieferumfang</td><td>Ordner <em>S-IT-FileFinder\</em> mit EXE und Laufzeitdateien sowie den Unterordnern <em>Lang</em> (Sprachpakete), <em>Help</em> (Hilfe und Änderungsverlauf in vier Sprachen), <em>License</em> (Lizenz und Haftungsausschluss) und <em>Config</em></td></tr>
   </table>
 
   <!-- SICHERHEITSHINWEIS -->
@@ -496,6 +538,15 @@
   <!-- CHANGELOG -->
   <div class="section-title">📋 Changelog</div>
   <div class="changelog">
+    <div class="changelog-entry">
+      <div class="changelog-version">v1.2.16 <span>August 2026</span></div>
+      <ul>
+        <li>Neu: Vier Sprachen &ndash; Deutsch, Englisch, Französisch und Spanisch. Die Umstellung erfolgt im Konfig-Dialog über den Abschnitt „Sprache"; nach einer kurzen Rückfrage startet das Programm in der gewählten Sprache neu. Übersetzt sind Oberfläche, Kontextmenü, Statuszeilen, alle Meldungsfenster, der Ergebnis-Manager und das Fenster für Dateiaktionen</li>
+        <li>Neu: Der HTML-Ergebnisbericht folgt der Programmsprache &ndash; Überschriften, Spalten und Kopfangaben</li>
+        <li>Neu: Hilfe und Änderungsverlauf in allen vier Sprachen, mit Sprachleiste oben auf jeder Seite</li>
+        <li>Verbessert: Aufgeräumter Programmordner &ndash; neben der EXE liegen nur noch die Unterordner <code>Lang</code>, <code>Help</code>, <code>License</code> und <code>Config</code></li>
+      </ul>
+    </div>
     <div class="changelog-entry">
       <div class="changelog-version">v1.2.15 <span>August 2026</span></div>
       <ul>
@@ -588,6 +639,7 @@
   <a href="https://github.com/SattlerIT/S-IT-FileFinder/blob/main/S-IT-FileFinder_Lizenz.txt">Lizenz</a> &nbsp;•&nbsp;
   <a href="https://sattlerit.github.io/sattlerit-tools/">Tool-Übersicht</a> &nbsp;•&nbsp;
   <a href="Disclaimer.txt">Haftungsausschluss</a> &nbsp;•&nbsp;
+  <a href="S-IT-FileFinder-Changelog.html">Änderungsverlauf</a> &nbsp;•&nbsp;
   <a href="https://sattlerit.github.io/sattlerit-tools/impressum.html">Impressum</a>
 </footer>
 

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-IT FileFinder – Änderungsverlauf</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #F5F5F5;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #2C3E50;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header .icon { font-size: 28px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+  .header .version {
+    margin-left: auto;
+    font-size: 12px;
+    color: #BDC3C7;
+    white-space: nowrap;
+  }
+
+  /* ── Layout ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 28px 48px; }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2C3E50;
+    padding: 7px 14px;
+    border-radius: 4px;
+    margin: 28px 0 12px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin: 16px 0 6px;
+    border-left: 4px solid #3498DB;
+    padding-left: 8px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── Tabelle ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  th {
+    background: #2C3E50;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #ECF0F1;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FAFB; }
+
+  /* ── Hinweisboxen ── */
+  .box {
+    border-radius: 4px;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
+  .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
+  .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+  .box-new     { background: #F4ECF7; border-left: 4px solid #8E44AD; }
+
+  .box strong { display: block; margin-bottom: 3px; }
+
+  /* ── Code/Beispiel ── */
+  code {
+    background: #ECF0F1;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    color: #E74C3C;
+  }
+
+  /* ── Neu-Badge ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    letter-spacing: .3px;
+  }
+
+  /* ── Sprachleiste ── */
+  .langbar {
+    background: #22303C;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .langbar .lbl { color: #7F8C8D; }
+  .langbar a, .langbar .cur {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #BDC3C7;
+  }
+  .langbar a:hover { background: #2C3E50; color: #fff; }
+  .langbar .cur { background: #2C3E50; color: #fff; font-weight: 700; }
+  .langbar svg { border: 1px solid #7F8C8D; display: block; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #2C3E50;
+    color: #BDC3C7;
+    text-align: center;
+    font-size: 11px;
+    padding: 13px;
+    margin-top: 40px;
+  }
+
+  /* ── Schaltflächen-Badges ── */
+  .btn {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .btn-green  { background: #27AE60; }
+  .btn-orange { background: #F39C12; }
+  .btn-red    { background: #E74C3C; }
+  .btn-blue   { background: #3498DB; }
+  .btn-dark   { background: #2C3E50; }
+  .btn-light  { background: #2C3E50; color: #ECF0F1; }
+
+  /* ── Tastenkürzel ── */
+  kbd {
+    display: inline-block;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #2C3E50;
+    box-shadow: 0 1px 0 #BDC3C7;
+  }
+
+  /* ── Spende ── */
+  .donate {
+    background: #fff;
+    border: 1px solid #D5D8DC;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .donate .pp-icon { font-size: 28px; }
+  .donate p { margin: 0; font-size: 13px; }
+  .donate a {
+    color: #3498DB;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .donate a:hover { text-decoration: underline; }
+
+  /* ── Änderungsverlauf: Listen ── */
+  .content ul { margin: 0 0 14px 20px; }
+  .content li { margin-bottom: 6px; }
+  .content li strong { color: #2C3E50; }
+  .intro { color: #5D6D7E; font-size: 13px; margin-bottom: 22px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="icon">🔍</span>
+  <h1>S-IT FileFinder</h1>
+  <span class="version">v1.2.16 &nbsp;|&nbsp; Änderungsverlauf</span>
+</div>
+
+<div class="langbar">
+  <span class="lbl">Sprache:</span>
+  <span class="cur"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#000"/><rect y="4.67" width="21" height="4.66" fill="#DD0000"/><rect y="9.33" width="21" height="4.67" fill="#FFCE00"/></svg> Deutsch</span>
+  <a href="S-IT-FileFinder-Changelog-en.html"><svg width="21" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg> English</a>
+  <a href="S-IT-FileFinder-Changelog-fr.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="7" height="14" fill="#002395"/><rect x="7" width="7" height="14" fill="#fff"/><rect x="14" width="7" height="14" fill="#ED2939"/></svg> Français</a>
+  <a href="S-IT-FileFinder-Changelog-es.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#AA151B"/><rect y="4" width="21" height="6" fill="#F1BF00"/></svg> Español</a>
+</div>
+
+<div class="content">
+
+  <p class="intro">Alle nennenswerten Änderungen an S-IT FileFinder, neueste Version oben.<br>Die Versionen 1.2.5–1.2.11 waren interne Zwischenschritte und sind in v1.2.12 zusammengefasst.</p>
+
+  <h2>v1.2.16 – Vier Sprachen: Deutsch, Englisch, Französisch, Spanisch<span class="new-badge">AKTUELL</span></h2>
+  <ul>
+    <li><strong>Sprachwahl:</strong> Das Programm gibt es jetzt in vier Sprachen. Die Umstellung erfolgt im Konfig-Dialog über den neuen Abschnitt „Sprache" (mit Flaggen); nach einer kurzen Rückfrage startet FileFinder in der gewählten Sprache neu. Die Einstellung wird in <code>FileFinder-config.ini</code> gespeichert – ohne Eintrag bleibt alles wie bisher auf Deutsch.</li>
+    <li><strong>Vollständig übersetzt:</strong> Oberfläche, Kontextmenü, Statuszeilen, alle Meldungsfenster, der Ergebnis-Manager und das Fenster für Dateiaktionen (Kopieren, Verschieben, Papierkorb).</li>
+    <li><strong>Ergebnisbericht in der gewählten Sprache:</strong> Der HTML-Bericht folgt der Programmsprache – Überschriften, Spalten und Kopfangaben.</li>
+    <li><strong>Hilfe in vier Sprachen:</strong> Der Hilfe-Knopf öffnet die Hilfe direkt in der eingestellten Sprache. Auf jeder Hilfeseite steht oben eine Sprachleiste, über die sich zwischen den vier Fassungen wechseln lässt.</li>
+  </ul>
+  <h2>v1.2.15 – Start-Knopf, Suchbereich im Bericht &amp; Webseiten-Link</h2>
+  <ul>
+    <li><strong>Start-Knopf:</strong> Neue Schaltfläche „🏠 Start" in der Kopfleiste – bringt das Programm jederzeit zurück zur leeren Startansicht, auch aus einem geladenen Ergebnis oder der Ansicht „Große Dateien" heraus.</li>
+    <li><strong>Suchbereich im Bericht:</strong> Bei einer Ordnersuche zeigen Ergebnisbericht und Ergebnis-Manager jetzt den durchsuchten Ordnerpfad an (Angabe heißt nun „Suchbereich" statt „Laufwerke"). Beim Laden einer gespeicherten Ordnersuche wird der Ordner wieder ins Feld „Nur Ordner" übernommen.</li>
+    <li><strong>Webseiten-Link:</strong> Neuer Link „🌐 Webseite" in der Fußzeile – öffnet die FileFinder-Projektseite im Browser.</li>
+    <li>Umsetzung von Nutzervorschlägen aus der Praxis – danke dafür!</li>
+  </ul>
+  <h2>v1.2.14 – Ordnersuche, schnellere Laufwerkssuche &amp; 90-%-Skalierung</h2>
+  <ul>
+    <li><strong>Ordnersuche:</strong> Über das neue Feld „Nur Ordner" wird gezielt ein bestimmter Ordner samt Unterordnern durchsucht statt ganzer Laufwerke – gilt auch für „Große Dateien". Die Laufwerksauswahl wird währenddessen deaktiviert; beim Leeren des Felds kehrt die vorherige Auswahl automatisch zurück.</li>
+    <li><strong>Schnellere Laufwerkssuche:</strong> Der Ausschluss der Windows-Systemordner (Windows, $Recycle.Bin, System Volume Information u. a.) im Wurzelverzeichnis der Laufwerke greift jetzt zuverlässig – Suchen über das Systemlaufwerk laufen dadurch spürbar schneller und liefern keine Treffer mehr aus den Systemordnern.</li>
+    <li><strong>Skalierung ab 90 %:</strong> Neue 90-%-Stufe im Konfig-Dialog für kompaktere Darstellung auf kleineren Bildschirmen.</li>
+    <li><strong>Hilfe überarbeitet:</strong> Neuer Abschnitt zum Suchbereich (Ordner oder Laufwerke), zusätzlicher Praxis-Tipp zur gezielten Ordnersuche.</li>
+    <li>Lizenz und Haftungsausschluss (Disclaimer) liegen dem Paket jetzt bei.</li>
+  </ul>
+  <h2>v1.2.12 – Sortierung, Große Dateien, Dateiaktionen &amp; Ergebnis-Manager</h2>
+  <ul>
+    <li><strong>Sortierung:</strong> Treffer per Klick auf die Spaltenüberschrift sortieren (Name, Größe, Datum, Pfad). Größe und Datum werden nach echtem Wert sortiert, nicht nach angezeigtem Text.</li>
+    <li><strong>Große Dateien:</strong> Auf Knopfdruck die 100 größten Dateien der gewählten Laufwerke anzeigen – zum schnellen Aufspüren von Speicherfressern.</li>
+    <li><strong>Dateiaktionen:</strong> Mehrere Treffer markieren und im eigenen Fenster kopieren, verschieben oder in den Papierkorb legen – mit Byte-genauem Fortschrittsbalken und ohne Überschreiben (automatische Umbenennung bei Namensgleichheit).</li>
+    <li><strong>Ergebnisse speichern:</strong> Suchergebnisse speichern, später wieder laden oder als HTML-Bericht ansehen – verwaltet im neuen Ergebnis-Manager.</li>
+    <li><strong>Konfiguration:</strong> Zentraler Dialog für Darstellungsgröße, erweiterte Filter beim Start und Standard-Sortierung (gespeichert in <code>FileFinder-config.ini</code>).</li>
+    <li>Aktualisierte Hilfe-Datei und zahlreiche Detailverbesserungen.</li>
+  </ul>
+  <h2>v1.2.4 – 2026-04-16 – Stabiler Neustart</h2>
+  <ul>
+    <li><strong>Neustart-Fix:</strong> Die DPI-Umschaltung startet die neue Instanz zuverlässig ohne „Failed to import encodings“; die kompilierte EXE wird direkt gestartet.</li>
+    <li><strong>--onedir:</strong> Umstellung auf ordnerbasierte EXE – kein Entpacken in Temp beim Start.</li>
+    <li>Neustart-Verzögerung (200 ms) verhindert eine Race Condition beim Schließen.</li>
+  </ul>
+  <h2>v1.2.3 – Layout erweiterte Filter</h2>
+  <ul>
+    <li>Verständlichere Bezeichnungen: „Erstelldatum“ und „Änderungsdatum“.</li>
+    <li>Einheitliche Symbole (📅 📏 ✏️), bündig untereinander.</li>
+    <li>Von/bis-Felder dichter beieinander, Labels linksbündig.</li>
+  </ul>
+  <h2>v1.2.1 – Größenangaben in MB</h2>
+  <ul>
+    <li>Größenfilter arbeitet in Megabyte statt Kilobyte.</li>
+    <li>Maximalgröße erkennt automatisch MB oder GB im HTML-Ergebnislog.</li>
+  </ul>
+  <h2>v1.2.0 – Ansicht &amp; erweiterte Filter</h2>
+  <ul>
+    <li>F11-Umschalter für Datum- und Größenfilter; die Fensterhöhe passt sich automatisch an.</li>
+    <li>Darstellungsgröße wählbar (100–200 %) mit optionalem Programm-Neustart.</li>
+    <li>Vollständige DPI-/4K-Skalierung für hochauflösende Bildschirme.</li>
+    <li>Automatische Fensterbreite bei vielen Laufwerksbuchstaben.</li>
+    <li>Verbesserte Datumsbeschriftungen, überarbeiteter Header, automatische Startgröße und -position.</li>
+  </ul>
+  <h2>v1.0.1 – Bugfix Startverhalten</h2>
+  <ul>
+    <li>Einfrieren beim Start auf Systemen mit DVD-Laufwerk oder Kartenleser ohne eingelegtes Medium behoben (Laufwerke werden über die Windows-API ermittelt).</li>
+  </ul>
+  <h2>v1.0.0 – Erstveröffentlichung</h2>
+  <ul>
+    <li>Suche nach Namensbruchstücken, Dateityp, Erstell-/Änderungsdatum und Dateigröße.</li>
+    <li>Multi-Laufwerk-Unterstützung mit Alle-Checkbox.</li>
+    <li>HTML-Ergebnislog mit klickbaren Pfaden.</li>
+    <li>Kontextmenü: Ordner öffnen, Datei öffnen, Pfad kopieren.</li>
+    <li>Hilfe-Button mit HTML-Dokumentation.</li>
+  </ul>
+
+</div><!-- /content -->
+
+<div class="footer">
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
+  &nbsp;·&nbsp; S-IT FileFinder v1.2.16
+</div>
+
+</body>
+</html>

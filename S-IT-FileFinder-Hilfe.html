@@ -122,6 +122,29 @@
     letter-spacing: .3px;
   }
 
+  /* ── Sprachleiste ── */
+  .langbar {
+    background: #22303C;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .langbar .lbl { color: #7F8C8D; }
+  .langbar a, .langbar .cur {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #BDC3C7;
+  }
+  .langbar a:hover { background: #2C3E50; color: #fff; }
+  .langbar .cur { background: #2C3E50; color: #fff; font-weight: 700; }
+  .langbar svg { border: 1px solid #7F8C8D; display: block; }
+
   /* ── Footer ── */
   .footer {
     background: #2C3E50;
@@ -188,7 +211,15 @@
 <div class="header">
   <span class="icon">🔍</span>
   <h1>S-IT FileFinder</h1>
-  <span class="version">v1.2.15 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+  <span class="version">v1.2.16 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+</div>
+
+<div class="langbar">
+  <span class="lbl">Sprache:</span>
+  <span class="cur"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#000"/><rect y="4.67" width="21" height="4.66" fill="#DD0000"/><rect y="9.33" width="21" height="4.67" fill="#FFCE00"/></svg> Deutsch</span>
+  <a href="S-IT-FileFinder-Help.html"><svg width="21" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg> English</a>
+  <a href="S-IT-FileFinder-Aide.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="7" height="14" fill="#002395"/><rect x="7" width="7" height="14" fill="#fff"/><rect x="14" width="7" height="14" fill="#ED2939"/></svg> Français</a>
+  <a href="S-IT-FileFinder-Ayuda.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#AA151B"/><rect y="4" width="21" height="6" fill="#F1BF00"/></svg> Español</a>
 </div>
 
 <div class="content">
@@ -216,7 +247,7 @@
   <table>
     <tr><th style="width:34%">Schaltfläche</th><th>Funktion</th></tr>
     <tr>
-      <td><span class="btn btn-light">🏠 Start</span> <span class="new-badge">NEU</span></td>
+      <td><span class="btn btn-light">🏠 Start</span></td>
       <td>Bringt das Programm jederzeit zurück zur leeren Startansicht: Felder und
           Trefferliste werden geleert, ein geladenes Ergebnis oder die Ansicht
           „Große Dateien" wird beendet.</td>
@@ -498,12 +529,43 @@
       <td>Legt fest, ob die erweiterten Filter (Datum/Größe) beim Programmstart sichtbar sind.</td>
     </tr>
     <tr>
+      <td><strong>Sprache</strong> <span class="new-badge">NEU</span></td>
+      <td>Oberflächensprache: Deutsch, English, Français oder Español – Auswahl
+          über Flaggen im Abschnitt <em>Sprache</em>. Ein Wechsel wirkt nach dem
+          angebotenen Neustart des Programms.</td>
+    </tr>
+    <tr>
       <td><strong>Standard-Sortierung</strong></td>
       <td>Spalte (Dateiname / Größe / Geändert / Erstellt / Pfad / keine) und Richtung
           (absteigend / aufsteigend), nach der die Liste bei Suchabschluss automatisch
           sortiert wird.</td>
     </tr>
   </table>
+
+  <!-- SPRACHEN -->
+  <h2>Sprachen <span class="new-badge">NEU</span></h2>
+  <p>
+    Ab Version 1.2.16 spricht der FileFinder vier Sprachen: <strong>Deutsch,
+    Englisch, Französisch und Spanisch</strong>. Die Sprache wird im
+    <em>⚙️ Konfig</em>-Dialog gewählt und gilt nach dem Neustart des Programms
+    für die gesamte Oberfläche – einschließlich der Meldungen und des
+    HTML-Ergebnisberichts. Auch diese Hilfe gibt es in allen vier Sprachen;
+    oben auf jeder Seite kann per Sprachleiste gewechselt werden.
+  </p>
+  <div class="box box-info">
+    <strong>Dateinamen bleiben in jeder Sprache gleich</strong>
+    Gespeicherte Ergebnisse heißen immer <code>Ergebnis_…</code>, der Ordner
+    <code>FileFinder-Suchen\</code> und die <code>FileFinder-config.ini</code>
+    behalten ihre Namen. Dieselbe Installation findet ihre Einstellungen und
+    Ergebnisse also auch nach einem Sprachwechsel wieder.
+  </div>
+  <div class="box box-info">
+    <strong>Sprachpakete</strong>
+    Die Sprachen liegen als geprüfte, verschlüsselte Sprachpakete
+    (<code>sit_fftexte_….3kl</code>) neben dem Programm. Fehlt ein Paket,
+    startet der FileFinder auf Deutsch. Weitere Sprachen erscheinen als
+    Sprachpakete von Sattler IT-Service.
+  </div>
 
   <!-- TASTATURKÜRZEL -->
   <h2>Tastaturkürzel</h2>
@@ -532,7 +594,7 @@
     bestimmten Jahres schnell wiederfinden.
   </div>
   <div class="box box-info">
-    <strong>🌐 Webseite <span class="new-badge">NEU</span></strong>
+    <strong>🌐 Webseite</strong>
     In der Fußzeile des Programms führt der Link <em>🌐 Webseite</em> direkt zur
     FileFinder-Projektseite mit allen Versionen und dieser Hilfe.
   </div>
@@ -594,7 +656,7 @@
 
 <div class="footer">
   © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
-  &nbsp;·&nbsp; S-IT FileFinder v1.2.15
+  &nbsp;·&nbsp; S-IT FileFinder v1.2.16
 </div>
 
 </body>
