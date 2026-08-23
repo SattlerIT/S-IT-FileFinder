@@ -1,0 +1,59 @@
+============================================================
+ S-IT FileFinder – Aviso legal (Disclaimer)
+ © 2026 Sattler IT-Service, Greifenstein · Hans Udo Sattler
+============================================================
+
+Toda la información se facilita sin garantía.
+Salvo errores u omisiones.
+
+S-IT FileFinder es una herramienta gratuita para buscar
+archivos en unidades locales, unidades de red o en carpetas
+individuales. Los archivos encontrados se pueden copiar, mover
+o enviar a la papelera directamente desde la herramienta. La
+herramienta funciona de forma fiable según nuestro leal saber
+y entender; sin embargo, no se puede asegurar un
+funcionamiento sin errores en todos los sistemas y en todas
+las configuraciones.
+
+1. Sin garantía de exhaustividad
+   Los resultados de búsqueda no garantizan que se hayan
+   encontrado todos los archivos existentes. Las carpetas sin
+   derechos de acceso se omiten, las carpetas del sistema de
+   Windows se dejan fuera deliberadamente para acelerar la
+   búsqueda, y las unidades de red inaccesibles o los errores
+   del sistema pueden afectar a los resultados. Una lista de
+   resultados vacía no significa necesariamente que el
+   archivo buscado no exista.
+
+2. Ejecutar las acciones sobre archivos con cuidado
+   Copiar, mover y eliminar actúan directamente sobre los
+   archivos seleccionados. Compruebe la selección y la
+   carpeta de destino antes de ejecutar. La eliminación se
+   realiza a la papelera; su comportamiento (p. ej. en
+   unidades de red o con archivos muy grandes) queda fuera
+   del control de la herramienta.
+
+3. Uso bajo su propia responsabilidad
+   El uso de la herramienta, en particular mover o eliminar
+   archivos basándose en resultados de búsqueda, se realiza
+   bajo su propia responsabilidad. No se asume ninguna
+   responsabilidad por los resultados y decisiones tomados a
+   partir de las listas de resultados o de los resultados
+   guardados.
+
+4. Exclusión de responsabilidad
+   Queda excluida, en la medida en que la ley lo permita,
+   toda responsabilidad por daños, pérdidas de datos o
+   perjuicios patrimoniales derivados del uso de la
+   herramienta o de sus resultados.
+
+5. Las copias de seguridad siguen siendo imprescindibles
+   Antes de grandes operaciones de limpieza con movimientos o
+   eliminaciones, cree una copia de seguridad de los datos
+   importantes. La papelera es una red de seguridad, no una
+   copia de seguridad.
+
+------------------------------------------------------------
+Contacto:            tool-entwicklung@sattler-it.de
+Página del proyecto: https://sattlerit.github.io/S-IT-FileFinder/
+------------------------------------------------------------

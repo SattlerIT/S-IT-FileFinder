@@ -1,0 +1,59 @@
+============================================================
+ S-IT FileFinder – Avertissement (Disclaimer)
+ © 2026 Sattler IT-Service, Greifenstein · Hans Udo Sattler
+============================================================
+
+Toutes les informations sont fournies sans garantie.
+Sous réserve d'erreurs.
+
+S-IT FileFinder est un outil gratuit pour rechercher des
+fichiers sur les lecteurs locaux, les lecteurs réseau ou dans
+des dossiers individuels. Les fichiers trouvés peuvent être
+copiés, déplacés ou envoyés à la corbeille directement depuis
+l'outil. L'outil fonctionne de manière fiable en l'état actuel
+des connaissances ; un fonctionnement sans erreur sur chaque
+système et dans chaque configuration ne peut toutefois pas
+être garanti.
+
+1. Aucune garantie d'exhaustivité
+   Les résultats de recherche ne garantissent pas que tous
+   les fichiers existants ont été trouvés. Les dossiers sans
+   droits d'accès sont ignorés, les dossiers système de
+   Windows sont volontairement laissés de côté pour accélérer
+   la recherche, et des lecteurs réseau inaccessibles ou des
+   erreurs système peuvent affecter les résultats. Une liste
+   de résultats vide ne signifie pas nécessairement que le
+   fichier recherché n'existe pas.
+
+2. Effectuer les actions sur fichiers avec prudence
+   Copier, déplacer et supprimer agissent directement sur les
+   fichiers sélectionnés. Vérifiez la sélection et le dossier
+   de destination avant d'exécuter. La suppression se fait
+   vers la corbeille ; son comportement (p. ex. sur les
+   lecteurs réseau ou avec de très gros fichiers) échappe au
+   contrôle de l'outil.
+
+3. Utilisation sous votre propre responsabilité
+   L'utilisation de l'outil, en particulier le déplacement ou
+   la suppression de fichiers sur la base de résultats de
+   recherche, se fait sous votre propre responsabilité.
+   Aucune responsabilité n'est assumée pour les résultats et
+   les décisions prises sur la base des listes de résultats
+   ou des résultats enregistrés.
+
+4. Exclusion de responsabilité
+   Toute responsabilité pour des dommages, pertes de données
+   ou préjudices financiers résultant de l'utilisation de
+   l'outil ou de ses résultats est exclue dans la mesure
+   permise par la loi.
+
+5. Les sauvegardes restent indispensables
+   Avant toute opération de nettoyage importante impliquant
+   des déplacements ou des suppressions, créez une copie de
+   sauvegarde des données importantes. La corbeille est un
+   filet de sécurité, pas une sauvegarde.
+
+------------------------------------------------------------
+Contact :       tool-entwicklung@sattler-it.de
+Page du projet : https://sattlerit.github.io/S-IT-FileFinder/
+------------------------------------------------------------

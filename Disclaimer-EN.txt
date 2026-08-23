@@ -1,0 +1,50 @@
+============================================================
+ S-IT FileFinder – Disclaimer
+ © 2026 Sattler IT-Service, Greifenstein · Hans Udo Sattler
+============================================================
+
+All information is provided without guarantee. Errors excepted.
+
+S-IT FileFinder is a free tool for finding files on local
+drives, network drives or in individual folders. Found files
+can be copied, moved or sent to the Recycle Bin directly from
+the tool. The tool works reliably to the best of our knowledge;
+however, error-free operation on every system and in every
+configuration cannot be guaranteed.
+
+1. No assurance of completeness
+   Search results are no assurance that all existing files
+   have been found. Folders without access rights are skipped,
+   Windows system folders are deliberately left out to speed
+   up the search, and unreachable network drives or system
+   errors can affect the results. An empty result list does
+   not necessarily mean that the file you are looking for
+   does not exist.
+
+2. Perform file actions with care
+   Copying, moving and deleting act directly on the selected
+   files. Check the selection and the destination folder
+   before executing. Deleting goes to the Recycle Bin; its
+   behaviour (e.g. on network drives or with very large
+   files) is beyond the tool's control.
+
+3. Use at your own risk
+   Using the tool, in particular moving or deleting files
+   based on search results, is at your own risk. No
+   responsibility is accepted for results and decisions
+   made on the basis of result lists or saved results.
+
+4. Limitation of liability
+   Liability for damage, data loss or financial loss
+   arising from the use of the tool or its results is
+   excluded to the extent permitted by law.
+
+5. Backups remain essential
+   Before larger clean-up operations involving moving or
+   deleting, create a backup copy of important data. The
+   Recycle Bin is a fallback, but not a backup.
+
+------------------------------------------------------------
+Contact:       tool-entwicklung@sattler-it.de
+Project page:  https://sattlerit.github.io/S-IT-FileFinder/
+------------------------------------------------------------
