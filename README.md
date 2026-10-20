@@ -77,7 +77,7 @@ Save search results, load them again later or view them as an **HTML report** �
 
 ### Settings
 
-Central dialog for display size (90–200 %), advanced filters at startup, default sorting, language and colour scheme. The selected display size applies regardless of the scaling set in Windows. The settings are stored in `Config\FileFinder-config.ini`.
+Central dialog for display size (90–200 %), advanced filters at startup, default sorting, language and colour scheme. The selected display size applies regardless of the scaling set in Windows. The settings are stored in `S-IT-FileFinder_Prog\Config\FileFinder-config.ini`.
 
 ---
 
@@ -102,19 +102,21 @@ File names stay the same in every language – saved searches and settings are k
 
 The current version is available on the **[Releases page](../../releases)**: `s-it-filefinder_latest.zip`.
 
-No installation needed: unpack the ZIP, put the folder anywhere you like and start `S-IT-FileFinder.exe`. The program folder looks like this:
+No installation needed: unpack the ZIP, put the contents anywhere you like and start **`S-IT-FFStart.exe`**. The folder looks like this:
 
 ```
-S-IT-FileFinder\
+S-IT-FFStart.exe            ← start this program
+License_Disclaimer\         licence and disclaimer
+S-IT-FileFinder_Prog\       the actual program
 ├── S-IT-FileFinder.exe
-├── _internal\        runtime files
-├── Lang\             language packs
-├── Help\             help and changelog
-├── License\          licence and disclaimer
-└── Config\           settings (created when first saved)
+├── Help\                   help and changelog
+├── Lang\                   language packs
+├── Config\                 settings (created when first saved)
+├── FileFinder-Suchen\      saved results (created when first saved)
+└── …                       runtime files
 ```
 
-The subfolders belong to the program and must stay with the EXE. The help is opened via **“Help”** in the sidebar – in the language that is set.
+`S-IT-FFStart.exe` launches the program in the `S-IT-FileFinder_Prog` folder, so use `S-IT-FFStart.exe` for a desktop shortcut. The folders belong together and must stay side by side. The help is opened via **“Help”** in the sidebar – in the language that is set.
 
 ---
 

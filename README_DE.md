@@ -77,7 +77,7 @@ Suchergebnisse speichern, später wieder laden oder als **HTML-Bericht** ansehen
 
 ### Konfiguration
 
-Zentraler Dialog für Darstellungsgröße (90–200 %), erweiterte Filter beim Start, Standard-Sortierung, Sprache und Farbschema. Die eingestellte Darstellungsgröße gilt unabhängig von der Skalierung in Windows. Die Einstellungen stehen in `Config\FileFinder-config.ini`.
+Zentraler Dialog für Darstellungsgröße (90–200 %), erweiterte Filter beim Start, Standard-Sortierung, Sprache und Farbschema. Die eingestellte Darstellungsgröße gilt unabhängig von der Skalierung in Windows. Die Einstellungen stehen in `S-IT-FileFinder_Prog\Config\FileFinder-config.ini`.
 
 ---
 
@@ -102,19 +102,21 @@ Dateinamen bleiben in jeder Sprache gleich – gespeicherte Suchen und Einstellu
 
 Die aktuelle Version steht auf der **[Releases-Seite](../../releases)** bereit: `s-it-filefinder_latest.zip`.
 
-Keine Installation notwendig: ZIP entpacken, den Ordner an einen beliebigen Ort legen und `S-IT-FileFinder.exe` starten. Der Programmordner sieht so aus:
+Keine Installation notwendig: ZIP entpacken, den Inhalt an einen beliebigen Ort legen und **`S-IT-FFStart.exe`** starten. Der Ordner sieht so aus:
 
 ```
-S-IT-FileFinder\
+S-IT-FFStart.exe            ← dieses Programm starten
+License_Disclaimer\         Lizenz und Haftungsausschluss
+S-IT-FileFinder_Prog\       das eigentliche Programm
 ├── S-IT-FileFinder.exe
-├── _internal\        Laufzeitdateien
-├── Lang\             Sprachpakete
-├── Help\             Hilfe und Änderungsverlauf
-├── License\          Lizenz und Haftungsausschluss
-└── Config\           Einstellungen (wird beim ersten Speichern angelegt)
+├── Help\                   Hilfe und Änderungsverlauf
+├── Lang\                   Sprachpakete
+├── Config\                 Einstellungen (wird beim ersten Speichern angelegt)
+├── FileFinder-Suchen\      gespeicherte Ergebnisse (wird beim ersten Speichern angelegt)
+└── …                       Laufzeitdateien
 ```
 
-Die Unterordner gehören zum Programm und müssen bei der EXE bleiben. Die Hilfe wird über **„Hilfe“** in der Seitenleiste geöffnet – in der eingestellten Sprache.
+`S-IT-FFStart.exe` ruft das Programm im Ordner `S-IT-FileFinder_Prog` auf; für eine Verknüpfung auf dem Desktop also `S-IT-FFStart.exe` verwenden. Die Ordner gehören zusammen und müssen beieinander bleiben. Die Hilfe wird über **„Hilfe“** in der Seitenleiste geöffnet – in der eingestellten Sprache.
 
 ---
 
