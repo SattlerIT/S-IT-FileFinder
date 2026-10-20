@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-IT FileFinder – Aide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #F5F5F5;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #2C3E50;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header .icon { font-size: 28px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+  .header .version {
+    margin-left: auto;
+    font-size: 12px;
+    color: #BDC3C7;
+    white-space: nowrap;
+  }
+
+  /* ── Layout ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 28px 48px; }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2C3E50;
+    padding: 7px 14px;
+    border-radius: 4px;
+    margin: 28px 0 12px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin: 16px 0 6px;
+    border-left: 4px solid #3498DB;
+    padding-left: 8px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── Tabelle ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  th {
+    background: #2C3E50;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #ECF0F1;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FAFB; }
+
+  /* ── Hinweisboxen ── */
+  .box {
+    border-radius: 4px;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
+  .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
+  .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+  .box-new     { background: #F4ECF7; border-left: 4px solid #8E44AD; }
+
+  .box strong { display: block; margin-bottom: 3px; }
+
+  /* ── Code/Beispiel ── */
+  code {
+    background: #ECF0F1;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    color: #E74C3C;
+  }
+
+  /* ── Neu-Badge ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    letter-spacing: .3px;
+  }
+
+  /* ── Sprachleiste ── */
+  .langbar {
+    background: #22303C;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .langbar .lbl { color: #7F8C8D; }
+  .langbar a, .langbar .cur {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #BDC3C7;
+  }
+  .langbar a:hover { background: #2C3E50; color: #fff; }
+  .langbar .cur { background: #2C3E50; color: #fff; font-weight: 700; }
+  .langbar svg { border: 1px solid #7F8C8D; display: block; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #2C3E50;
+    color: #BDC3C7;
+    text-align: center;
+    font-size: 11px;
+    padding: 13px;
+    margin-top: 40px;
+  }
+
+  /* ── Schaltflächen-Badges ── */
+  .btn {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .btn-green  { background: #27AE60; }
+  .btn-orange { background: #F39C12; }
+  .btn-red    { background: #E74C3C; }
+  .btn-blue   { background: #3498DB; }
+  .btn-dark   { background: #2C3E50; }
+  .btn-light  { background: #2C3E50; color: #ECF0F1; }
+
+  /* ── Tastenkürzel ── */
+  kbd {
+    display: inline-block;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #2C3E50;
+    box-shadow: 0 1px 0 #BDC3C7;
+  }
+
+  /* ── Spende ── */
+  .donate {
+    background: #fff;
+    border: 1px solid #D5D8DC;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .donate .pp-icon { font-size: 28px; }
+  .donate p { margin: 0; font-size: 13px; }
+  .donate a {
+    color: #3498DB;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .donate a:hover { text-decoration: underline; }
+
+  /* ── Knöpfe wie im Programm (ab v2.0) ── */
+  .k {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 1px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .k-blau   { background: #1F5F99; color: #fff; }
+  .k-gruen  { background: #1E7A46; color: #fff; }
+  .k-orange { background: #A4520C; color: #fff; }
+  .k-neben  { background: #fff; color: #1F2A37; border-color: #D1D5DB; font-weight: 400; }
+  .k-stopp  { background: #fff; color: #B42318; border-color: #E8B4AE; font-weight: 400; }
+  ul.liste { margin: 0 0 10px 22px; }
+  .donate a.pp-btn {
+    display: inline-block;
+    background: #009CDE;
+    color: #fff;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 6px;
+    margin: 6px 0 4px;
+    text-decoration: none;
+  }
+  .donate a.pp-btn:hover { background: #0086C0; text-decoration: none; }
+  ul.liste li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="icon">🔍</span>
+  <h1>S-IT FileFinder</h1>
+  <span class="version">v2.0 &nbsp;|&nbsp; Aide &amp; utilisation</span>
+</div>
+
+<div class="langbar">
+  <span class="lbl">Langue :</span>
+  <a href="S-IT-FileFinder-Hilfe.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#000"/><rect y="4.67" width="21" height="4.66" fill="#DD0000"/><rect y="9.33" width="21" height="4.67" fill="#FFCE00"/></svg> Deutsch</a>
+  <a href="S-IT-FileFinder-Help.html"><svg width="21" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg> English</a>
+  <span class="cur"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="7" height="14" fill="#002395"/><rect x="7" width="7" height="14" fill="#fff"/><rect x="14" width="7" height="14" fill="#ED2939"/></svg> Français</span>
+  <a href="S-IT-FileFinder-Ayuda.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#AA151B"/><rect y="4" width="21" height="6" fill="#F1BF00"/></svg> Español</a>
+</div>
+
+<div class="content">
+
+  <!-- APERCU -->
+  <h2>Aperçu</h2>
+  <p>
+    <strong>S-IT FileFinder</strong> vous aide à retrouver des fichiers sur votre PC –
+    même si vous ne connaissez qu'un fragment du nom, une date approximative ou le type de fichier.
+    La recherche s'effectue directement sur le système de fichiers, sans service d'indexation,
+    et couvre au choix tous les lecteurs sélectionnés à la fois ou un dossier précis.
+    Les listes de résultats peuvent être triées, enregistrées puis rechargées plus tard,
+    et les fichiers sélectionnés peuvent être copiés, déplacés ou envoyés à la corbeille
+    directement depuis l'outil.
+  </p>
+
+  <!-- INTERFACE -->
+  <h2>Interface du programme <span class="new-badge">NOUVEAU</span></h2>
+  <p>
+    À gauche se trouve la <strong>barre latérale</strong> sombre, qui permet de passer d'une zone
+    du programme à l'autre. À sa droite, la zone de contenu claire réunit les cadres
+    <strong>Critères de recherche</strong>, <strong>Zone de recherche</strong> et
+    <strong>Dossier seul</strong>, suivis des boutons de recherche et de la <strong>liste des résultats</strong>.
+    Tout en bas, le pied de page contient le lien vers le site web et la langue réglée.
+  </p>
+
+  <h3>Barre latérale</h3>
+  <table>
+    <tr><th style="width:34%">Entrée</th><th>Fonction</th></tr>
+    <tr>
+      <td><strong>Recherche</strong></td>
+      <td>La recherche normale de fichiers par nom, extension, date et taille. Le programme démarre dans cette vue.</td>
+    </tr>
+    <tr>
+      <td><strong>Gros fichiers</strong></td>
+      <td>Trouve les 100 plus gros fichiers de la zone de recherche (voir la section <em>Gros fichiers</em>).</td>
+    </tr>
+    <tr>
+      <td><strong>Gestion résultats</strong></td>
+      <td>Ouvre la fenêtre contenant tous les résultats enregistrés pour les charger, les consulter et les supprimer (voir plus bas).</td>
+    </tr>
+    <tr>
+      <td><strong>Réglages</strong></td>
+      <td>
+        Ouvre les réglages pour l'<strong>affichage</strong> (mise à l'échelle,
+        filtres avancés au démarrage), le <strong>tri par défaut</strong>, la <strong>langue</strong> et le <strong>jeu de couleurs</strong>.
+        Tous les réglages sont enregistrés dans le fichier <code>FileFinder-config.ini</code>
+        – il n'est pas nécessaire de modifier l'INI à la main.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Aide</strong></td>
+      <td>Ouvre ce fichier d'aide dans le navigateur par défaut.</td>
+    </tr>
+  </table>
+  <p>
+    En haut à droite, au-dessus des cadres, se trouve le bouton <span class="k k-neben">Vider les champs</span>.
+    Il réinitialise tous les champs de saisie et vide la liste des résultats de la vue actuelle.
+  </p>
+
+  <!-- CRITERES -->
+  <h2>Critères de recherche</h2>
+  <p>Les critères de recherche se trouvent dans le cadre du haut, sur fond vert.</p>
+
+  <h3>Recherche de base</h3>
+  <table>
+    <tr><th style="width:34%">Champ</th><th>Signification &amp; exemples</th></tr>
+    <tr>
+      <td><strong>Le nom de fichier contient</strong></td>
+      <td>
+        Un ou plusieurs fragments de nom, séparés par des <strong>espaces</strong>.
+        La recherche ne distingue <em>pas</em> les majuscules des minuscules.<br>
+        Exemple : <code>Werner Schmi</code> → trouve tous les fichiers
+        dont le nom contient à la fois <em>werner</em> et <em>schmi</em>.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Type de fichier / extension</strong></td>
+      <td>
+        Extension avec ou sans point.<br>
+        Exemples : <code>jpg</code> &nbsp;·&nbsp; <code>.pdf</code> &nbsp;·&nbsp; <code>docx</code>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Filtres avancés</h3>
+  <p>
+    Les filtres avancés s'affichent ou se masquent avec la touche <kbd>F11</kbd> ou le bouton
+    <span class="k k-neben">Filtres avancés (date, taille) ▾</span> à droite du champ
+    « Type de fichier / extension ». Leur visibilité au démarrage se règle dans les
+    <em>Réglages</em>. La fenêtre s'agrandit quand ils s'affichent, mais jamais au-delà de la
+    barre des tâches. Si la place manque, une barre de défilement apparaît à droite.
+  </p>
+  <table>
+    <tr><th style="width:34%">Champ</th><th>Signification &amp; exemples</th></tr>
+    <tr>
+      <td><strong>Date de création</strong> de / à</td>
+      <td>
+        Limite la recherche à la date de <em>création</em> du fichier.<br>
+        Format : <code>JJ.MM.AAAA</code> &nbsp;·&nbsp;
+        Exemple : <code>01.01.2023</code> à <code>31.12.2023</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Date de modification</strong> de / à</td>
+      <td>
+        Limite la recherche à la date de la dernière <em>modification/sauvegarde</em>.<br>
+        Utile pour retrouver des documents modifiés récemment. Format : <code>JJ.MM.AAAA</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Taille (Mo)</strong> de / à</td>
+      <td>
+        Limite la taille du fichier en mégaoctets. Les deux champs sont facultatifs.
+      </td>
+    </tr>
+  </table>
+
+  <div class="box box-info">
+    <strong>Créé ou Modifié – quelle différence ?</strong>
+    <em>Créé</em> est la date à laquelle le fichier a été placé à son emplacement actuel.
+    <em>Modifié</em> est la date de la dernière modification. Pour les fichiers <em>copiés</em>,
+    la date de création est souvent plus récente que la date de modification – un fichier
+    peut donc être ancien même s'il paraît « nouvellement créé ».
+  </div>
+
+  <div class="box box-info">
+    <strong>Tous les champs sont facultatifs</strong>
+    Les champs vides sont ignorés lors de la recherche. Il suffit par exemple de saisir
+    une extension pour trouver tous les fichiers de ce type.
+  </div>
+
+  <!-- ZONE DE RECHERCHE -->
+  <h2>Zone de recherche : lecteurs ou dossier</h2>
+  <p>
+    Le cadre bleu-gris <strong>Zone de recherche</strong> affiche tous les lecteurs détectés sous
+    forme de cases à cocher. Avec <strong>Tous</strong>, tous les lecteurs sont cochés ou décochés
+    d'un coup ; toute combinaison de lecteurs individuels est possible.
+  </p>
+  <p>
+    En dessous se trouve le cadre blanc <strong>Dossier seul</strong>. Si un dossier y est indiqué
+    (choisi via <span class="k k-neben">Parcourir…</span> ou saisi directement), seul ce dossier
+    est parcouru. Les lecteurs du cadre au-dessus sont alors grisés, toutes les cases sont
+    décochées, et la remarque « Si un dossier est indiqué, seul ce dossier est parcouru. » apparaît à côté.
+    Avec <strong>✕</strong> à droite du champ ou via <em>Vider les champs</em>, le champ est vidé
+    et la sélection de lecteurs précédente est rétablie.
+  </p>
+
+  <h3>Inclure les sous-dossiers <span class="new-badge">NOUVEAU</span></h3>
+  <p>
+    Sous le champ de dossier se trouve la case <strong>Inclure les sous-dossiers</strong>. Elle n'est
+    cliquable que lorsqu'un dossier est indiqué.
+  </p>
+  <ul class="liste">
+    <li><strong>Cochée</strong> (par défaut) : le dossier est parcouru avec tous ses sous-dossiers.</li>
+    <li><strong>Non cochée</strong> : seuls les fichiers placés directement dans ce dossier sont
+        parcourus. Les sous-dossiers sont laissés de côté.</li>
+  </ul>
+  <p>
+    Ce réglage vaut pour la recherche normale et pour <em>Gros fichiers</em>. Il est enregistré avec
+    le résultat et rétabli au chargement depuis la gestion des résultats.
+    <em>Vider les champs</em> coche de nouveau la case.
+  </p>
+
+  <div class="box box-warn">
+    <strong>Remarque sur les dossiers système</strong>
+    À la racine de chaque lecteur, les dossiers système de Windows
+    (<code>Windows</code>, <code>$Recycle.Bin</code>, <code>System Volume Information</code>, etc.)
+    sont ignorés automatiquement pour accélérer la recherche. Cela vaut aussi lorsqu'une
+    racine de lecteur comme <code>C:\</code> est indiquée dans le champ <strong>Dossier seul</strong>.
+    Tous les autres dossiers sont parcourus intégralement.
+  </div>
+
+  <!-- RECHERCHER -->
+  <h2>Rechercher et Annuler</h2>
+  <table>
+    <tr><th style="width:34%">Bouton</th><th>Fonction</th></tr>
+    <tr>
+      <td><span class="k k-blau">Rechercher</span></td>
+      <td>Lance la recherche avec les critères actuels. Les résultats apparaissent au fur et à mesure.
+          Alternative : <kbd>Entrée</kbd> dans le champ « Le nom de fichier contient » ou
+          « Type de fichier / extension ».</td>
+    </tr>
+    <tr>
+      <td><span class="k k-stopp">Annuler</span></td>
+      <td>Interrompt immédiatement une recherche en cours. Les résultats déjà trouvés restent visibles.</td>
+    </tr>
+  </table>
+  <p>
+    À droite des deux boutons se trouvent la ligne d'état et la barre de progression
+    (voir <em>Ligne d'état &amp; barre de progression</em>).
+  </p>
+
+  <!-- GROS FICHIERS -->
+  <h2>Gros fichiers <span class="new-badge">NOUVEAU</span></h2>
+  <p>
+    Un clic sur <strong>Gros fichiers</strong> dans la barre latérale ouvre une vue dédiée au repérage
+    des consommateurs d'espace. Le cadre des critères de recherche y est masqué, car seule la
+    taille compte. La zone de recherche, <em>Dossier seul</em> et <em>Inclure les sous-dossiers</em>
+    s'appliquent comme pour la recherche normale.
+  </p>
+  <p>
+    Le bouton <span class="k k-orange">Chercher les 100 plus gros fichiers</span> parcourt la zone de
+    recherche et affiche les 100 plus gros fichiers, les plus gros en haut.
+  </p>
+  <div class="box box-info">
+    <strong>Chaque vue a sa propre liste de résultats</strong>
+    Lors du premier affichage de <em>Gros fichiers</em>, la liste est vide. En revenant à
+    <em>Recherche</em>, vous retrouvez vos résultats avec la ligne d'état – et inversement.
+    Si une recherche est encore en cours lors du changement de vue, elle est arrêtée.
+  </div>
+
+  <!-- LISTE DES RESULTATS -->
+  <h2>Liste des résultats</h2>
+  <p>
+    Les fichiers trouvés sont affichés avec leur nom, leur taille, leurs dates de modification
+    et de création ainsi que leur chemin. La liste défile ; la largeur des colonnes s'ajuste à la souris.
+  </p>
+
+  <h3>Tri</h3>
+  <p>
+    Un clic sur un <strong>en-tête de colonne</strong> trie la liste selon cette
+    colonne ; un nouveau clic inverse le sens (flèche ▲/▼). La taille est triée correctement en
+    octets, les dates selon leur horodatage réel – pas selon le texte affiché.
+    Le tri appliqué <em>automatiquement</em> après une recherche se règle dans les
+    <em>Réglages</em> (par défaut : Modifié, les plus récents en haut).
+  </p>
+
+  <h3>Double-clic</h3>
+  <p>Ouvre le dossier contenant le fichier dans l'Explorateur Windows – le fichier y est sélectionné.</p>
+
+  <h3>Sélection multiple</h3>
+  <p>
+    Avec <kbd>Ctrl</kbd>, des lignes individuelles s'ajoutent à la sélection, avec
+    <kbd>Maj</kbd> des blocs entiers. La sélection sert de base à la
+    fenêtre d'action (copier / déplacer / supprimer, voir plus bas).
+  </p>
+
+  <h3>Clic droit – menu contextuel</h3>
+  <table>
+    <tr><th style="width:44%">Entrée de menu</th><th>Action</th></tr>
+    <tr><td>📂 Ouvrir le dossier dans l'Explorateur</td><td>L'Explorateur ouvre le dossier avec le fichier sélectionné.</td></tr>
+    <tr><td>▶ Ouvrir le fichier</td><td>Ouvre le fichier avec le programme associé par défaut.</td></tr>
+    <tr><td>📋 Copier le chemin</td><td>Copie le chemin complet du fichier dans le presse-papiers.</td></tr>
+    <tr>
+      <td>🔧 Sélection : copier / déplacer / supprimer …</td>
+      <td>Ouvre la fenêtre d'action pour tous les fichiers sélectionnés (voir plus bas).</td>
+    </tr>
+  </table>
+
+  <!-- FENETRE D'ACTION -->
+  <h2>Fenêtre d'action : copier / déplacer / supprimer</h2>
+  <p>
+    Sélectionnez un ou plusieurs fichiers dans la liste des résultats et choisissez par clic droit
+    <em>« 🔧 Sélection : copier / déplacer / supprimer … »</em>. La fenêtre
+    <strong>Action sur la sélection</strong> s'ouvre et liste les fichiers sélectionnés – toutes les
+    actions s'exécutent <strong>dans l'outil lui-même</strong>, sans appeler l'Explorateur, avec leur
+    propre barre de progression.
+  </p>
+  <table>
+    <tr><th style="width:34%">Bouton</th><th>Comportement</th></tr>
+    <tr>
+      <td><span class="k k-neben">Copier …</span></td>
+      <td>Demande un dossier de destination et y copie la sélection. La liste des résultats reste inchangée.</td>
+    </tr>
+    <tr>
+      <td><span class="k k-neben">Déplacer …</span></td>
+      <td>Déplace la sélection vers le dossier de destination. Les fichiers déplacés disparaissent de la liste.</td>
+    </tr>
+    <tr>
+      <td><span class="k k-stopp">Vers la corbeille</span></td>
+      <td>Après confirmation, place la sélection dans la <strong>corbeille Windows</strong> – donc
+          récupérable, pas supprimée définitivement. Les fichiers supprimés disparaissent de la liste.</td>
+    </tr>
+  </table>
+  <div class="box box-tip">
+    <strong>Aucun écrasement</strong>
+    Si un fichier du même nom existe déjà à la destination, la copie reçoit automatiquement
+    un suffixe (<code>Nom (2).ext</code>, <code>Nom (3).ext</code> …) –
+    rien ne se perd donc jamais par accident.
+  </div>
+
+  <!-- ENREGISTRER -->
+  <h2>Enregistrer un résultat &amp; Gestion résultats</h2>
+  <p>
+    Sous la liste des résultats se trouvent deux boutons, à droite. Tous deux placent le résultat
+    dans le dossier fixe <code>FileFinder-Suchen\</code> à côté du programme – à la fois comme fichier
+    rechargeable (<code>.ffs</code>) <em>et</em> comme rapport HTML à consulter.
+  </p>
+  <table>
+    <tr><th style="width:34%">Bouton</th><th>Fonction</th></tr>
+    <tr>
+      <td><span class="k k-neben">Enregistrer le résultat</span></td>
+      <td>Enregistre le résultat actuel silencieusement (pour la gestion des résultats).</td>
+    </tr>
+    <tr>
+      <td><span class="k k-neben">Rapport</span></td>
+      <td>Enregistre le résultat et ouvre aussitôt le rapport HTML dans le navigateur – pour le consulter,
+          l'imprimer ou le transmettre. L'en-tête du rapport indique sous <strong>Zone de recherche</strong>
+          où la recherche a eu lieu – les lecteurs, ou le chemin du dossier pour une recherche par dossier.</td>
+    </tr>
+  </table>
+
+  <h3>Gestion résultats</h3>
+  <p>
+    L'entrée <strong>Gestion résultats</strong> de la barre latérale ouvre une fenêtre listant tous
+    les résultats enregistrés (date/heure, occurrences, terme, zone), le plus récent en haut.
+    Pour une recherche par dossier, la zone indique le chemin du dossier parcouru.
+  </p>
+  <table>
+    <tr><th style="width:34%">Bouton</th><th>Fonction</th></tr>
+    <tr><td><span class="k k-blau">Charger</span></td><td>Ramène les critères et la liste des résultats dans la fenêtre principale (le double-clic fonctionne aussi).
+        Pour une recherche par dossier enregistrée, le dossier et la case « Inclure les sous-dossiers »
+        sont également rétablis. Un résultat de gros fichiers apparaît dans la vue <em>Gros fichiers</em>,
+        une recherche normale dans la vue <em>Recherche</em>.</td></tr>
+    <tr><td><span class="k k-neben">Ouvrir HTML</span></td><td>Ouvre le rapport HTML du résultat choisi dans le navigateur.</td></tr>
+    <tr><td><span class="k k-stopp">Supprimer</span></td><td>Après confirmation, supprime les résultats enregistrés sélectionnés (sélection multiple possible).</td></tr>
+    <tr><td><span class="k k-stopp">Supprimer de–à</span></td><td>Supprime tous les résultats enregistrés dans une plage de dates. Le début et la fin se choisissent dans deux listes de la fenêtre qui suit.</td></tr>
+  </table>
+  <div class="box box-info">
+    <strong>Un résultat chargé est verrouillé contre le réenregistrement</strong>
+    Dès qu'un résultat a été chargé dans la gestion, <em>« Enregistrer le résultat »</em> et
+    <em>« Rapport »</em> sont verrouillés – un résultat déjà enregistré ne doit pas
+    se copier sans fin. Un <strong>ⓘ</strong> bleu apparaît alors après la ligne d'état
+    avec une explication. Dans ce cas, ouvrez le rapport HTML via <em>« Ouvrir HTML »</em> dans la
+    gestion des résultats. Une <strong>nouvelle recherche</strong> ou <em>« Vider les champs »</em>
+    débloque à nouveau l'enregistrement.
+  </div>
+
+  <!-- REGLAGES -->
+  <h2>Réglages</h2>
+  <p>
+    L'entrée <strong>Réglages</strong> de la barre latérale ouvre la fenêtre <strong>Réglages</strong>
+    avec quatre cadres. Tous les réglages sont enregistrés dans <code>FileFinder-config.ini</code>
+    – aucune intervention manuelle sur l'INI n'est nécessaire.
+    Un clic sur le drapeau et le code de langue en bas à droite du pied de page ouvre aussi les réglages.
+  </p>
+  <table>
+    <tr><th style="width:34%">Réglage</th><th>Signification</th></tr>
+    <tr>
+      <td><strong>Mise à l'échelle</strong></td>
+      <td>Taille d'affichage de 90 % à 200 %. Le niveau s'applique indépendamment de la mise à
+          l'échelle réglée dans Windows : à 100 %, le programme s'affiche à 100 %, même si Windows
+          est réglé sur 125 %. Un changement prend effet après le redémarrage du programme – après
+          l'enregistrement, le programme propose directement ce redémarrage (le programme seulement, pas le PC).</td>
+    </tr>
+    <tr>
+      <td><strong>Afficher les filtres avancés (date/taille) au démarrage</strong></td>
+      <td>Détermine si les filtres avancés sont visibles au lancement du programme.</td>
+    </tr>
+    <tr>
+      <td><strong>Tri par défaut</strong></td>
+      <td>Colonne (nom / taille / modifié / créé / chemin / aucune) et sens
+          (décroissant / croissant) selon lesquels la liste est triée automatiquement
+          à la fin d'une recherche.</td>
+    </tr>
+    <tr>
+      <td><strong>Langue</strong> <span class="new-badge">NOUVEAU</span></td>
+      <td>Le champ avec le drapeau et le nom de la langue ouvre une fenêtre de sélection avec toutes
+          les langues disponibles. Un clic sur une langue la sélectionne ; un changement prend effet
+          après le redémarrage proposé du programme.</td>
+    </tr>
+    <tr>
+      <td><strong>Jeu de couleurs</strong> <span class="new-badge">NOUVEAU</span></td>
+      <td>Couleurs de l'interface, au choix parmi cinq schémas (voir la section <em>Jeu de couleurs</em>).
+          Un changement prend effet après le redémarrage proposé du programme.</td>
+    </tr>
+  </table>
+  <p>
+    <span class="k k-gruen">Enregistrer</span> applique les réglages,
+    <span class="k k-neben">Annuler</span> ou <kbd>Échap</kbd> ferme la fenêtre sans modification.
+  </p>
+
+  <!-- JEU DE COULEURS -->
+  <h2>Jeu de couleurs <span class="new-badge">NOUVEAU</span></h2>
+  <p>
+    Dans le cadre <strong>Jeu de couleurs</strong> des réglages, vous choisissez les couleurs de
+    l'interface. Cinq schémas sont disponibles :
+  </p>
+  <ul class="liste">
+    <li><strong>Standard</strong> : barre latérale bleu-gris foncé, zone de contenu claire.</li>
+    <li><strong>Clair et doux</strong> : barre latérale bleu-gris clair avec texte foncé, zone de contenu claire.</li>
+    <li><strong>Atténué</strong> (par défaut) : barre latérale gris foncé et zone de contenu légèrement plus grise –
+        moins de contraste que Standard.</li>
+    <li><strong>Fortement atténué</strong> : en plus, les cadres et la liste des résultats en tons de gris ; le texte reste foncé.</li>
+    <li><strong>Sombre</strong> : surfaces sombres et texte clair, comparable au mode sombre de Windows.</li>
+  </ul>
+  <p>
+    Un nouveau jeu de couleurs prend effet après le redémarrage que le programme propose après
+    l'enregistrement – comme pour la mise à l'échelle et la langue. Le bouton
+    <span class="k k-neben">Réinitialiser les couleurs</span> ramène la sélection sur <em>Atténué</em> ;
+    <em>Enregistrer</em> l'applique.
+  </p>
+  <div class="box box-info">
+    <strong>Couleurs citées dans cette aide</strong>
+    Les couleurs citées dans cette aide (cadre vert, bleu-gris et blanc) correspondent au réglage par
+    défaut <em>Atténué</em>. Dans les autres schémas, les teintes changent ; la disposition et les
+    libellés restent les mêmes.
+  </div>
+
+  <!-- LANGUES -->
+  <h2>Langues <span class="new-badge">NOUVEAU</span></h2>
+  <p>
+    À partir de la version 2.0, FileFinder parle 18 langues : allemand, anglais, français,
+    espagnol, italien, néerlandais, polonais, danois, croate, bosnien, serbe,
+    monténégrin, slovène, albanais, roumain, turc, bulgare et macédonien.
+    La langue se choisit dans les <em>Réglages</em> et s'applique, après le redémarrage du
+    programme, à toute l'interface – y compris les messages et le rapport HTML.
+  </p>
+  <p>
+    Cette aide existe en allemand, anglais, français et espagnol ; la barre de langues en haut de
+    chaque page permet de passer de l'une à l'autre. Pour toutes les autres langues, l'entrée
+    <em>Aide</em> ouvre la version anglaise.
+  </p>
+  <div class="box box-info">
+    <strong>Les noms de fichiers restent identiques dans toutes les langues</strong>
+    Les résultats enregistrés s'appellent toujours <code>Ergebnis_…</code>, et le dossier
+    <code>FileFinder-Suchen\</code> ainsi que le fichier <code>FileFinder-config.ini</code>
+    conservent leurs noms. La même installation retrouve donc ses réglages et
+    ses résultats après un changement de langue.
+  </div>
+  <div class="box box-info">
+    <strong>Packs de langue</strong>
+    Les langues sont fournies sous forme de packs de langue vérifiés et chiffrés
+    (<code>sit_fftexte_….3kl</code>) placés dans le dossier <code>Lang</code> du programme. Si un pack
+    manque, FileFinder démarre en allemand. D'autres langues paraîtront sous forme de
+    packs de langue de Sattler IT-Service.
+  </div>
+
+  <!-- RACCOURCIS -->
+  <h2>Raccourcis clavier</h2>
+  <table>
+    <tr><th style="width:34%">Touche</th><th>Fonction</th></tr>
+    <tr><td><kbd>F11</kbd></td><td>Afficher / masquer les filtres avancés (dans la vue <em>Recherche</em>).</td></tr>
+    <tr><td><kbd>Entrée</kbd></td><td>Lancer la recherche (quand le curseur est dans le champ « Le nom de fichier contient » ou « Type de fichier / extension »).</td></tr>
+    <tr><td><kbd>Échap</kbd></td><td>Quitter le programme, ou fermer une fenêtre ouverte.</td></tr>
+  </table>
+
+  <!-- LIGNE D'ETAT -->
+  <h2>Ligne d'état &amp; barre de progression</h2>
+  <p>
+    Pendant la recherche, une barre de progression avance à droite de <em>Rechercher</em> et
+    <em>Annuler</em>, et la ligne d'état au-dessus affiche l'avancement.
+    À la fin apparaît le nombre total ; les dossiers ignorés faute d'accès sont
+    également mentionnés, p. ex. :
+    <code>✔ Recherche terminée — 47 occurrences (3 dossiers sans accès)</code>
+  </p>
+
+  <!-- CONSEILS -->
+  <h2>Conseils &amp; remarques</h2>
+  <div class="box box-tip">
+    <strong>Recherche rapide par type d'image</strong>
+    Saisir l'extension <code>jpg</code> ou <code>png</code>, cocher tous les lecteurs →
+    trouve toutes les images. Avec une plage de dates, les photos de vacances d'une
+    année donnée se retrouvent en un rien de temps.
+  </div>
+  <div class="box box-info">
+    <strong>🌐 Site web</strong>
+    Dans le pied de page du programme, le lien <em>Site web</em> mène directement à la
+    page du projet FileFinder avec toutes les versions et cette aide.
+  </div>
+  <div class="box box-tip">
+    <strong>Chercher au bon endroit plutôt que partout</strong>
+    Si vous savez à peu près où se trouve le fichier (p. ex. dans le dossier de téléchargements ou de projets),
+    indiquez ce dossier dans le champ <strong>Dossier seul</strong> – la recherche se termine alors
+    en quelques secondes au lieu de parcourir tout le disque. Si le fichier se trouve directement dans
+    ce dossier, c'est encore plus rapide sans <em>Inclure les sous-dossiers</em>.
+  </div>
+  <div class="box box-tip">
+    <strong>Repérer les consommateurs d'espace</strong>
+    Choisir <em>Gros fichiers</em> dans la barre latérale et cliquer sur
+    <em>Chercher les 100 plus gros fichiers</em> → les 100 plus gros fichiers apparaissent,
+    les plus gros en haut. Rapide et clair, sans programme supplémentaire.
+  </div>
+  <div class="box box-tip">
+    <strong>Faire le ménage en une fois</strong>
+    Sélectionner plusieurs fichiers volumineux ou anciens avec <kbd>Ctrl</kbd>/<kbd>Maj</kbd>,
+    clic droit → fenêtre d'action → <em>Vers la corbeille</em>. La corbeille étant récupérable,
+    une erreur de clic reste sans conséquence.
+  </div>
+  <div class="box box-tip">
+    <strong>Adapter l'affichage</strong>
+    Si la fenêtre paraît trop grande ou trop petite, ajuster la mise à l'échelle via
+    <em>Réglages</em> (de 90 % à 200 %). Le programme redémarre ensuite – pas le PC.
+  </div>
+  <div class="box box-warn">
+    <strong>Lecteurs réseau</strong>
+    Les lecteurs réseau associés à une lettre de lecteur apparaissent dans la liste et peuvent
+    être parcourus. Sur des connexions lentes, cela peut prendre nettement plus de temps.
+  </div>
+  <div class="box box-info">
+    <strong>Vitesse de recherche</strong>
+    La recherche s'exécute en arrière-plan et ne bloque pas la fenêtre. Sur de très gros
+    lecteurs (plusieurs To), une recherche complète peut prendre un moment ; elle peut être
+    arrêtée à tout instant avec <strong>Annuler</strong>.
+  </div>
+
+  <!-- CONFIGURATION REQUISE -->
+  <h2>Configuration requise</h2>
+  <table>
+    <tr><td style="width:34%"><strong>Système d'exploitation</strong></td><td>Windows 10 / 11</td></tr>
+    <tr><td><strong>Python</strong></td><td>3.10 ou plus récent (uniquement pour la version .py)</td></tr>
+    <tr><td><strong>Dépendances</strong></td><td>Bibliothèque standard Python uniquement (tkinter, os, threading, ctypes …)</td></tr>
+    <tr><td><strong>Droits</strong></td><td>Aucun droit administrateur requis ; les dossiers verrouillés sont ignorés</td></tr>
+  </table>
+
+  <!-- DON -->
+  <div class="donate">
+    <span class="pp-icon">💛</span>
+    <p>
+      <strong>S-IT FileFinder est un logiciel gratuit.</strong><br>
+      Si l'outil vous est utile, un petit soutien via PayPal me fait toujours plaisir :<br>
+      <a class="pp-btn" href="https://www.paypal.com/donate/?business=tool-entwicklung%40sattler-it.de&amp;currency_code=EUR" target="_blank">☕ Faire un don via PayPal</a><br>
+      tool-entwicklung@sattler-it.de
+      &nbsp;·&nbsp; © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Auteur : Hans Udo Sattler
+    </p>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Auteur : Hans Udo Sattler
+  &nbsp;·&nbsp; S-IT FileFinder v2.0
+</div>
+
+</body>
+</html>

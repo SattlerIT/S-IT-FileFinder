@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-IT FileFinder – Registro de cambios</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #F5F5F5;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #2C3E50;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header .icon { font-size: 28px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+  .header .version {
+    margin-left: auto;
+    font-size: 12px;
+    color: #BDC3C7;
+    white-space: nowrap;
+  }
+
+  /* ── Layout ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 28px 48px; }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2C3E50;
+    padding: 7px 14px;
+    border-radius: 4px;
+    margin: 28px 0 12px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin: 16px 0 6px;
+    border-left: 4px solid #3498DB;
+    padding-left: 8px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── Tabelle ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  th {
+    background: #2C3E50;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #ECF0F1;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FAFB; }
+
+  /* ── Hinweisboxen ── */
+  .box {
+    border-radius: 4px;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
+  .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
+  .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+  .box-new     { background: #F4ECF7; border-left: 4px solid #8E44AD; }
+
+  .box strong { display: block; margin-bottom: 3px; }
+
+  /* ── Code/Beispiel ── */
+  code {
+    background: #ECF0F1;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    color: #E74C3C;
+  }
+
+  /* ── Neu-Badge ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    letter-spacing: .3px;
+  }
+
+  /* ── Sprachleiste ── */
+  .langbar {
+    background: #22303C;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .langbar .lbl { color: #7F8C8D; }
+  .langbar a, .langbar .cur {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #BDC3C7;
+  }
+  .langbar a:hover { background: #2C3E50; color: #fff; }
+  .langbar .cur { background: #2C3E50; color: #fff; font-weight: 700; }
+  .langbar svg { border: 1px solid #7F8C8D; display: block; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #2C3E50;
+    color: #BDC3C7;
+    text-align: center;
+    font-size: 11px;
+    padding: 13px;
+    margin-top: 40px;
+  }
+
+  /* ── Schaltflächen-Badges ── */
+  .btn {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .btn-green  { background: #27AE60; }
+  .btn-orange { background: #F39C12; }
+  .btn-red    { background: #E74C3C; }
+  .btn-blue   { background: #3498DB; }
+  .btn-dark   { background: #2C3E50; }
+  .btn-light  { background: #2C3E50; color: #ECF0F1; }
+
+  /* ── Tastenkürzel ── */
+  kbd {
+    display: inline-block;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #2C3E50;
+    box-shadow: 0 1px 0 #BDC3C7;
+  }
+
+  /* ── Spende ── */
+  .donate {
+    background: #fff;
+    border: 1px solid #D5D8DC;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .donate .pp-icon { font-size: 28px; }
+  .donate p { margin: 0; font-size: 13px; }
+  .donate a {
+    color: #3498DB;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .donate a:hover { text-decoration: underline; }
+
+  /* ── Änderungsverlauf: Listen ── */
+  .content ul { margin: 0 0 14px 20px; }
+  .content li { margin-bottom: 6px; }
+  .content li strong { color: #2C3E50; }
+  .intro { color: #5D6D7E; font-size: 13px; margin-bottom: 22px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="icon">🔍</span>
+  <h1>S-IT FileFinder</h1>
+  <span class="version">v2.0 &nbsp;|&nbsp; Registro de cambios</span>
+</div>
+
+<div class="langbar">
+  <span class="lbl">Idioma:</span>
+  <a href="S-IT-FileFinder-Changelog.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#000"/><rect y="4.67" width="21" height="4.66" fill="#DD0000"/><rect y="9.33" width="21" height="4.67" fill="#FFCE00"/></svg> Deutsch</a>
+  <a href="S-IT-FileFinder-Changelog-en.html"><svg width="21" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg> English</a>
+  <a href="S-IT-FileFinder-Changelog-fr.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="7" height="14" fill="#002395"/><rect x="7" width="7" height="14" fill="#fff"/><rect x="14" width="7" height="14" fill="#ED2939"/></svg> Français</a>
+  <span class="cur"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#AA151B"/><rect y="4" width="21" height="6" fill="#F1BF00"/></svg> Español</span>
+</div>
+
+<div class="content">
+
+  <p class="intro">Todos los cambios relevantes de S-IT FileFinder, la versión más reciente arriba.<br>Las versiones 1.2.5 a 1.2.11 fueron pasos intermedios internos y están resumidas en la v1.2.12.</p>
+
+  <h2>v2.0 – Nueva interfaz, opción de subcarpetas y 18 idiomas<span class="new-badge">ACTUAL</span></h2>
+  <ul>
+    <li><strong>Nueva interfaz:</strong> a la izquierda, una barra lateral con Búsqueda, Archivos grandes, Gestor resultados, Ajustes y Ayuda. Los criterios de búsqueda, las unidades y la carpeta están en recuadros propios con colores de fondo diferentes; «Vaciar campos» arriba a la derecha restablece la vista.</li>
+    <li><strong>Esquema de colores:</strong> la configuración ofrece cinco esquemas de colores: Estándar, Claro suave, Atenuado (predeterminado), Muy atenuado y Oscuro.</li>
+    <li><strong>Incluir subcarpetas:</strong> en una búsqueda por carpeta se puede elegir si se recorren también las subcarpetas o solo los archivos que están directamente en la carpeta. El ajuste se guarda con el resultado.</li>
+    <li><strong>Archivos grandes como vista propia:</strong> se abre desde la barra lateral, con su propia lista de resultados; las coincidencias de la búsqueda normal se conservan al cambiar de vista.</li>
+    <li><strong>18 idiomas:</strong> se añaden italiano, neerlandés, polaco, danés, croata, bosnio, serbio, montenegrino, esloveno, albanés, rumano, turco, búlgaro y macedonio. El idioma se elige en la configuración mediante una ventana de selección.</li>
+    <li><strong>Escala:</strong> el nivel elegido (90–200 %) se aplica con independencia de la escala de Windows. La ventana queda por encima de la barra de tareas; si no hay espacio suficiente, aparece una barra de desplazamiento.</li>
+    <li><strong>Configuración, gestor de resultados y acciones sobre archivos</strong> con el nuevo aspecto.</li>
+    <li>Ayuda revisada en los cuatro idiomas.</li>
+  </ul>
+  <h2>v1.2.16 – Cuatro idiomas: alemán, inglés, francés, español</h2>
+  <ul>
+    <li><strong>Selección de idioma:</strong> el programa está disponible ahora en cuatro idiomas. El cambio se realiza en la ventana de ajustes, en el nuevo apartado «Idioma» (con banderas); tras una breve confirmación, FileFinder se reinicia en el idioma elegido. El ajuste se guarda en <code>FileFinder-config.ini</code>; sin esa entrada, todo permanece en alemán como hasta ahora.</li>
+    <li><strong>Traducido por completo:</strong> interfaz, menú contextual, mensajes de estado, todas las ventanas de aviso, el gestor de resultados y la ventana de acciones sobre archivos (copiar, mover, papelera).</li>
+    <li><strong>Informe de resultados en el idioma elegido:</strong> el informe HTML sigue el idioma del programa: títulos, columnas y datos de la cabecera.</li>
+    <li><strong>Ayuda en cuatro idiomas:</strong> el botón de ayuda abre la ayuda directamente en el idioma configurado. Cada página de ayuda lleva arriba una barra de idiomas para pasar de una versión a otra.</li>
+  </ul>
+  <h2>v1.2.15 – Botón de inicio, ámbito de búsqueda en el informe y enlace al sitio web</h2>
+  <ul>
+    <li><strong>Botón de inicio:</strong> nuevo botón 🏠 en la barra superior; devuelve el programa en cualquier momento a la vista inicial vacía, también desde un resultado cargado o desde la vista de archivos grandes.</li>
+    <li><strong>Ámbito de búsqueda en el informe:</strong> tras una búsqueda en una carpeta, el informe de resultados y el gestor de resultados muestran ahora la ruta de la carpeta recorrida (el dato se llama «ámbito de búsqueda» en lugar de «unidades»). Al cargar una búsqueda de carpeta guardada, la carpeta vuelve a colocarse en su campo.</li>
+    <li><strong>Enlace al sitio web:</strong> nuevo enlace 🌐 en el pie de página; abre la página del proyecto FileFinder en el navegador.</li>
+    <li>Propuestas de usuarios surgidas de la práctica, ya incorporadas. ¡Gracias!</li>
+  </ul>
+  <h2>v1.2.14 – Búsqueda por carpeta, búsqueda más rápida en unidades y escala del 90 %</h2>
+  <ul>
+    <li><strong>Búsqueda por carpeta:</strong> el nuevo campo de carpeta permite recorrer una carpeta concreta y sus subcarpetas en lugar de unidades enteras; vale también para los archivos grandes. Mientras tanto, la selección de unidades queda desactivada; al vaciar el campo, la selección anterior vuelve automáticamente.</li>
+    <li><strong>Búsqueda más rápida en unidades:</strong> la exclusión de las carpetas de sistema de Windows (Windows, $Recycle.Bin, System Volume Information y otras) en la raíz de las unidades funciona ahora de forma fiable; las búsquedas en la unidad de sistema son notablemente más rápidas y ya no devuelven resultados de esas carpetas.</li>
+    <li><strong>Escala desde el 90 %:</strong> nuevo nivel del 90 % en la ventana de ajustes, para una presentación más compacta en pantallas pequeñas.</li>
+    <li><strong>Ayuda revisada:</strong> nuevo apartado sobre el ámbito de búsqueda (carpeta o unidades) y un consejo práctico adicional sobre la búsqueda selectiva en una carpeta.</li>
+    <li>La licencia y el aviso legal se incluyen ahora en el paquete.</li>
+  </ul>
+  <h2>v1.2.12 – Ordenación, archivos grandes, acciones sobre archivos y gestor de resultados</h2>
+  <ul>
+    <li><strong>Ordenación:</strong> ordenar los resultados pulsando en el título de una columna (nombre, tamaño, fecha, ruta). El tamaño y la fecha se ordenan por su valor real, no por el texto mostrado.</li>
+    <li><strong>Archivos grandes:</strong> mostrar con una pulsación los 100 archivos más grandes de las unidades seleccionadas, para localizar rápidamente lo que ocupa espacio.</li>
+    <li><strong>Acciones sobre archivos:</strong> seleccionar varios resultados y copiarlos, moverlos o enviarlos a la papelera en una ventana propia, con barra de progreso exacta al byte y sin sobrescribir (cambio de nombre automático si el nombre ya existe).</li>
+    <li><strong>Guardar resultados:</strong> guardar los resultados de una búsqueda, volver a cargarlos más tarde o verlos como informe HTML, todo ello desde el nuevo gestor de resultados.</li>
+    <li><strong>Configuración:</strong> ventana central para el tamaño de presentación, los filtros avanzados al iniciar y la ordenación predeterminada (se guardan en <code>FileFinder-config.ini</code>).</li>
+    <li>Archivo de ayuda actualizado y numerosas mejoras de detalle.</li>
+  </ul>
+  <h2>v1.2.4 – 16/04/2026 – Reinicio estable</h2>
+  <ul>
+    <li><strong>Corrección del reinicio:</strong> el cambio del tamaño de presentación inicia ahora la nueva instancia de forma fiable, sin «Failed to import encodings»; el EXE compilado se inicia directamente.</li>
+    <li><strong>--onedir:</strong> paso a un EXE basado en carpeta; ya no se descomprime nada en Temp al iniciar.</li>
+    <li>Un retardo de 200 ms en el reinicio evita una condición de carrera al cerrar.</li>
+  </ul>
+  <h2>v1.2.3 – Disposición de los filtros avanzados</h2>
+  <ul>
+    <li>Denominaciones más claras: «fecha de creación» y «fecha de modificación».</li>
+    <li>Símbolos uniformes (📅 📏 ✏️), alineados uno debajo de otro.</li>
+    <li>Campos desde/hasta más juntos, etiquetas alineadas a la izquierda.</li>
+  </ul>
+  <h2>v1.2.1 – Tamaños en MB</h2>
+  <ul>
+    <li>El filtro de tamaño trabaja en megabytes en lugar de kilobytes.</li>
+    <li>El tamaño máximo se reconoce automáticamente como MB o GB en el registro HTML de resultados.</li>
+  </ul>
+  <h2>v1.2.0 – Vista y filtros avanzados</h2>
+  <ul>
+    <li>Tecla F11 para mostrar u ocultar los filtros de fecha y tamaño; la altura de la ventana se adapta automáticamente.</li>
+    <li>Tamaño de presentación seleccionable (100–200 %) con reinicio opcional del programa.</li>
+    <li>Escalado completo DPI/4K para pantallas de alta resolución.</li>
+    <li>Anchura de ventana automática cuando hay muchas letras de unidad.</li>
+    <li>Mejores etiquetas de fecha, cabecera revisada, tamaño y posición automáticos al iniciar.</li>
+  </ul>
+  <h2>v1.0.1 – Corrección del comportamiento al iniciar</h2>
+  <ul>
+    <li>Corregido el bloqueo al iniciar en equipos con lector de DVD o lector de tarjetas sin medio insertado (las unidades se determinan a través de la API de Windows).</li>
+  </ul>
+  <h2>v1.0.0 – Primera publicación</h2>
+  <ul>
+    <li>Búsqueda por fragmentos del nombre, tipo de archivo, fecha de creación o modificación y tamaño de archivo.</li>
+    <li>Compatibilidad con varias unidades, con casilla «todas».</li>
+    <li>Registro HTML de resultados con rutas en las que se puede pulsar.</li>
+    <li>Menú contextual: abrir carpeta, abrir archivo, copiar ruta.</li>
+    <li>Botón de ayuda con documentación HTML.</li>
+  </ul>
+
+</div><!-- /content -->
+
+<div class="footer">
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
+  &nbsp;·&nbsp; S-IT FileFinder v2.0
+</div>
+
+</body>
+</html>

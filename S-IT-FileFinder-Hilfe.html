@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-IT FileFinder – Hilfe</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #F5F5F5;
+    color: #2C3E50;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #2C3E50;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header .icon { font-size: 28px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+  .header .version {
+    margin-left: auto;
+    font-size: 12px;
+    color: #BDC3C7;
+    white-space: nowrap;
+  }
+
+  /* ── Layout ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 28px 28px 48px; }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2C3E50;
+    padding: 7px 14px;
+    border-radius: 4px;
+    margin: 28px 0 12px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin: 16px 0 6px;
+    border-left: 4px solid #3498DB;
+    padding-left: 8px;
+  }
+
+  p { margin-bottom: 8px; }
+
+  /* ── Tabelle ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  th {
+    background: #2C3E50;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #ECF0F1;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FAFB; }
+
+  /* ── Hinweisboxen ── */
+  .box {
+    border-radius: 4px;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .box-info    { background: #EBF5FB; border-left: 4px solid #3498DB; }
+  .box-tip     { background: #EAFAF1; border-left: 4px solid #27AE60; }
+  .box-warn    { background: #FEF9E7; border-left: 4px solid #F39C12; }
+  .box-new     { background: #F4ECF7; border-left: 4px solid #8E44AD; }
+
+  .box strong { display: block; margin-bottom: 3px; }
+
+  /* ── Code/Beispiel ── */
+  code {
+    background: #ECF0F1;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    color: #E74C3C;
+  }
+
+  /* ── Neu-Badge ── */
+  .new-badge {
+    display: inline-block;
+    background: #8E44AD;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    letter-spacing: .3px;
+  }
+
+  /* ── Sprachleiste ── */
+  .langbar {
+    background: #22303C;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .langbar .lbl { color: #7F8C8D; }
+  .langbar a, .langbar .cur {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #BDC3C7;
+  }
+  .langbar a:hover { background: #2C3E50; color: #fff; }
+  .langbar .cur { background: #2C3E50; color: #fff; font-weight: 700; }
+  .langbar svg { border: 1px solid #7F8C8D; display: block; }
+
+  /* ── Footer ── */
+  .footer {
+    background: #2C3E50;
+    color: #BDC3C7;
+    text-align: center;
+    font-size: 11px;
+    padding: 13px;
+    margin-top: 40px;
+  }
+
+  /* ── Schaltflächen-Badges ── */
+  .btn {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .btn-green  { background: #27AE60; }
+  .btn-orange { background: #F39C12; }
+  .btn-red    { background: #E74C3C; }
+  .btn-blue   { background: #3498DB; }
+  .btn-dark   { background: #2C3E50; }
+  .btn-light  { background: #2C3E50; color: #ECF0F1; }
+
+  /* ── Tastenkürzel ── */
+  kbd {
+    display: inline-block;
+    background: #ECF0F1;
+    border: 1px solid #BDC3C7;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    color: #2C3E50;
+    box-shadow: 0 1px 0 #BDC3C7;
+  }
+
+  /* ── Spende ── */
+  .donate {
+    background: #fff;
+    border: 1px solid #D5D8DC;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .donate .pp-icon { font-size: 28px; }
+  .donate p { margin: 0; font-size: 13px; }
+  .donate a {
+    color: #3498DB;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .donate a:hover { text-decoration: underline; }
+
+  /* ── Knöpfe wie im Programm (ab v2.0) ── */
+  .k {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 1px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .k-blau   { background: #1F5F99; color: #fff; }
+  .k-gruen  { background: #1E7A46; color: #fff; }
+  .k-orange { background: #A4520C; color: #fff; }
+  .k-neben  { background: #fff; color: #1F2A37; border-color: #D1D5DB; font-weight: 400; }
+  .k-stopp  { background: #fff; color: #B42318; border-color: #E8B4AE; font-weight: 400; }
+  ul.liste { margin: 0 0 10px 22px; }
+  .donate a.pp-btn {
+    display: inline-block;
+    background: #009CDE;
+    color: #fff;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 6px;
+    margin: 6px 0 4px;
+    text-decoration: none;
+  }
+  .donate a.pp-btn:hover { background: #0086C0; text-decoration: none; }
+  ul.liste li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="icon">🔍</span>
+  <h1>S-IT FileFinder</h1>
+  <span class="version">v2.0 &nbsp;|&nbsp; Hilfe &amp; Bedienung</span>
+</div>
+
+<div class="langbar">
+  <span class="lbl">Sprache:</span>
+  <span class="cur"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#000"/><rect y="4.67" width="21" height="4.66" fill="#DD0000"/><rect y="9.33" width="21" height="4.67" fill="#FFCE00"/></svg> Deutsch</span>
+  <a href="S-IT-FileFinder-Help.html"><svg width="21" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg> English</a>
+  <a href="S-IT-FileFinder-Aide.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="7" height="14" fill="#002395"/><rect x="7" width="7" height="14" fill="#fff"/><rect x="14" width="7" height="14" fill="#ED2939"/></svg> Français</a>
+  <a href="S-IT-FileFinder-Ayuda.html"><svg width="21" height="14" viewBox="0 0 21 14"><rect width="21" height="14" fill="#AA151B"/><rect y="4" width="21" height="6" fill="#F1BF00"/></svg> Español</a>
+</div>
+
+<div class="content">
+
+  <!-- ÜBERBLICK -->
+  <h2>Überblick</h2>
+  <p>
+    <strong>S-IT FileFinder</strong> hilft dabei, Dateien auf dem lokalen PC wiederzufinden –
+    auch wenn nur ein Namensbruchstück, ein ungefähres Datum oder der Dateityp bekannt ist.
+    Die Suche läuft direkt über das Dateisystem, ohne Indexdienst, und durchsucht wahlweise alle
+    gewählten Laufwerke gleichzeitig oder gezielt einen einzelnen Ordner. Gefundene Listen lassen sich sortieren, als
+    Ergebnis speichern und später wieder laden, und markierte Dateien können direkt
+    aus dem Tool heraus kopiert, verschoben oder in den Papierkorb gelegt werden.
+  </p>
+
+  <!-- PROGRAMMOBERFLÄCHE -->
+  <h2>Programmoberfläche <span class="new-badge">NEU</span></h2>
+  <p>
+    Links steht die dunkle <strong>Seitenleiste</strong>, über die Du zwischen den Bereichen
+    des Programms wechselst. Rechts daneben liegt der helle Inhaltsbereich mit den Kästen für
+    <strong>Suchkriterien</strong>, <strong>Suchbereich</strong> und <strong>Nur Ordner</strong>,
+    darunter die Knöpfe zum Suchen und die <strong>Trefferliste</strong>.
+    Ganz unten steht die Fußzeile mit dem Link zur Webseite und der eingestellten Sprache.
+  </p>
+
+  <h3>Seitenleiste</h3>
+  <table>
+    <tr><th style="width:34%">Eintrag</th><th>Funktion</th></tr>
+    <tr>
+      <td><strong>Suche</strong></td>
+      <td>Die normale Dateisuche nach Name, Endung, Datum und Größe. Mit dieser Ansicht startet das Programm.</td>
+    </tr>
+    <tr>
+      <td><strong>Große Dateien</strong></td>
+      <td>Findet die 100 größten Dateien im Suchbereich (siehe Abschnitt <em>Große Dateien</em>).</td>
+    </tr>
+    <tr>
+      <td><strong>Ergebnis-Manager</strong></td>
+      <td>Öffnet das Fenster mit allen gespeicherten Ergebnissen zum Laden, Ansehen und Löschen (siehe unten).</td>
+    </tr>
+    <tr>
+      <td><strong>Konfig</strong></td>
+      <td>
+        Öffnet die Konfiguration für <strong>Ansicht</strong> (Skalierung,
+        erweiterte Filter beim Start), <strong>Standard-Sortierung</strong>, <strong>Sprache</strong> und <strong>Farbschema</strong>.
+        Alle Einstellungen werden in der Datei <code>FileFinder-config.ini</code>
+        gespeichert – ein Bearbeiten der INI von Hand ist nicht nötig.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hilfe</strong></td>
+      <td>Öffnet diese Hilfedatei im Standard-Browser.</td>
+    </tr>
+  </table>
+  <p>
+    Rechts oben über den Kästen steht der Knopf <span class="k k-neben">Felder leeren</span>.
+    Er setzt alle Eingabefelder zurück und leert die Trefferliste der aktuellen Ansicht.
+  </p>
+
+  <!-- SUCHKRITERIEN -->
+  <h2>Suchkriterien</h2>
+  <p>Die Suchkriterien stehen im obersten, grün hinterlegten Kasten.</p>
+
+  <h3>Grundlegende Suche</h3>
+  <table>
+    <tr><th style="width:34%">Feld</th><th>Bedeutung &amp; Beispiele</th></tr>
+    <tr>
+      <td><strong>Dateiname enthält</strong></td>
+      <td>
+        Ein oder mehrere Namensbruchstücke, durch <strong>Leerzeichen</strong> getrennt.
+        Die Suche ist <em>nicht</em> Groß-/Kleinschreibungs-sensitiv.<br>
+        Beispiel: <code>Werner Schmi</code> → findet alle Dateien,
+        die sowohl <em>werner</em> als auch <em>schmi</em> im Namen enthalten.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Dateityp / Endung</strong></td>
+      <td>
+        Dateiendung mit oder ohne Punkt.<br>
+        Beispiele: <code>jpg</code> &nbsp;·&nbsp; <code>.pdf</code> &nbsp;·&nbsp; <code>docx</code>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Erweiterte Filter</h3>
+  <p>
+    Die erweiterten Filter lassen sich mit der Taste <kbd>F11</kbd> oder dem Knopf
+    <span class="k k-neben">Erweiterte Filter (Datum, Größe) ▾</span> rechts neben dem Feld
+    „Dateityp / Endung“ ein- und ausklappen. Ob sie beim Start sichtbar sind,
+    legst Du in der <em>Konfig</em> fest. Das Fenster wächst beim Aufklappen mit, aber nie
+    über die Taskleiste hinaus. Reicht der Platz nicht, erscheint rechts ein Rollbalken.
+  </p>
+  <table>
+    <tr><th style="width:34%">Feld</th><th>Bedeutung &amp; Beispiele</th></tr>
+    <tr>
+      <td><strong>Erstelldatum</strong> von / bis</td>
+      <td>
+        Grenzt nach dem Datum ein, an dem die Datei <em>angelegt</em> wurde.<br>
+        Format: <code>TT.MM.JJJJ</code> &nbsp;·&nbsp;
+        Beispiel: <code>01.01.2023</code> bis <code>31.12.2023</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Änderungsdatum</strong> von / bis</td>
+      <td>
+        Grenzt nach dem Datum der letzten <em>Bearbeitung/Speicherung</em> ein.<br>
+        Nützlich, um kürzlich bearbeitete Dokumente wiederzufinden. Format: <code>TT.MM.JJJJ</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Dateigröße (MB)</strong> von / bis</td>
+      <td>
+        Dateigröße in Megabyte eingrenzen. Beide Felder sind optional.
+      </td>
+    </tr>
+  </table>
+
+  <div class="box box-info">
+    <strong>Erstellt oder Geändert – was ist der Unterschied?</strong>
+    <em>Erstellt</em> ist das Datum, an dem die Datei an ihrem jetzigen Ort angelegt wurde.
+    <em>Geändert</em> ist das Datum der letzten Bearbeitung. Bei <em>kopierten</em> Dateien
+    ist das Erstelldatum oft neuer als das Änderungsdatum – die Datei selbst kann also alt
+    sein, obwohl sie „neu erstellt“ aussieht.
+  </div>
+
+  <div class="box box-info">
+    <strong>Alle Felder sind optional</strong>
+    Leere Felder werden bei der Suche ignoriert. Es reicht z. B. nur eine Endung
+    einzugeben, um alle Dateien dieses Typs zu finden.
+  </div>
+
+  <!-- SUCHBEREICH -->
+  <h2>Suchbereich: Laufwerke oder Ordner</h2>
+  <p>
+    Im blaugrauen Kasten <strong>Suchbereich</strong> stehen alle erkannten Laufwerke als
+    Häkchen. Mit <strong>Alle</strong> werden sämtliche Laufwerke gleichzeitig an- oder
+    abgehakt; beliebige Einzellaufwerke lassen sich kombinieren.
+  </p>
+  <p>
+    Darunter folgt der weiße Kasten <strong>Nur Ordner</strong>. Ist dort ein Ordner eingetragen
+    (per <span class="k k-neben">Durchsuchen…</span> auswählen oder direkt eintippen), wird
+    ausschließlich dieser Ordner durchsucht. Die Laufwerke im Kasten darüber werden dabei
+    ausgegraut, alle Häkchen entfernt, und daneben erscheint der Hinweis
+    „Bei eingetragenem Ordner wird nur dieser durchsucht.“
+    Mit <strong>✕</strong> rechts neben dem Feld oder über <em>Felder leeren</em> wird das Feld
+    geleert, und die vorherige Laufwerksauswahl kehrt zurück.
+  </p>
+
+  <h3>Unterordner einbeziehen <span class="new-badge">NEU</span></h3>
+  <p>
+    Unter dem Ordnerfeld steht das Häkchen <strong>Unterordner einbeziehen</strong>. Es lässt sich
+    nur anklicken, wenn ein Ordner eingetragen ist.
+  </p>
+  <ul class="liste">
+    <li><strong>Gesetzt</strong> (Vorgabe): Der Ordner wird samt allen Unterordnern durchsucht.</li>
+    <li><strong>Nicht gesetzt</strong>: Es werden nur die Dateien durchsucht, die direkt in diesem
+        Ordner liegen. Unterordner bleiben unberührt.</li>
+  </ul>
+  <p>
+    Die Einstellung gilt für die normale Suche und für <em>Große Dateien</em>. Sie wird mit dem
+    Ergebnis gespeichert und beim Laden aus dem Ergebnis-Manager wiederhergestellt.
+    <em>Felder leeren</em> setzt das Häkchen wieder.
+  </p>
+
+  <div class="box box-warn">
+    <strong>Hinweis zu Systemordnern</strong>
+    Im Wurzelverzeichnis jedes Laufwerks werden die Windows-Systemordner
+    (<code>Windows</code>, <code>$Recycle.Bin</code>, <code>System Volume Information</code> u. a.)
+    automatisch übersprungen, um die Suche zu beschleunigen. Das gilt auch, wenn im
+    Feld <strong>Nur Ordner</strong> ein Laufwerksstamm wie <code>C:\</code> eingetragen ist.
+    Alle übrigen Ordner werden vollständig durchsucht.
+  </div>
+
+  <!-- SUCHEN -->
+  <h2>Suchen und Abbrechen</h2>
+  <table>
+    <tr><th style="width:34%">Knopf</th><th>Funktion</th></tr>
+    <tr>
+      <td><span class="k k-blau">Suchen</span></td>
+      <td>Startet die Suche mit den aktuellen Kriterien. Treffer erscheinen laufend.
+          Alternativ: <kbd>Enter</kbd> im Feld „Dateiname enthält“ oder „Dateityp / Endung“.</td>
+    </tr>
+    <tr>
+      <td><span class="k k-stopp">Abbrechen</span></td>
+      <td>Bricht eine laufende Suche sofort ab. Bereits gefundene Treffer bleiben sichtbar.</td>
+    </tr>
+  </table>
+  <p>
+    Rechts neben den beiden Knöpfen stehen die Statuszeile und der Fortschrittsbalken
+    (siehe <em>Statuszeile &amp; Fortschrittsbalken</em>).
+  </p>
+
+  <!-- GROSSE DATEIEN -->
+  <h2>Große Dateien <span class="new-badge">NEU</span></h2>
+  <p>
+    Ein Klick auf <strong>Große Dateien</strong> in der Seitenleiste wechselt in die eigene Ansicht
+    zum Aufspüren von Speicherfressern. Der Kasten mit den Suchkriterien wird dort ausgeblendet,
+    denn es zählt nur die Größe. Suchbereich, <em>Nur Ordner</em> und
+    <em>Unterordner einbeziehen</em> gelten wie bei der normalen Suche.
+  </p>
+  <p>
+    Der Knopf <span class="k k-orange">100 größte Dateien suchen</span> durchsucht den Suchbereich
+    und zeigt die 100 größten Dateien, größte oben.
+  </p>
+  <div class="box box-info">
+    <strong>Jede Ansicht hat ihre eigene Trefferliste</strong>
+    Beim ersten Aufruf von <em>Große Dateien</em> ist die Liste leer. Wechselst Du zurück zu
+    <em>Suche</em>, stehen dort wieder Deine Treffer samt Statuszeile – und umgekehrt.
+    Läuft beim Wechsel noch eine Suche, wird sie angehalten.
+  </div>
+
+  <!-- ERGEBNISTABELLE -->
+  <h2>Trefferliste</h2>
+  <p>
+    Gefundene Dateien werden mit Dateiname, Größe, Änderungs- und Erstelldatum sowie
+    Pfad angezeigt. Die Liste lässt sich scrollen; Spaltenbreiten sind per Maus anpassbar.
+  </p>
+
+  <h3>Sortierung</h3>
+  <p>
+    Ein Klick auf eine <strong>Spaltenüberschrift</strong> sortiert die Liste nach dieser
+    Spalte; ein erneuter Klick dreht die Richtung um (Pfeil ▲/▼). Größe wird korrekt nach
+    Bytes sortiert, Datum nach echtem Zeitstempel – nicht nach dem angezeigten Text.
+    Welche Sortierung nach Suchabschluss <em>automatisch</em> gilt, legst Du in der
+    <em>Konfig</em> fest (Standard: Geändert, neueste oben).
+  </p>
+
+  <h3>Doppelklick</h3>
+  <p>Öffnet den Ordner, in dem die Datei liegt, im Windows-Explorer – die Datei ist dabei markiert.</p>
+
+  <h3>Mehrfachauswahl</h3>
+  <p>
+    Mit <kbd>Strg</kbd> werden einzelne Zeilen zur Auswahl hinzugefügt, mit
+    <kbd>Umschalt</kbd> ganze Blöcke. Die Auswahl ist die Grundlage für das
+    Aktion-Fenster (Kopieren / Verschieben / Löschen, siehe unten).
+  </p>
+
+  <h3>Rechtsklick – Kontextmenü</h3>
+  <table>
+    <tr><th style="width:44%">Menüpunkt</th><th>Aktion</th></tr>
+    <tr><td>📂 Ordner im Explorer öffnen</td><td>Explorer öffnet den Ordner mit markierter Datei.</td></tr>
+    <tr><td>▶ Datei öffnen</td><td>Öffnet die Datei mit dem zugeordneten Standardprogramm.</td></tr>
+    <tr><td>📋 Pfad kopieren</td><td>Kopiert den vollständigen Dateipfad in die Zwischenablage.</td></tr>
+    <tr>
+      <td>🔧 Auswahl: Kopieren / Verschieben / Löschen …</td>
+      <td>Öffnet das Aktion-Fenster für alle markierten Dateien (siehe unten).</td>
+    </tr>
+  </table>
+
+  <!-- AKTION-FENSTER -->
+  <h2>Aktion-Fenster: Kopieren / Verschieben / Löschen</h2>
+  <p>
+    Markiere eine oder mehrere Dateien in der Trefferliste und wähle per Rechtsklick
+    <em>„🔧 Auswahl: Kopieren / Verschieben / Löschen …“</em>. Es öffnet sich das Fenster
+    <strong>Aktion mit Auswahl</strong>, das die markierten Dateien auflistet – alle Aktionen laufen
+    <strong>im Tool selbst</strong>, ohne den Explorer aufzurufen, mit eigenem Fortschrittsbalken.
+  </p>
+  <table>
+    <tr><th style="width:34%">Knopf</th><th>Verhalten</th></tr>
+    <tr>
+      <td><span class="k k-neben">Kopieren …</span></td>
+      <td>Fragt einen Zielordner ab und kopiert die Auswahl dorthin. Die Trefferliste bleibt unverändert.</td>
+    </tr>
+    <tr>
+      <td><span class="k k-neben">Verschieben …</span></td>
+      <td>Verschiebt die Auswahl in den Zielordner. Verschobene Dateien verschwinden aus der Liste.</td>
+    </tr>
+    <tr>
+      <td><span class="k k-stopp">In den Papierkorb</span></td>
+      <td>Legt die Auswahl nach einer Rückfrage in den <strong>Windows-Papierkorb</strong> – also
+          wiederherstellbar, nicht endgültig gelöscht. Gelöschte Dateien verschwinden aus der Liste.</td>
+    </tr>
+  </table>
+  <div class="box box-tip">
+    <strong>Kein Überschreiben</strong>
+    Existiert im Ziel bereits eine Datei gleichen Namens, wird die Kopie automatisch
+    mit einem Zusatz versehen (<code>Name (2).ext</code>, <code>Name (3).ext</code> …) –
+    es geht also nie versehentlich etwas verloren.
+  </div>
+
+  <!-- ERGEBNIS SPEICHERN -->
+  <h2>Ergebnis speichern &amp; Ergebnis-Manager</h2>
+  <p>
+    Unter der Trefferliste stehen rechts zwei Knöpfe. Beide legen das Ergebnis im festen
+    Ordner <code>FileFinder-Suchen\</code> neben dem Programm ab – jeweils als ladbare
+    Datei (<code>.ffs</code>) <em>und</em> als HTML-Bericht zum Ansehen.
+  </p>
+  <table>
+    <tr><th style="width:34%">Knopf</th><th>Funktion</th></tr>
+    <tr>
+      <td><span class="k k-neben">Ergebnis speichern</span></td>
+      <td>Speichert das aktuelle Ergebnis still (für den Ergebnis-Manager).</td>
+    </tr>
+    <tr>
+      <td><span class="k k-neben">Ergebnisbericht</span></td>
+      <td>Speichert das Ergebnis und öffnet den HTML-Bericht gleich im Browser – zum Ansehen,
+          Drucken oder Weitergeben. Im Berichtskopf steht unter <strong>Suchbereich</strong>,
+          wo gesucht wurde – die Laufwerke oder bei einer Ordnersuche der Ordnerpfad.</td>
+    </tr>
+  </table>
+
+  <h3>Ergebnis-Manager</h3>
+  <p>
+    Der Eintrag <strong>Ergebnis-Manager</strong> in der Seitenleiste öffnet ein Fenster mit allen
+    gespeicherten Ergebnissen (Datum/Zeit, Treffer, Suchbegriff, Suchbereich), das neueste oben.
+    Bei einer Ordnersuche steht im Suchbereich der durchsuchte Ordnerpfad.
+  </p>
+  <table>
+    <tr><th style="width:34%">Knopf</th><th>Funktion</th></tr>
+    <tr><td><span class="k k-blau">Laden</span></td><td>Holt Suchkriterien und Trefferliste zurück ins Hauptfenster (Doppelklick geht auch).
+        Bei einer gespeicherten Ordnersuche werden auch der Ordner und das Häkchen
+        „Unterordner einbeziehen“ wiederhergestellt. Ein Ergebnis der großen Dateien erscheint
+        in der Ansicht <em>Große Dateien</em>, eine normale Suche in der Ansicht <em>Suche</em>.</td></tr>
+    <tr><td><span class="k k-neben">HTML öffnen</span></td><td>Öffnet den HTML-Bericht zum gewählten Ergebnis im Browser.</td></tr>
+    <tr><td><span class="k k-stopp">Löschen</span></td><td>Löscht nach einer Rückfrage die markierten gespeicherten Ergebnisse (Mehrfachauswahl möglich).</td></tr>
+    <tr><td><span class="k k-stopp">Von–Bis löschen</span></td><td>Löscht alle gespeicherten Ergebnisse in einem Datumsbereich. Anfang und Ende wählst Du im folgenden Fenster aus zwei Listen.</td></tr>
+  </table>
+  <div class="box box-info">
+    <strong>Geladenes Ergebnis ist gesperrt fürs Neuspeichern</strong>
+    Sobald ein Ergebnis im Manager geladen wurde, sind <em>„Ergebnis speichern“</em> und
+    <em>„Ergebnisbericht“</em> gesperrt – ein bereits gespeichertes Ergebnis soll sich nicht
+    endlos selbst kopieren. Hinter der Statuszeile erscheint dann ein blaues <strong>ⓘ</strong>
+    mit Erklärung. Den HTML-Bericht rufst Du in diesem Fall über <em>„HTML öffnen“</em> im
+    Ergebnis-Manager auf. Eine <strong>neue Suche</strong> oder <em>„Felder leeren“</em> gibt
+    das Speichern wieder frei.
+  </div>
+
+  <!-- KONFIG -->
+  <h2>Konfiguration (Konfig)</h2>
+  <p>
+    Der Eintrag <strong>Konfig</strong> in der Seitenleiste öffnet das Fenster
+    <strong>Konfiguration</strong> mit vier Kästen. Alle Einstellungen werden in
+    <code>FileFinder-config.ini</code> gespeichert – Handarbeit an der INI ist nicht nötig.
+    Auch ein Klick auf Flagge und Sprachkürzel unten rechts in der Fußzeile öffnet die Konfiguration.
+  </p>
+  <table>
+    <tr><th style="width:34%">Einstellung</th><th>Bedeutung</th></tr>
+    <tr>
+      <td><strong>Skalierung</strong></td>
+      <td>Darstellungsgröße von 90 % bis 200 %. Die Stufe gilt unabhängig von der
+          Skalierung, die in Windows eingestellt ist: 100 % zeigt das Programm in 100 %, auch wenn
+          Windows auf 125 % steht. Eine Änderung wirkt erst nach einem Neustart des Programms –
+          das Programm bietet den Neustart nach dem Speichern direkt an (nur das Programm, nicht der PC).</td>
+    </tr>
+    <tr>
+      <td><strong>Erweiterte Filter (Datum/Größe) beim Start anzeigen</strong></td>
+      <td>Legt fest, ob die erweiterten Filter beim Programmstart sichtbar sind.</td>
+    </tr>
+    <tr>
+      <td><strong>Standard-Sortierung</strong></td>
+      <td>Spalte (Dateiname / Größe / Geändert / Erstellt / Pfad / keine) und Richtung
+          (absteigend / aufsteigend), nach der die Liste bei Suchabschluss automatisch
+          sortiert wird.</td>
+    </tr>
+    <tr>
+      <td><strong>Sprache</strong> <span class="new-badge">NEU</span></td>
+      <td>Das Feld mit Flagge und Sprachnamen öffnet ein Auswahlfenster mit allen verfügbaren
+          Sprachen. Ein Klick auf eine Sprache übernimmt sie; ein Wechsel wirkt nach dem
+          angebotenen Neustart des Programms.</td>
+    </tr>
+    <tr>
+      <td><strong>Farbschema</strong> <span class="new-badge">NEU</span></td>
+      <td>Farben der Oberfläche in fünf Schemata (siehe Abschnitt <em>Farbschema</em>). Ein Wechsel
+          wirkt nach dem angebotenen Neustart des Programms.</td>
+    </tr>
+  </table>
+  <p>
+    <span class="k k-gruen">Speichern</span> übernimmt die Einstellungen,
+    <span class="k k-neben">Abbrechen</span> oder <kbd>ESC</kbd> schließt das Fenster ohne Änderung.
+  </p>
+
+  <!-- FARBSCHEMA -->
+  <h2>Farbschema <span class="new-badge">NEU</span></h2>
+  <p>
+    Im Kasten <strong>Farbschema</strong> der Konfiguration legst Du fest, in welchen Farben die
+    Oberfläche erscheint. Zur Auswahl stehen fünf Schemata:
+  </p>
+  <ul class="liste">
+    <li><strong>Standard</strong>: dunkle, blaugraue Seitenleiste, heller Inhaltsbereich.</li>
+    <li><strong>Weich-Hell</strong>: helle, graublaue Seitenleiste mit dunkler Schrift, heller Inhaltsbereich.</li>
+    <li><strong>Gedämpft</strong> (Vorgabe): dunkelgraue Seitenleiste und etwas grauerer Inhaltsbereich –
+        weniger Kontrast als bei Standard.</li>
+    <li><strong>Stärker gedämpft</strong>: zusätzlich Kästen und Trefferliste in Grautönen; die Schrift bleibt dunkel.</li>
+    <li><strong>Dunkel</strong>: dunkle Flächen mit heller Schrift, vergleichbar mit der dunklen Darstellung von Windows.</li>
+  </ul>
+  <p>
+    Ein geändertes Farbschema wirkt nach dem Neustart, den das Programm nach dem Speichern anbietet –
+    wie bei Skalierung und Sprache. Der Knopf <span class="k k-neben">Farben zurücksetzen</span> stellt
+    die Auswahl auf <em>Gedämpft</em> zurück; übernommen wird sie mit <em>Speichern</em>.
+  </p>
+  <div class="box box-info">
+    <strong>Farbangaben in dieser Hilfe</strong>
+    Die Farben, die diese Hilfe nennt (grün hinterlegter, blaugrauer und weißer Kasten), gelten für die
+    Vorgabe <em>Gedämpft</em>. In den anderen Schemata ändern sich die Töne; Anordnung und Beschriftung
+    bleiben gleich.
+  </div>
+
+  <!-- SPRACHEN -->
+  <h2>Sprachen <span class="new-badge">NEU</span></h2>
+  <p>
+    Ab Version 2.0 spricht der FileFinder 18 Sprachen: Deutsch, Englisch, Französisch,
+    Spanisch, Italienisch, Niederländisch, Polnisch, Dänisch, Kroatisch, Bosnisch, Serbisch,
+    Montenegrinisch, Slowenisch, Albanisch, Rumänisch, Türkisch, Bulgarisch und Mazedonisch.
+    Die Sprache wird in der <em>Konfig</em> gewählt und gilt nach dem Neustart des Programms
+    für die gesamte Oberfläche – einschließlich der Meldungen und des HTML-Ergebnisberichts.
+  </p>
+  <p>
+    Diese Hilfe gibt es auf Deutsch, Englisch, Französisch und Spanisch; oben auf jeder Seite kann
+    per Sprachleiste gewechselt werden. Bei allen anderen Sprachen öffnet der Eintrag
+    <em>Hilfe</em> die englische Fassung.
+  </p>
+  <div class="box box-info">
+    <strong>Dateinamen bleiben in jeder Sprache gleich</strong>
+    Gespeicherte Ergebnisse heißen immer <code>Ergebnis_…</code>, der Ordner
+    <code>FileFinder-Suchen\</code> und die <code>FileFinder-config.ini</code>
+    behalten ihre Namen. Dieselbe Installation findet ihre Einstellungen und
+    Ergebnisse also auch nach einem Sprachwechsel wieder.
+  </div>
+  <div class="box box-info">
+    <strong>Sprachpakete</strong>
+    Die Sprachen liegen als geprüfte, verschlüsselte Sprachpakete
+    (<code>sit_fftexte_….3kl</code>) im Ordner <code>Lang</code> des Programms. Fehlt ein Paket,
+    startet der FileFinder auf Deutsch. Weitere Sprachen erscheinen als
+    Sprachpakete von Sattler IT-Service.
+  </div>
+
+  <!-- TASTATURKÜRZEL -->
+  <h2>Tastaturkürzel</h2>
+  <table>
+    <tr><th style="width:34%">Taste</th><th>Funktion</th></tr>
+    <tr><td><kbd>F11</kbd></td><td>Erweiterte Filter ein- / ausklappen (in der Ansicht <em>Suche</em>).</td></tr>
+    <tr><td><kbd>Enter</kbd></td><td>Suche starten (wenn der Cursor im Feld „Dateiname enthält“ oder „Dateityp / Endung“ steht).</td></tr>
+    <tr><td><kbd>ESC</kbd></td><td>Programm beenden bzw. ein geöffnetes Fenster schließen.</td></tr>
+  </table>
+
+  <!-- STATUSZEILE -->
+  <h2>Statuszeile &amp; Fortschrittsbalken</h2>
+  <p>
+    Während der Suche läuft rechts neben <em>Suchen</em> und <em>Abbrechen</em> ein
+    Fortschrittsbalken, und die Statuszeile darüber zeigt den Fortschritt.
+    Nach Abschluss erscheint die Gesamtanzahl; übersprungene Ordner ohne Zugriff werden
+    ebenfalls genannt, z. B.:
+    <code>✔ Suche abgeschlossen — 47 Treffer (3 Ordner ohne Zugriff)</code>
+  </p>
+
+  <!-- TIPPS -->
+  <h2>Tipps &amp; Hinweise</h2>
+  <div class="box box-tip">
+    <strong>Schnellsuche nach Bildtypen</strong>
+    Endung <code>jpg</code> oder <code>png</code> eingeben, alle Laufwerke wählen →
+    findet sämtliche Bilder. Mit Datums-Eingrenzung lassen sich Urlaubsfotos eines
+    bestimmten Jahres schnell wiederfinden.
+  </div>
+  <div class="box box-info">
+    <strong>🌐 Webseite</strong>
+    In der Fußzeile des Programms führt der Link <em>Webseite</em> direkt zur
+    FileFinder-Projektseite mit allen Versionen und dieser Hilfe.
+  </div>
+  <div class="box box-tip">
+    <strong>Gezielt statt überall suchen</strong>
+    Wenn klar ist, wo die Datei ungefähr liegt (z. B. im Download- oder Projektordner),
+    diesen Ordner ins Feld <strong>Nur Ordner</strong> eintragen – die Suche ist dann
+    in Sekunden fertig statt die ganze Platte zu durchlaufen. Liegt die Datei direkt in diesem
+    Ordner, geht es ohne <em>Unterordner einbeziehen</em> noch schneller.
+  </div>
+  <div class="box box-tip">
+    <strong>Speicherfresser finden</strong>
+    In der Seitenleiste <em>Große Dateien</em> wählen und <em>100 größte Dateien suchen</em>
+    klicken → die 100 größten Dateien erscheinen, größte oben. Schnell und übersichtlich,
+    ohne Zusatzprogramm.
+  </div>
+  <div class="box box-tip">
+    <strong>Aufräumen in einem Rutsch</strong>
+    Mehrere große oder alte Dateien mit <kbd>Strg</kbd>/<kbd>Umschalt</kbd> markieren,
+    Rechtsklick → Aktion-Fenster → <em>In den Papierkorb</em>. Da der Papierkorb wiederherstellbar
+    ist, bleibt ein Fehlgriff harmlos.
+  </div>
+  <div class="box box-tip">
+    <strong>Darstellung anpassen</strong>
+    Wirkt das Fenster zu groß oder zu klein, die Skalierung über <em>Konfig</em> anpassen
+    (90 % bis 200 %). Das Programm startet danach neu – nicht der PC.
+  </div>
+  <div class="box box-warn">
+    <strong>Netzlaufwerke</strong>
+    Als Laufwerksbuchstabe eingebundene Netzlaufwerke erscheinen in der Liste und können
+    durchsucht werden. Bei langsamen Verbindungen kann das deutlich länger dauern.
+  </div>
+  <div class="box box-info">
+    <strong>Suchgeschwindigkeit</strong>
+    Die Suche läuft im Hintergrund und blockiert das Fenster nicht. Bei sehr großen
+    Laufwerken (mehrere TB) kann eine vollständige Suche etwas dauern; mit
+    <strong>Abbrechen</strong> lässt sie sich jederzeit stoppen.
+  </div>
+
+  <!-- SYSTEMVORAUSSETZUNGEN -->
+  <h2>Systemvoraussetzungen</h2>
+  <table>
+    <tr><td style="width:34%"><strong>Betriebssystem</strong></td><td>Windows 10 / 11</td></tr>
+    <tr><td><strong>Python</strong></td><td>3.10 oder neuer (nur für .py-Version)</td></tr>
+    <tr><td><strong>Abhängigkeiten</strong></td><td>Nur Python-Standardbibliothek (tkinter, os, threading, ctypes …)</td></tr>
+    <tr><td><strong>Rechte</strong></td><td>Keine Administratorrechte erforderlich; gesperrte Ordner werden übersprungen</td></tr>
+  </table>
+
+  <!-- SPENDE -->
+  <div class="donate">
+    <span class="pp-icon">💛</span>
+    <p>
+      <strong>S-IT FileFinder ist Freeware.</strong><br>
+      Wenn Ihnen das Tool nützlich ist, freue ich mich über eine kleine Unterstützung via PayPal:<br>
+      <a class="pp-btn" href="https://www.paypal.com/donate/?business=tool-entwicklung%40sattler-it.de&amp;currency_code=EUR" target="_blank">☕ Spende via PayPal</a><br>
+      tool-entwicklung@sattler-it.de
+      &nbsp;·&nbsp; © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
+    </p>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;·&nbsp; Autor: Hans Udo Sattler
+  &nbsp;·&nbsp; S-IT FileFinder v2.0
+</div>
+
+</body>
+</html>
