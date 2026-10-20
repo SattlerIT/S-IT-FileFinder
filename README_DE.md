@@ -4,7 +4,7 @@
 
 **Version 2.0 · Freeware · Windows 10 / 11 · 18 Sprachen**
 
-Ein einfaches, schnelles Suchwerkzeug für Windows – entwickelt für Menschen, die keine Erfahrung mit der Windows-Suche oder technischen Suchtools haben.
+Ein schnelles, übersichtliches Suchwerkzeug für Windows – für alle, die in verstreuten Datenbeständen den Überblick brauchen, wo was liegt.
 
 ![S-IT FileFinder – Hauptfenster mit Seitenleiste und Suchergebnissen](Screenshots/1_FF-Hero_Uebersicht.png)
 
@@ -12,15 +12,18 @@ Ein einfaches, schnelles Suchwerkzeug für Windows – entwickelt für Menschen,
 
 ## Für wen ist dieses Tool?
 
-Die Windows-Suche und viele Suchprogramme setzen Erfahrung voraus: Man muss wissen, wie man Suchbegriffe eingibt, welche Laufwerke durchsucht werden und wo man überhaupt anfängt. Für viele Anwender – besonders ältere Nutzer, Kunden im IT-Service-Alltag oder Menschen nach einem PC-Umzug – ist das eine echte Hürde.
+Für alle, die in einem Wust von Daten Klarheit brauchen: Dateien, die über mehrere Laufwerke und Ordner verstreut liegen, findet S-IT FileFinder schnell und zeigt sie mit Pfad, Größe und Datum in einer sortierbaren Liste. Von dort lassen sich die verstreuten Dateien gesammelt an einem Ort zusammenführen.
 
-**S-IT FileFinder** bietet stattdessen:
+Die klare Struktur der Oberfläche macht das Tool zugleich für Anwender leicht bedienbar, die wenig Erfahrung mit Suchprogrammen haben.
 
-- **Klare, beschriftete Eingabefelder** – kein Raten, was wohin gehört
-- **Laufwerke einfach anklicken** oder gezielt einen einzelnen Ordner durchsuchen
+**S-IT FileFinder bietet:**
+
+- **Schnelle Suche über mehrere Laufwerke** oder gezielt in einem einzelnen Ordner
 - **Suche nach Namensbruchstücken** – auch wenn nur ein Teil des Dateinamens bekannt ist
 - **Datum und Dateigröße eingrenzen** – ohne Syntaxkenntnisse
-- **Ergebnisse sofort nutzbar** – öffnen, sortieren, speichern, kopieren, verschieben
+- **Verstreute Dateien zusammenführen** – Treffer markieren und gesammelt kopieren oder verschieben
+- **Klare, beschriftete Eingabefelder** – kein Raten, was wohin gehört
+- **Ergebnisse speichern** – später wieder laden oder als HTML-Bericht weitergeben
 
 ---
 
@@ -136,7 +139,7 @@ Wer das Tool nützlich findet, darf mich gern über PayPal unterstützen:
 
 ## Weitere Tools
 
-Weitere Freeware-Tools von Sattler IT-Service:
+Weitere beliebte Freeware-Tools von Sattler IT-Service:
 
 - **[S-IT-3Kopier](https://sattlerit.github.io/sit-3kopier/)** – Dreifach-Kopierer mit Protokoll und Zeitsteuerung, ebenfalls mehrsprachig
 - **[S-IT LAN Device Scanner](https://www.wintotal.de/download/s-it-lan-device-scanner/)** – Netzwerkgeräte scannen, identifizieren und dokumentieren

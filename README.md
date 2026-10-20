@@ -4,7 +4,7 @@
 
 **Version 2.0 · Freeware · Windows 10 / 11 · 18 languages**
 
-A simple, fast search tool for Windows – made for people who have no experience with Windows search or technical search tools.
+A fast, clearly structured search tool for Windows – for everyone who needs an overview of where things are in scattered data.
 
 ![S-IT FileFinder – main window with sidebar and search results](Screenshots/1_FF-Hero_Uebersicht.png)
 
@@ -12,15 +12,18 @@ A simple, fast search tool for Windows – made for people who have no experienc
 
 ## Who is this tool for?
 
-Windows search and many search programs require experience: you need to know how to enter search terms, which drives are searched and where to start in the first place. For many users – especially older users, customers in everyday IT service or people after moving to a new PC – that is a real hurdle.
+For everyone who needs clarity in a jumble of data: S-IT FileFinder quickly finds files scattered across several drives and folders and shows them with path, size and date in a sortable list. From there, the scattered files can be brought together in one place.
 
-**S-IT FileFinder** offers instead:
+At the same time, the clear structure of the interface makes the tool easy to use for people with little experience of search programs.
 
-- **Clear, labelled input fields** – no guessing what goes where
-- **Simply click the drives** or search one specific folder
+**S-IT FileFinder offers:**
+
+- **Fast search across several drives** or in one specific folder
 - **Search by parts of a name** – even if only part of the file name is known
 - **Narrow down by date and file size** – without any syntax
-- **Results ready to use** – open, sort, save, copy, move
+- **Bring scattered files together** – select hits and copy or move them in one go
+- **Clear, labelled input fields** – no guessing what goes where
+- **Save results** – load them again later or pass them on as an HTML report
 
 ---
 
@@ -136,7 +139,7 @@ If you find the tool useful, you are welcome to support me via PayPal:
 
 ## More tools
 
-More freeware tools from Sattler IT-Service:
+More popular freeware tools from Sattler IT-Service:
 
 - **[S-IT-3Kopier](https://sattlerit.github.io/sit-3kopier/)** – triple copier with log and scheduling, also multilingual
 - **[S-IT LAN Device Scanner](https://www.wintotal.de/download/s-it-lan-device-scanner/)** – scan, identify and document network devices
