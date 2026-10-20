@@ -1,141 +1,153 @@
+🇩🇪 [Diese Seite auf Deutsch](README_DE.md)
+
 # 🔍 S-IT FileFinder
 
-**Version 1.2.16 · Freeware · Windows 10 / 11 · 🇩🇪 DE · 🇬🇧 EN · 🇫🇷 FR · 🇪🇸 ES**
+**Version 2.0 · Freeware · Windows 10 / 11 · 18 languages**
 
-Ein einfaches, schnelles Suchwerkzeug für Windows – entwickelt für Menschen, die keine Erfahrung mit der Windows-Suche oder technischen Suchtools haben.
+A simple, fast search tool for Windows – made for people who have no experience with Windows search or technical search tools.
 
-![S-IT FileFinder – Hauptfenster mit Suchergebnissen und Kontextmenü](Screenshots/1_FF-Hero_Uebersicht.png)
-
----
-
-## Für wen ist dieses Tool?
-
-Windows-Bordmittel und Tools wie *Everything* sind für erfahrene Nutzer gemacht: man muss wissen, wie man Suchoperatoren eingibt, welche Laufwerke durchsucht werden und wo man überhaupt anfängt. Für viele Anwender – besonders ältere Nutzer, Kunden im IT-Service-Alltag oder Menschen nach einem PC-Umzug – ist das eine echte Hürde.
-
-**S-IT FileFinder** bietet stattdessen:
-
-- **Klare, beschriftete Eingabefelder** – kein Raten, was wohin gehört
-- **Laufwerke einfach anklicken** oder gezielt einen einzelnen Ordner durchsuchen
-- **Suche nach Namensbruchstücken** – auch wenn nur ein Teil des Dateinamens bekannt ist
-- **Datum und Dateigröße eingrenzen** – ohne Syntaxkenntnisse
-- **Ergebnisse sofort nutzbar** – öffnen, sortieren, speichern, kopieren, verschieben
+![S-IT FileFinder – main window with sidebar and search results](Screenshots/1_FF-Hero_Uebersicht.png)
 
 ---
 
-## Sprachen
+## Who is this tool for?
 
-Das Programm spricht vier Sprachen: **Deutsch, Englisch, Französisch und Spanisch.** Die Sprache wird im Konfig-Dialog gewählt; nach einer kurzen Rückfrage startet FileFinder in der gewählten Sprache neu. Übersetzt sind die Oberfläche, das Kontextmenü, alle Meldungen, der Ergebnis-Manager, das Fenster für Dateiaktionen und der HTML-Ergebnisbericht.
+Windows search and many search programs require experience: you need to know how to enter search terms, which drives are searched and where to start in the first place. For many users – especially older users, customers in everyday IT service or people after moving to a new PC – that is a real hurdle.
 
-Zu jeder Sprache gehören eine eigene Hilfeseite und ein eigener Änderungsverlauf:
+**S-IT FileFinder** offers instead:
 
-| Sprache | Hilfe | Änderungsverlauf |
-|---|---|---|
-| 🇩🇪 Deutsch | [Hilfe & Dokumentation](S-IT-FileFinder-Hilfe.html) | [Änderungsverlauf](CHANGELOG.md) |
-| 🇬🇧 English | [Help & documentation](S-IT-FileFinder-Help.html) | [Changelog](CHANGELOG-en.md) |
-| 🇫🇷 Français | [Aide & documentation](S-IT-FileFinder-Aide.html) | [Journal des modifications](CHANGELOG-fr.md) |
-| 🇪🇸 Español | [Ayuda y documentación](S-IT-FileFinder-Ayuda.html) | [Registro de cambios](CHANGELOG-es.md) |
-
-Dateinamen bleiben in jeder Sprache gleich – gespeicherte Suchen und Einstellungen bleiben nach einem Sprachwechsel unverändert erhalten.
+- **Clear, labelled input fields** – no guessing what goes where
+- **Simply click the drives** or search one specific folder
+- **Search by parts of a name** – even if only part of the file name is known
+- **Narrow down by date and file size** – without any syntax
+- **Results ready to use** – open, sort, save, copy, move
 
 ---
 
-## Funktionen
+## Interface
 
-### Suchkriterien
+On the left is a sidebar with **Search**, **Large files**, **Results Manager**, **Settings** and **Help**. To its right, search criteria, drives and folder sit in separate boxes with their own background colours, with the result list below. **“Clear fields”** at the top right resets the view.
 
-| Feld | Beschreibung |
+Five colour schemes are available: Standard, Soft light, Muted (default), Strongly muted and Dark.
+
+---
+
+## Features
+
+### Search criteria
+
+| Field | Description |
 |---|---|
-| **Dateiname enthält** | Ein oder mehrere Bruchstücke, durch Leerzeichen getrennt (UND-Verknüpfung) |
-| **Dateityp / Endung** | z. B. `jpg`, `.pdf`, `docx` – mit oder ohne Punkt |
-| **Nur Ordner** | Einen bestimmten Ordner samt Unterordnern durchsuchen statt ganzer Laufwerke |
-| **Erstellt von / bis** | Datum im Format `TT.MM.JJJJ` |
-| **Geändert von / bis** | Datum im Format `TT.MM.JJJJ` |
-| **Größe mind. / höchstens** | In Megabyte – beide Felder optional |
+| **File name contains** | One or more fragments, separated by spaces (AND search) |
+| **File type / extension** | e.g. `jpg`, `.pdf`, `docx` – with or without the dot |
+| **Created from / to** | Date in the format `DD.MM.YYYY` |
+| **Modified from / to** | Date in the format `DD.MM.YYYY` |
+| **Size min. / max.** | In megabytes – both fields optional |
 
-Alle Felder sind optional und frei kombinierbar. Die erweiterten Filter für Datum und Größe lassen sich mit **F11** ein- und ausklappen.
+All fields are optional and can be combined freely. The advanced filters for date and size are shown or hidden with **F11**.
 
-### Suchbereich
+### Search scope
 
-Alle erkannten Laufwerke (lokal und eingebundene Netzlaufwerke) erscheinen automatisch als Checkboxen; mit **„Alle"** werden sie auf einmal an- oder abgehakt. Alternativ wird über das Feld **„Nur Ordner"** gezielt ein einzelner Ordner samt Unterordnern durchsucht – die Laufwerksauswahl ist währenddessen deaktiviert und kehrt beim Leeren des Feldes zurück.
+All detected drives (local and mapped network drives) appear automatically as check boxes; **“All”** checks or unchecks them at once. Alternatively, the **“Folder only”** field limits the search to one specific folder – the drive selection is disabled meanwhile and returns when the field is cleared.
 
-### Ergebnistabelle
+**“Include subfolders”** sets whether the subfolders are searched as well or only the files directly in the folder. If the file you are looking for is directly in that folder, the search finishes considerably faster.
 
-- **Klick auf die Spaltenüberschrift** → sortieren nach Name, Größe, Datum oder Pfad (nach echtem Wert, nicht nach angezeigtem Text)
-- **Doppelklick** → Ordner im Explorer öffnen, Datei markiert
-- **Rechtsklick** → Kontextmenü: Ordner öffnen, Datei öffnen, Pfad kopieren
+### Result list
 
-### Große Dateien
+- **Click a column heading** → sort by name, size, date or path (by the real value, not the displayed text)
+- **Double-click** → open the folder in Explorer with the file selected
+- **Right-click** → context menu: open folder, open file, copy path, file actions
 
-Auf Knopfdruck die 100 größten Dateien der gewählten Laufwerke oder des gewählten Ordners anzeigen – zum schnellen Aufspüren von Speicherfressern.
+### Large files
 
-### Dateiaktionen
+A view of its own in the sidebar shows the 100 largest files on the selected drives or in the selected folder at the push of a button – to track down space hogs quickly. The view has its own result list; the hits of the normal search are kept when you switch.
 
-Mehrere Treffer markieren und in einem eigenen Fenster **kopieren, verschieben oder in den Papierkorb legen** – mit Byte-genauem Fortschrittsbalken und ohne Überschreiben (bei Namensgleichheit wird automatisch umbenannt).
+![S-IT FileFinder – Large files view](Screenshots/5_FF-GrosseDateien.png)
 
-### Ergebnisse speichern & Ergebnis-Manager
+### File actions
 
-Suchergebnisse speichern, später wieder laden oder als **HTML-Bericht** ansehen – Dateinamen und Pfade sind dort direkt anklickbar. Verwaltet wird alles im Ergebnis-Manager; gespeicherte Suchen lassen sich einzeln oder nach Zeitraum löschen.
+Select several hits and **copy them, move them or send them to the Recycle Bin** in a separate window – with a byte-accurate progress bar and without overwriting (automatic renaming if a name already exists).
 
-### Konfiguration
+### Saving results & Results Manager
 
-Zentraler Dialog für Sprache, Darstellungsgröße (90–200 %), erweiterte Filter beim Start und Standard-Sortierung. Die Einstellungen stehen in `Config\FileFinder-config.ini`.
+Save search results, load them again later or view them as an **HTML report** – file names and paths there are directly clickable. Everything is managed in the Results Manager; saved searches can be deleted one by one or by date range.
+
+### Settings
+
+Central dialog for display size (90–200 %), advanced filters at startup, default sorting, language and colour scheme. The selected display size applies regardless of the scaling set in Windows. The settings are stored in `Config\FileFinder-config.ini`.
 
 ---
 
-## Download & Installation
+## Languages
 
-Die aktuelle Version als kompilierte Windows-EXE steht auf der **[Releases-Seite](../../releases)** bereit: `s-it-filefinder_latest.zip`.
+The program speaks 18 languages: **German, English, French, Spanish, Italian, Dutch, Polish, Danish, Croatian, Bosnian, Serbian, Montenegrin, Slovenian, Albanian, Romanian, Turkish, Bulgarian and Macedonian.** The language is chosen in the settings via a selection window; after a short confirmation, FileFinder restarts in the language you chose. Translated are the interface, all messages, the Results Manager, the window for file actions and the HTML result report.
 
-Keine Installation notwendig: ZIP entpacken, den Ordner an einen beliebigen Ort legen und `S-IT-FileFinder.exe` starten. Der Programmordner sieht so aus:
+The help is available in four languages; for all other languages the program opens the English version:
+
+- 🇩🇪 [Hilfe & Dokumentation](https://sattlerit.github.io/S-IT-FileFinder/S-IT-FileFinder-Hilfe.html)
+- 🇬🇧 [Help & documentation](https://sattlerit.github.io/S-IT-FileFinder/S-IT-FileFinder-Help.html)
+- 🇫🇷 [Aide & documentation](https://sattlerit.github.io/S-IT-FileFinder/S-IT-FileFinder-Aide.html)
+- 🇪🇸 [Ayuda y documentación](https://sattlerit.github.io/S-IT-FileFinder/S-IT-FileFinder-Ayuda.html)
+
+Changelog: 🇬🇧 [English](https://sattlerit.github.io/S-IT-FileFinder/S-IT-FileFinder-Changelog-en.html) · 🇩🇪 [Deutsch](https://sattlerit.github.io/S-IT-FileFinder/S-IT-FileFinder-Changelog.html)
+
+File names stay the same in every language – saved searches and settings are kept unchanged after a language change.
+
+---
+
+## Download & installation
+
+The current version is available on the **[Releases page](../../releases)**: `s-it-filefinder_latest.zip`.
+
+No installation needed: unpack the ZIP, put the folder anywhere you like and start `S-IT-FileFinder.exe`. The program folder looks like this:
 
 ```
 S-IT-FileFinder\
 ├── S-IT-FileFinder.exe
-├── _internal\        Laufzeitdateien
-├── Lang\             Sprachpakete
-├── Help\             Hilfe und Änderungsverlauf in vier Sprachen
-├── License\          Lizenz und Haftungsausschluss
-└── Config\           Einstellungen (wird beim ersten Speichern angelegt)
+├── _internal\        runtime files
+├── Lang\             language packs
+├── Help\             help and changelog
+├── License\          licence and disclaimer
+└── Config\           settings (created when first saved)
 ```
 
-Die Unterordner gehören zum Programm und müssen bei der EXE bleiben. Die Hilfe wird über den **„? Hilfe"**-Knopf im Programm geöffnet – in der eingestellten Sprache.
+The subfolders belong to the program and must stay with the EXE. The help is opened via **“Help”** in the sidebar – in the language that is set.
 
 ---
 
-## Technische Hinweise
+## Technical notes
 
-- Entwickelt mit Python und tkinter, kompiliert mit PyInstaller (`--onedir`)
-- DPI-Unterstützung für HiDPI-Monitore, Darstellungsgröße 90–200 % einstellbar
-- Suche läuft im Hintergrund-Thread, das Fenster bleibt jederzeit bedienbar
-- Windows-Systemordner (`Windows`, `$Recycle.Bin` u. a.) werden im Wurzelverzeichnis der Laufwerke übersprungen – Suchen über das Systemlaufwerk laufen dadurch deutlich schneller
-- Gesperrte Ordner werden ohne Absturz übersprungen, die Anzahl erscheint in der Statuszeile
-- Keine Administratorrechte erforderlich
+- Display size 90–200 %, regardless of Windows scaling; the window stays above the taskbar
+- The search runs in the background; the window stays usable at all times
+- Windows system folders (`Windows`, `$Recycle.Bin` and others) are skipped in the root of each drive – searches across the system drive are noticeably faster as a result
+- Locked folders are skipped; their number appears in the status line
+- No administrator rights required
 
 ---
 
-## Unterstützung / Spende
+## Support / donation
 
-S-IT FileFinder ist kostenlos und ohne Einschränkungen nutzbar.
-Wer das Tool nützlich findet, darf mich gern über PayPal unterstützen:
+S-IT FileFinder is free and can be used without restrictions.
+If you find the tool useful, you are welcome to support me via PayPal:
 
 **[tool-entwicklung@sattler-it.de](mailto:tool-entwicklung@sattler-it.de)**
 
 ---
 
-## Weitere Tools
+## More tools
 
-Weitere Freeware-Tools von Sattler IT-Service:
+More freeware tools from Sattler IT-Service:
 
-- **[S-IT-3Kopier](https://sattlerit.github.io/S-IT-3Kopier/)** – Dreifach-Kopierer mit Protokoll und Zeitsteuerung, ebenfalls in vier Sprachen
-- **[S-IT LAN Device Scanner](https://www.wintotal.de/download/s-it-lan-device-scanner/)** – Netzwerkgeräte scannen, identifizieren und dokumentieren
-- **[Tool-Übersicht](https://sattlerit.github.io/sattlerit-tools/)** – alle Tools auf einen Blick
+- **[S-IT-3Kopier](https://sattlerit.github.io/sit-3kopier/)** – triple copier with log and scheduling, also multilingual
+- **[S-IT LAN Device Scanner](https://www.wintotal.de/download/s-it-lan-device-scanner/)** – scan, identify and document network devices
+- **[Tool overview](https://sattlerit.github.io/sattlerit-tools/)** – all tools at a glance
 
 ---
 
-## Lizenz
+## Licence
 
 © 2026 Sattler IT-Service, Greifenstein
-Autor: Hans Udo Sattler
+Author: Hans Udo Sattler
 
-Freeware – kostenlose Nutzung und Weitergabe erlaubt.
-Kommerzielle Weiterverwendung oder Modifikation ohne Genehmigung nicht gestattet.
+Freeware – free use and redistribution permitted.
+Commercial reuse or modification without permission is not allowed.
